@@ -1,19 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://1jqm8vepx55q"]
 
-[ext_resource type="FontFile" uid="uid://fq1ry0peb8j6" path="res://Resources/WitchkinFree.otf" id="1_u620l"]
+[ext_resource type="Theme" uid="uid://boqcldsrhupj6" path="res://default_theme.tres" id="1_lt8fm"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_x7whk"]
 [ext_resource type="PackedScene" uid="uid://dlvvc6xxkthxq" path="res://Scenes/Objects/volume.tscn" id="3_6ojtw"]
 [ext_resource type="AudioStream" uid="uid://dbtl0kyfe47kg" path="res://Resources/Music/Ambient Nothingness Main.ogg" id="4_1j1xb"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6jsko"]
-
-[sub_resource type="Theme" id="Theme_j1vl8"]
-default_font = ExtResource("1_u620l")
-default_font_size = 30
-Button/styles/focus = SubResource("StyleBoxEmpty_6jsko")
+[ext_resource type="AudioStream" uid="uid://bba02f6mmvqbo" path="res://Resources/SFX/Update Sine.ogg" id="5_3vtl6"]
+[ext_resource type="AudioStream" uid="uid://yerj1h6istbe" path="res://Resources/SFX/Accepting Key.ogg" id="6_pm2ty"]
 
 [sub_resource type="Gradient" id="Gradient_wsycn"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 0, 1, 1)
+offsets = PackedFloat32Array(0, 0.451613, 1)
+colors = PackedColorArray(0, 0, 0.0588235, 1, 0, 0, 0.141176, 1, 0, 0, 0.0588235, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_7vqux"]
 gradient = SubResource("Gradient_wsycn")
@@ -66,12 +62,12 @@ _data = {
 
 [node name="Menu" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.988
-offset_bottom = -0.223999
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_j1vl8")
+theme = ExtResource("1_lt8fm")
 script = ExtResource("1_x7whk")
 level = "res://Scenes/node_3d.tscn"
 
@@ -81,6 +77,16 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("GradientTexture2D_7vqux")
 
+[node name="stars" type="CPUParticles2D" parent="."]
+amount = 75
+lifetime = 5.0
+preprocess = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1152, 648)
+gravity = Vector2(0, 0)
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+
 [node name="BtnCont" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -89,9 +95,9 @@ anchor_top = 0.222
 anchor_right = 0.722
 anchor_bottom = 0.716
 offset_left = -0.320007
-offset_top = -2.08
+offset_top = -3.856
 offset_right = 0.271484
-offset_bottom = -2.24002
+offset_bottom = -4.01602
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -157,7 +163,7 @@ alignment = 1
 
 [node name="Apply" type="Button" parent="SettingsPanel/HBoxContainer"]
 layout_mode = 2
-text = "Apply"
+text = " Apply "
 
 [node name="VSeparator" type="VSeparator" parent="SettingsPanel/HBoxContainer"]
 modulate = Color(1, 1, 1, 0)
@@ -166,7 +172,7 @@ size_flags_horizontal = 3
 
 [node name="Close" type="Button" parent="SettingsPanel/HBoxContainer"]
 layout_mode = 2
-text = "Close"
+text = " Close "
 
 [node name="MenuAnimations" type="AnimationPlayer" parent="."]
 libraries = {
@@ -177,6 +183,14 @@ libraries = {
 stream = ExtResource("4_1j1xb")
 autoplay = true
 bus = &"Music"
+
+[node name="button" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3vtl6")
+bus = &"Sfx"
+
+[node name="apply" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_pm2ty")
+bus = &"Sfx"
 
 [connection signal="mouse_exited" from="BtnCont/Start" to="." method="_on_btn_mouse_exited"]
 [connection signal="pressed" from="BtnCont/Start" to="." method="_on_start_pressed"]

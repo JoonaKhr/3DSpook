@@ -8,11 +8,6 @@ var config = ConfigFile.new()
 func _ready():
 	ResourceLoader.load_threaded_request(level)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
 func _on_start_pressed():
 	get_tree().change_scene_to_file(level)
 
@@ -20,11 +15,11 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_settings_pressed():
+	btn_sfx()
 	if $SettingsPanel.is_visible_in_tree():
 		$MenuAnimations.play_backwards("Settings")
 	else:
 		$MenuAnimations.play("Settings")
-
 
 func _on_apply_pressed():
 	config.set_value("volume", "Master", $SettingsPanel/VolumeCont/Master.value)
@@ -32,11 +27,16 @@ func _on_apply_pressed():
 	config.set_value("volume", "Sfx", $SettingsPanel/VolumeCont/Sfx.value)
 
 	config.save("user://settings.ini")
+	$apply.play()
 
 
 func _on_close_pressed():
+	btn_sfx()
 	$MenuAnimations.play_backwards("Settings")
 
 
 func _on_btn_mouse_exited():
 	release_focus()
+
+func btn_sfx():
+	$button.play()

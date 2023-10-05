@@ -7,15 +7,19 @@ const RAY_LENGTH = 1000
 var rot_x = 0
 var rot_y = 0
 
+
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
 func _input(event):
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	if event.is_action_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * 0.02)
 		$Pivot.rotate_x(-event.relative.y * 0.02)
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
+
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.

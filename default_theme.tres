@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://boqcldsrhupj6"]
+
+[ext_resource type="FontFile" uid="uid://fq1ry0peb8j6" path="res://Resources/WitchkinFree.otf" id="1_f4rkp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6jsko"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq3gi"]
+bg_color = Color(0, 0, 0.0588235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnyc3"]
+bg_color = Color(0.0392157, 0.0392157, 0.156863, 0.607843)
+
+[resource]
+default_font = ExtResource("1_f4rkp")
+default_font_size = 30
+Button/styles/focus = SubResource("StyleBoxEmpty_6jsko")
+Button/styles/normal = SubResource("StyleBoxFlat_vq3gi")
+Panel/styles/panel = SubResource("StyleBoxFlat_hnyc3")

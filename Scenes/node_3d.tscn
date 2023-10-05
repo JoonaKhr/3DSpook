@@ -51,6 +51,7 @@ shape = SubResource("BoxShape3D_5nw6q")
 mesh = SubResource("BoxMesh_l60q6")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_xlapj")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.32857, 0, 0)
