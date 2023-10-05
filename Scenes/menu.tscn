@@ -1,21 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://1jqm8vepx55q"]
+[gd_scene load_steps=6 format=3 uid="uid://1jqm8vepx55q"]
 
+[ext_resource type="FontFile" uid="uid://fq1ry0peb8j6" path="res://Resources/WitchkinFree.otf" id="1_u620l"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_x7whk"]
+
+[sub_resource type="Theme" id="Theme_j1vl8"]
+default_font = ExtResource("1_u620l")
+default_font_size = 30
+
+[sub_resource type="Gradient" id="Gradient_wsycn"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7vqux"]
+gradient = SubResource("Gradient_wsycn")
+fill_to = Vector2(1, 1)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.988
+offset_bottom = -0.223999
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_j1vl8")
 script = ExtResource("1_x7whk")
+level = "res://Scenes/node_3d.tscn"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1152.0
-offset_bottom = 640.0
-color = Color(1, 0, 1, 1)
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_7vqux")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -34,6 +48,11 @@ alignment = 1
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+text = "Start game"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+text = "Quit Game"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

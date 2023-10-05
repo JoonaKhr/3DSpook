@@ -11,10 +11,8 @@ func _ready():
 func _process(delta):
 	pass
 
-
+func _on_start_pressed():
+	get_tree().change_scene_to_file(level)
 
 func _on_quit_pressed():
-	pass
-
-func _on_start_pressed():
 	get_tree().quit()
