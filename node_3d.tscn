@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwgra6jcr7akn"]
+
+[ext_resource type="Script" path="res://PlayerController.gd" id="1_ncyu1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5nw6q"]
+size = Vector3(20, 0.2, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l60q6"]
+size = Vector3(20, 0.25, 3)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0j8gy"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rjcbi"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.90991, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_5nw6q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_l60q6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.00310666, -0.999995, 0, 0.999995, 0.00310666, 0, 1.39062, -1.62743)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_5nw6q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/StaticBody3D"]
+mesh = SubResource("BoxMesh_l60q6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StaticBody3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.00310666, -0.999995, 0, 0.999995, 0.00310666, 0, 1.39062, -1.62743)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/StaticBody3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_5nw6q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/StaticBody3D/StaticBody3D"]
+mesh = SubResource("BoxMesh_l60q6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StaticBody3D/StaticBody3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.00310666, -0.999995, 0, 0.999995, 0.00310666, 0, 1.39062, -1.62743)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/StaticBody3D/StaticBody3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_5nw6q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/StaticBody3D/StaticBody3D/StaticBody3D"]
+mesh = SubResource("BoxMesh_l60q6")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_ncyu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_0j8gy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_rjcbi")
+
+[node name="Pivot" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.470596, -0.561918)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Pivot"]
+current = true
+fov = 90.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.32857, 0, 0)
+omni_range = 5.53021
