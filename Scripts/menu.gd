@@ -32,3 +32,11 @@ func _on_apply_pressed():
 	config.set_value("volume", "Sfx", $SettingsPanel/VolumeCont/Sfx.value)
 
 	config.save("user://settings.ini")
+
+
+func _on_close_pressed():
+	$MenuAnimations.play_backwards("Settings")
+
+
+func _on_btn_mouse_exited():
+	release_focus()

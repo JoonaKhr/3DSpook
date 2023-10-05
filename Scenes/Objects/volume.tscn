@@ -12,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 max_value = 1.0
 step = 0.05
+value = 1.0
 script = ExtResource("1_n3ggg")
 
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
