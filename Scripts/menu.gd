@@ -1,5 +1,7 @@
 extends Control
 
+var config = ConfigFile.new()
+
 @export_file("*tscn") var level
 
 # Called when the node enters the scene tree for the first time.
@@ -8,7 +10,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _on_start_pressed():
@@ -16,3 +18,17 @@ func _on_start_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+func _on_settings_pressed():
+	if $SettingsPanel.is_visible_in_tree():
+		$MenuAnimations.play_backwards("Settings")
+	else:
+		$MenuAnimations.play("Settings")
+
+
+func _on_apply_pressed():
+	config.set_value("volume", "Master", $SettingsPanel/VolumeCont/Master.value)
+	config.set_value("volume", "Music", $SettingsPanel/VolumeCont/Music.value)
+	config.set_value("volume", "Sfx", $SettingsPanel/VolumeCont/Sfx.value)
+
+	config.save("user://settings.ini")

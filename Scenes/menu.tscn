@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://1jqm8vepx55q"]
+[gd_scene load_steps=9 format=3 uid="uid://1jqm8vepx55q"]
 
 [ext_resource type="FontFile" uid="uid://fq1ry0peb8j6" path="res://Resources/WitchkinFree.otf" id="1_u620l"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_x7whk"]
+[ext_resource type="PackedScene" uid="uid://dlvvc6xxkthxq" path="res://Scenes/Objects/volume.tscn" id="3_6ojtw"]
 
 [sub_resource type="Theme" id="Theme_j1vl8"]
 default_font = ExtResource("1_u620l")
@@ -13,6 +14,51 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 0, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_7vqux"]
 gradient = SubResource("Gradient_wsycn")
 fill_to = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_633bj"]
+resource_name = "Settings"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BtnCont:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.3, 2),
+"update": 0,
+"values": [Vector2(328, 140), Vector2(50, 140)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SettingsPanel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingsPanel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 1, 1.5),
+"transitions": PackedFloat32Array(1.7411, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.223529), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vbjjm"]
+_data = {
+"Settings": SubResource("Animation_633bj")
+}
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -31,28 +77,93 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("GradientTexture2D_7vqux")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="BtnCont" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.285
 anchor_top = 0.222
 anchor_right = 0.722
 anchor_bottom = 0.716
-offset_left = -0.320038
-offset_top = 0.143997
-offset_right = 0.25592
-offset_bottom = 0.0319824
+offset_left = -0.320007
+offset_top = -2.08
+offset_right = 0.271484
+offset_bottom = -2.24002
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Start" type="Button" parent="BtnCont"]
 layout_mode = 2
 text = "Start game"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Settings" type="Button" parent="BtnCont"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="BtnCont"]
 layout_mode = 2
 text = "Quit Game"
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="SettingsPanel" type="Panel" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 576.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VolumeCont" type="VBoxContainer" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="MasterLbl" type="Label" parent="SettingsPanel/VolumeCont"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="Master" parent="SettingsPanel/VolumeCont" instance=ExtResource("3_6ojtw")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="MusicLbl" type="Label" parent="SettingsPanel/VolumeCont"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="Music" parent="SettingsPanel/VolumeCont" instance=ExtResource("3_6ojtw")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="SfxLbl" type="Label" parent="SettingsPanel/VolumeCont"]
+layout_mode = 2
+text = "Sound effects Volume"
+
+[node name="Sfx" parent="SettingsPanel/VolumeCont" instance=ExtResource("3_6ojtw")]
+layout_mode = 2
+bus_name = "Sfx"
+
+[node name="Apply" type="Button" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -112.0
+offset_right = -141.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Apply"
+
+[node name="MenuAnimations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vbjjm")
+}
+
+[connection signal="pressed" from="BtnCont/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="BtnCont/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="BtnCont/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="SettingsPanel/Apply" to="." method="_on_apply_pressed"]
