@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu1fk4cbk23qo"]
+[gd_scene load_steps=2 format=3 uid="uid://4teupdiamevk"]
 
 [ext_resource type="PackedScene" uid="uid://cas6l1mcy0kdd" path="res://Resources/Models/ceiling_light.glb" id="1_ynuym"]
 
 [node name="ceiling_light" instance=ExtResource("1_ynuym")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.296427, 0)
+omni_range = 20.0
