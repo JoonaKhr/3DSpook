@@ -1,12 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwgra6jcr7akn"]
+[gd_scene load_steps=9 format=3 uid="uid://bwgra6jcr7akn"]
 
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="1_xlapj"]
+[ext_resource type="Script" path="res://Scripts/button.gd" id="2_ff1xk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5nw6q"]
 size = Vector3(20, 0.2, 3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_l60q6"]
 size = Vector3(20, 0.25, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vke7e"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vu3ts"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kv80n"]
+material = SubResource("StandardMaterial3D_vu3ts")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_myplk"]
+albedo_color = Color(0.890196, 0, 0, 1)
 
 [node name="Node3D" type="Node3D"]
 
@@ -53,10 +66,29 @@ mesh = SubResource("BoxMesh_l60q6")
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_xlapj")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.32857, 0, 0)
-omni_range = 5.53021
+[node name="Lightswitch" type="StaticBody3D" parent="." groups=["lightswitches"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.47548, -0.129626, 1.27149)
+script = ExtResource("2_ff1xk")
+metadata/_edit_group_ = true
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.04747, 0, 0)
-omni_range = 5.53021
+[node name="ButtonCollision" type="CollisionShape3D" parent="Lightswitch"]
+shape = SubResource("BoxShape3D_vke7e")
+
+[node name="ButtonMesh" type="MeshInstance3D" parent="Lightswitch"]
+mesh = SubResource("BoxMesh_kv80n")
+surface_material_override/0 = SubResource("StandardMaterial3D_myplk")
+
+[node name="Light" type="OmniLight3D" parent="Lightswitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.783359, 0.727038, -1.31414)
+visible = false
+omni_attenuation = 1.10957
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lightswitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3357, 1.03593, -1.27149)
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lightswitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.17069, 0.966826, -1.47004)
+visible = false
+
+[connection signal="press" from="Lightswitch" to="Lightswitch" method="_on_press"]
