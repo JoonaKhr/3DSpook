@@ -20,7 +20,6 @@ func _on_press():
 		if light.visible:
 			light.visible = false
 		else:
-			randomFlicker()
 			light.visible = true	
 
 
