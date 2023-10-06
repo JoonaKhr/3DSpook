@@ -76,7 +76,11 @@ shape = SubResource("BoxShape3D_tngnc")
 mesh = SubResource("BoxMesh_ud24d")
 
 [node name="lightswitch" parent="." instance=ExtResource("1_hbxf1")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.5, 6, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.5, 2.9412, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="lightswitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.15243, 0, 3.51815)
+visible = false
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_48d3l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
