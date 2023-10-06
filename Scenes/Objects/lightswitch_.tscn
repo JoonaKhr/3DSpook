@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://20pa5ci3afyq"]
+
+[ext_resource type="PackedScene" uid="uid://c8s6xdsngo3sj" path="res://Scenes/Objects/lightswitch.glb" id="1_6igph"]
+
+[node name="lightswitch" instance=ExtResource("1_6igph")]
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0)
+
+[node name="Object_5" parent="Sketchfab_model/Lightswitch edit_FBX/Object_2/RootNode/lightswitch" index="0"]
+transform = Transform3D(1, 7.45058e-09, -1.55079e-11, -1.11759e-08, 1, -2.98588e-08, -2.29284e-09, -1.49321e-08, 1, 0, 0, 0)
