@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rrk0beyqoiiq"
-path.s3tc="res://.godot/imported/ceiling_light_0.png-080fe6bad40f89fac55066f833927362.s3tc.ctex"
+uid="uid://b36dfe72yphs"
+path.s3tc="res://.godot/imported/lightswitch_0.png-77e7e5387c3ec0383e3f43ea4f864698.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Resources/Models/ceiling_light_0.png"
-dest_files=["res://.godot/imported/ceiling_light_0.png-080fe6bad40f89fac55066f833927362.s3tc.ctex"]
+source_file="res://Resources/Textures/switch/lightswitch_0.png"
+dest_files=["res://.godot/imported/lightswitch_0.png-77e7e5387c3ec0383e3f43ea4f864698.s3tc.ctex"]
 
 [params]
 

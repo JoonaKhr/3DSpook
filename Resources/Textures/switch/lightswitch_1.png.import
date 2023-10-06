@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c25br5yajlrcv"
-path.s3tc="res://.godot/imported/ceiling_light_3.png-426367d9c8a0e3297c2cd3a1cb29edef.s3tc.ctex"
+uid="uid://b0xfdxm5tp8ru"
+path.s3tc="res://.godot/imported/lightswitch_1.png-739922c35a98b71d398862ebca15dcd4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Resources/Models/ceiling_light_3.png"
-dest_files=["res://.godot/imported/ceiling_light_3.png-426367d9c8a0e3297c2cd3a1cb29edef.s3tc.ctex"]
+source_file="res://Resources/Textures/switch/lightswitch_1.png"
+dest_files=["res://.godot/imported/lightswitch_1.png-739922c35a98b71d398862ebca15dcd4.s3tc.ctex"]
 
 [params]
 
@@ -21,12 +21,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://Resources/Models/ceiling_light_3.png"
+roughness/mode=8
+roughness/src_normal="res://Scenes/Objects/lightswitch_2.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

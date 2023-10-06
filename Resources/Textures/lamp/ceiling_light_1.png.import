@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ca3i5sdvnk0uv"
-path.s3tc="res://.godot/imported/ceiling_light_1.png-4f7fd944b8317c800089d8094b19a28d.s3tc.ctex"
+path.s3tc="res://.godot/imported/ceiling_light_1.png-c1f9045f3ff7a1a1b1c9d611230aa675.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Resources/Models/ceiling_light_1.png"
-dest_files=["res://.godot/imported/ceiling_light_1.png-4f7fd944b8317c800089d8094b19a28d.s3tc.ctex"]
+source_file="res://Resources/Textures/lamp/ceiling_light_1.png"
+dest_files=["res://.godot/imported/ceiling_light_1.png-c1f9045f3ff7a1a1b1c9d611230aa675.s3tc.ctex"]
 
 [params]
 
