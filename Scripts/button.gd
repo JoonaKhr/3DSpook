@@ -16,6 +16,8 @@ func _ready():
 func _process(delta):
 	pass
 
+func randomFlicker():
+	$flickerTimer.wait_time = randf_range(5, 100)
 
 func _on_press():
 	for light in lights:
@@ -23,3 +25,11 @@ func _on_press():
 			light.visible = false
 		else:
 			light.visible = true	
+
+
+func _on_flicker_timer_timeout():
+	var light = lights.pick_random()
+	if light.visible:
+		light.visible = false
+	else:
+		light.visible = true
