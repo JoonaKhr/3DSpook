@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://d1ge2vbmoa3yt"]
+[gd_scene load_steps=15 format=3 uid="uid://ckjbgtukdibve"]
 
-[ext_resource type="PackedScene" uid="uid://cxmo7kdy4cv6h" path="res://Scenes/Objects/lightswitch_.tscn" id="1_hbxf1"]
+[ext_resource type="PackedScene" uid="uid://20pa5ci3afyq" path="res://Scenes/Objects/lightswitch_.tscn" id="1_hbxf1"]
 [ext_resource type="Texture2D" uid="uid://bhnk1ikuvrdr8" path="res://Resources/Textures/woodfloor/WoodFlooringAshSuperWhite001_COL_2K.jpg" id="1_ru61w"]
 [ext_resource type="Texture2D" uid="uid://b7q4fsmm88qgj" path="res://Resources/Textures/woodfloor/WoodFlooringAshSuperWhite001_AO_2K.jpg" id="2_3uidp"]
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="2_48d3l"]
@@ -11,10 +11,15 @@
 size = Vector3(32, 0.25394, 32)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kcgw"]
+albedo_color = Color(1, 0.827451, 0.701961, 1)
 albedo_texture = ExtResource("1_ru61w")
+roughness = 0.4
 roughness_texture = ExtResource("4_2eckb")
+roughness_texture_channel = 3
 normal_enabled = true
 normal_texture = ExtResource("3_ifpr8")
+clearcoat_enabled = true
+clearcoat = 0.2
 ao_enabled = true
 ao_texture = ExtResource("2_3uidp")
 uv1_scale = Vector3(4, 4, 4)
@@ -46,6 +51,7 @@ sky_material = SubResource("ProceduralSkyMaterial_xminl")
 [sub_resource type="Environment" id="Environment_ud1o4"]
 background_mode = 2
 sky = SubResource("Sky_qiwp1")
+glow_normalized = true
 fog_light_color = Color(0.65098, 0.533333, 0.301961, 1)
 
 [node name="theroom" type="Node3D"]

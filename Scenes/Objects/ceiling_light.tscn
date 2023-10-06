@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu1fk4cbk23qo"]
+
+[ext_resource type="PackedScene" uid="uid://cas6l1mcy0kdd" path="res://Resources/Models/ceiling_light.glb" id="1_ynuym"]
+
+[node name="ceiling_light" instance=ExtResource("1_ynuym")]
