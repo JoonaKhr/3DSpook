@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk13k0lkgcfqa"]
+
+[ext_resource type="PackedScene" uid="uid://c8s6xdsngo3sj" path="res://Scenes/Objects/lightswitch.glb" id="1_4cj25"]
+
+[node name="lightswitch" instance=ExtResource("1_4cj25")]
