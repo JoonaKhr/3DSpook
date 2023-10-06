@@ -4,8 +4,10 @@
 [ext_resource type="PackedScene" path="res://Scenes/pausemenu.tscn" id="2_c0kcq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0j8gy"]
+height = 4.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rjcbi"]
+height = 4.0
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_c4xhs")
@@ -21,7 +23,7 @@ shape = SubResource("CapsuleShape3D_0j8gy")
 mesh = SubResource("CapsuleMesh_rjcbi")
 
 [node name="Pivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.470596, -0.561918)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6396, -0.561918)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 current = true

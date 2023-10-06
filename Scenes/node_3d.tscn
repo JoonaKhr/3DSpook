@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwgra6jcr7akn"]
+[gd_scene load_steps=5 format=3 uid="uid://bwgra6jcr7akn"]
 
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="1_xlapj"]
 [ext_resource type="PackedScene" uid="uid://cpl46y25c2b2m" path="res://Scenes/Objects/lightswitch.tscn" id="2_ex3f2"]
-[ext_resource type="PackedScene" uid="uid://c8s6xdsngo3sj" path="res://Scenes/Objects/lightswitch.glb" id="3_a0x88"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5nw6q"]
 size = Vector3(20, 0.2, 3)
@@ -13,7 +12,7 @@ size = Vector3(20, 0.25, 3)
 [node name="Node3D" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.90991, 0)
+transform = Transform3D(3.26, 0, 0, 0, 3.26, 0, 0, 0, 3.26, 0, -1.90991, 0)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -52,22 +51,20 @@ shape = SubResource("BoxShape3D_5nw6q")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/StaticBody3D/StaticBody3D/StaticBody3D"]
 mesh = SubResource("BoxMesh_l60q6")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_xlapj")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+[node name="Player" parent="." instance=ExtResource("1_xlapj")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.10156, 0)
 
 [node name="Lightswitch" parent="." instance=ExtResource("2_ex3f2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.47548, 3.48222, 4.23781)
 
 [node name="Light2" type="OmniLight3D" parent="Lightswitch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.783359, 0.727038, -1.31414)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.29178, 2.94439, -4.58965)
+omni_range = 30.0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lightswitch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3357, 1.03593, -1.27149)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4641, 2.74273, -4.02645)
+omni_range = 30.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lightswitch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.17069, 0.966826, -1.47004)
-visible = false
-
-[node name="lightswitch" parent="." instance=ExtResource("3_a0x88")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.86108)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9761, 2.38985, -4.66204)
+omni_range = 30.0

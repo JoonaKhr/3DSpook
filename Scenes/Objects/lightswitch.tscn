@@ -27,7 +27,11 @@ mesh = SubResource("BoxMesh_kv80n")
 surface_material_override/0 = SubResource("StandardMaterial3D_myplk")
 
 [node name="flickerTimer" type="Timer" parent="."]
-autostart = true
 
+[node name="flickonTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="flicked" from="." to="." method="_on_flicked"]
 [connection signal="press" from="." to="." method="_on_press"]
 [connection signal="timeout" from="flickerTimer" to="." method="_on_flicker_timer_timeout"]
+[connection signal="timeout" from="flickonTimer" to="." method="_on_flickon_timer_timeout"]

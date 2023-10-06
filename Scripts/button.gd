@@ -1,8 +1,8 @@
 extends Node
 
 signal press
+signal flicked
 var lights = []
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for child in get_children():
@@ -11,19 +11,16 @@ func _ready():
 
 	print(lights)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func randomFlicker():
-	$flickerTimer.wait_time = randf_range(5, 100)
+	$flickerTimer.wait_time = randf_range(60, 240)
+	$flickerTimer.start()
 
 func _on_press():
 	for light in lights:
 		if light.visible:
 			light.visible = false
 		else:
+			randomFlicker()
 			light.visible = true	
 
 
@@ -31,5 +28,3 @@ func _on_flicker_timer_timeout():
 	var light = lights.pick_random()
 	if light.visible:
 		light.visible = false
-	else:
-		light.visible = true

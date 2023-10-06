@@ -1,10 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://20pa5ci3afyq"]
+[gd_scene load_steps=3 format=3 uid="uid://cxmo7kdy4cv6h"]
 
 [ext_resource type="PackedScene" uid="uid://c8s6xdsngo3sj" path="res://Scenes/Objects/lightswitch.glb" id="1_6igph"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_thvan"]
+size = Vector3(2.44949, 2.59708, 0.352277)
+
 [node name="lightswitch" instance=ExtResource("1_6igph")]
 
-[node name="Sketchfab_model" parent="." index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.178192)
+shape = SubResource("BoxShape3D_thvan")
+
+[node name="Sketchfab_model" parent="." index="1"]
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0)
 
 [node name="Object_5" parent="Sketchfab_model/Lightswitch edit_FBX/Object_2/RootNode/lightswitch" index="0"]
