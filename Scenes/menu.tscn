@@ -78,11 +78,12 @@ offset_bottom = 648.0
 texture = SubResource("GradientTexture2D_7vqux")
 
 [node name="stars" type="CPUParticles2D" parent="."]
+position = Vector2(576, 320)
 amount = 75
 lifetime = 5.0
 preprocess = 1.0
 emission_shape = 3
-emission_rect_extents = Vector2(1152, 648)
+emission_rect_extents = Vector2(576, 324)
 gravity = Vector2(0, 0)
 scale_amount_min = 0.5
 scale_amount_max = 2.0
