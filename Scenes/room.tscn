@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://ckjbgtukdibve"]
 
-[ext_resource type="PackedScene" uid="uid://20pa5ci3afyq" path="res://Scenes/Objects/lightswitch_.tscn" id="1_hbxf1"]
+[ext_resource type="PackedScene" uid="uid://cxmo7kdy4cv6h" path="res://Scenes/Objects/lightswitch_.tscn" id="1_hbxf1"]
 [ext_resource type="Texture2D" uid="uid://bhnk1ikuvrdr8" path="res://Resources/Textures/woodfloor/WoodFlooringAshSuperWhite001_COL_2K.jpg" id="1_ru61w"]
 [ext_resource type="Texture2D" uid="uid://b7q4fsmm88qgj" path="res://Resources/Textures/woodfloor/WoodFlooringAshSuperWhite001_AO_2K.jpg" id="2_3uidp"]
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="2_48d3l"]
