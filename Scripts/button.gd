@@ -1,13 +1,12 @@
 extends Node
 
 signal press
-signal flicked
 var lights = []
 var doors = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for child in get_children():
-		if child is Node3D:
+		if get_tree().get_nodes_in_group("lights").has(child):
 			lights.append(child)
 		if child is StaticBody3D:
 			doors.append(child)
@@ -20,4 +19,4 @@ func randomFlicker():
 
 func _on_press():
 	for light in lights:
-		light.activate()	
+		light.interact()	

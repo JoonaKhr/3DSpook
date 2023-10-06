@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://4teupdiamevk"]
+[gd_scene load_steps=3 format=3 uid="uid://4teupdiamevk"]
 
 [ext_resource type="PackedScene" uid="uid://cas6l1mcy0kdd" path="res://Resources/Models/ceiling_light.glb" id="1_ynuym"]
+[ext_resource type="Script" path="res://Scripts/light.gd" id="2_c7it4"]
 
-[node name="ceiling_light" instance=ExtResource("1_ynuym")]
+[node name="ceiling_light" groups=["lights"] instance=ExtResource("1_ynuym")]
+script = ExtResource("2_c7it4")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.296427, 0)
 omni_range = 20.0
+
+[node name="FlickoffTimer" type="Timer" parent="." index="2"]
+
+[node name="FlickonTimer" type="Timer" parent="." index="3"]

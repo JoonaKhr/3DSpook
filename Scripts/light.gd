@@ -1,7 +1,8 @@
-extends OmniLight3D
+extends Node3D
 
 @onready var flickoff = $FlickoffTimer
 @onready var flickon = $FlickonTimer
+@onready var light = $OmniLight3D
 
 func _ready():
 	flickoff.wait_time = randf_range(240, 480)
@@ -9,7 +10,8 @@ func _ready():
 
 
 func interact():
-	if visible:
-		visible = false
+	print("wow such interaction")
+	if light.visible:
+		light.visible = false
 	else:
-		visible = true
+		light.visible = true
