@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 @export var SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const RAY_LENGTH = 1000
+const RAY_LENGTH = 5
 var rot_x = 0
 var rot_y = 0
 
@@ -16,8 +16,8 @@ func _input(event):
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * 0.02)
-		$Pivot.rotate_x(-event.relative.y * 0.02)
+		rotate_y(-event.relative.x * 0.002)
+		$Pivot.rotate_x(-event.relative.y * 0.002)
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
 
 
@@ -25,8 +25,7 @@ func _input(event):
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-
-func _physics_process(delta):
+func raycastFromMouse():
 	var space_state = get_world_3d().direct_space_state
 	var cam = $Pivot/Camera3D
 	var mousepos = get_viewport().get_mouse_position()
@@ -36,9 +35,14 @@ func _physics_process(delta):
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	query.collide_with_areas = true
 
-	var result = space_state.intersect_ray(query)
-	if Input.is_mouse_button_pressed(1):
+	return space_state.intersect_ray(query)
+
+func _physics_process(delta):
+	var result = raycastFromMouse()
+	if Input.is_action_just_pressed("mouse_left"):
 		if result:
+			if get_tree().get_nodes_in_group("lightswitches").has(result["collider"]):
+				result["collider"].press.emit()
 			print(result)
 	# Add the gravity.
 	if not is_on_floor():
