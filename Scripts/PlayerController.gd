@@ -6,7 +6,7 @@ const JUMP_VELOCITY = 4.5
 const RAY_LENGTH = 5
 var rot_x = 0
 var rot_y = 0
-
+@export var inventory: PackedScene
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

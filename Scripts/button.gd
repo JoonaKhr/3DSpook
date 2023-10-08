@@ -8,7 +8,7 @@ func _ready():
 	for child in get_children():
 		if get_tree().get_nodes_in_group("lights").has(child):
 			lights.append(child)
-		if child is StaticBody3D:
+		if get_tree().get_nodes_in_group("doors").has(child):
 			doors.append(child)
 
 	print(lights)
@@ -19,4 +19,6 @@ func randomFlicker():
 
 func _on_press():
 	for light in lights:
-		light.interact()	
+		light.interact()
+	for door in doors:
+		door.interact()	

@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwgra6jcr7akn"]
+[gd_scene load_steps=9 format=3 uid="uid://bwgra6jcr7akn"]
 
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="1_xlapj"]
 [ext_resource type="PackedScene" uid="uid://cwj7yna3cka1r" path="res://Scenes/Objects/lightswitch.tscn" id="2_h4hrg"]
 [ext_resource type="PackedScene" uid="uid://4teupdiamevk" path="res://Scenes/Objects/ceiling_light.tscn" id="2_vmhun"]
 [ext_resource type="Script" path="res://Scripts/button.gd" id="3_lcym8"]
+[ext_resource type="PackedScene" uid="uid://b6hkvcqwkl73m" path="res://Scenes/Objects/doorZ.tscn" id="5_0t8t1"]
+[ext_resource type="PackedScene" uid="uid://82rmbw1dkpbv" path="res://Scenes/Objects/doorX.tscn" id="6_xppvw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5nw6q"]
 size = Vector3(20, 0.2, 3)
@@ -54,7 +56,8 @@ shape = SubResource("BoxShape3D_5nw6q")
 mesh = SubResource("BoxMesh_l60q6")
 
 [node name="Player" parent="." instance=ExtResource("1_xlapj")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.10156, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.0434, 1.10156, 0)
+SPEED = 15.0
 
 [node name="lightswitch" parent="." instance=ExtResource("2_h4hrg")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.1784, 3.96571)
@@ -66,4 +69,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00294458, 5.17558, 4.15492)
 [node name="ceiling_light2" parent="lightswitch" instance=ExtResource("2_vmhun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4271, 5.12212, 4.22782)
 
+[node name="Lightswitch" parent="." groups=["doorswitches"] instance=ExtResource("2_h4hrg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0652, 2.94579, -4.6191)
+script = ExtResource("3_lcym8")
+
+[node name="door" parent="Lightswitch" instance=ExtResource("5_0t8t1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.90829, 0, 0)
+
+[node name="door2" parent="Lightswitch" instance=ExtResource("6_xppvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0327, 0, 3.685)
+
 [connection signal="press" from="lightswitch" to="lightswitch" method="_on_press"]
+[connection signal="press" from="Lightswitch" to="Lightswitch" method="_on_press"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0diii2blledv"]
+[gd_scene load_steps=6 format=3 uid="uid://c0diii2blledv"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_c4xhs"]
 [ext_resource type="PackedScene" path="res://Scenes/pausemenu.tscn" id="2_c0kcq"]
+[ext_resource type="PackedScene" uid="uid://huhgi0dcuejl" path="res://Scenes/inventory.tscn" id="2_cmbys"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0j8gy"]
 height = 4.0
@@ -11,6 +12,7 @@ height = 4.0
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_c4xhs")
+inventory = ExtResource("2_cmbys")
 
 [node name="pausemenu" parent="." instance=ExtResource("2_c0kcq")]
 visible = false
