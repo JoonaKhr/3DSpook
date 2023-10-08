@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlpdoqjncm4hd"]
+[gd_scene load_steps=9 format=3 uid="uid://cwj7yna3cka1r"]
 
 [ext_resource type="Texture2D" uid="uid://b36dfe72yphs" path="res://Resources/Textures/switch/lightswitch_0.png" id="1_2kal0"]
 [ext_resource type="Texture2D" uid="uid://b0xfdxm5tp8ru" path="res://Resources/Textures/switch/lightswitch_1.png" id="2_drnol"]
@@ -56,7 +56,7 @@ shadow_mesh = SubResource("ArrayMesh_djb0w")
 [sub_resource type="BoxShape3D" id="BoxShape3D_q8t6m"]
 size = Vector3(3, 3.27885, 0.417587)
 
-[node name="Lightswitch" type="StaticBody3D"]
+[node name="Lightswitch" type="StaticBody3D" groups=["lightswitches"]]
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwgra6jcr7akn"]
 
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="1_xlapj"]
-[ext_resource type="PackedScene" uid="uid://dlpdoqjncm4hd" path="res://Scenes/Objects/lightswitch.tscn" id="2_h4hrg"]
-[ext_resource type="PackedScene" uid="uid://bs1jhaschq4yw" path="res://Scenes/Objects/ceiling_light.tscn" id="2_vmhun"]
+[ext_resource type="PackedScene" uid="uid://cwj7yna3cka1r" path="res://Scenes/Objects/lightswitch.tscn" id="2_h4hrg"]
+[ext_resource type="PackedScene" uid="uid://4teupdiamevk" path="res://Scenes/Objects/ceiling_light.tscn" id="2_vmhun"]
 [ext_resource type="Script" path="res://Scripts/button.gd" id="3_lcym8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5nw6q"]
@@ -56,7 +56,7 @@ mesh = SubResource("BoxMesh_l60q6")
 [node name="Player" parent="." instance=ExtResource("1_xlapj")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.10156, 0)
 
-[node name="lightswitch" parent="." groups=["lightswitches"] instance=ExtResource("2_h4hrg")]
+[node name="lightswitch" parent="." instance=ExtResource("2_h4hrg")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.1784, 3.96571)
 script = ExtResource("3_lcym8")
 
