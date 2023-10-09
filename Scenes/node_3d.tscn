@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/button.gd" id="3_lcym8"]
 [ext_resource type="PackedScene" uid="uid://b6hkvcqwkl73m" path="res://Scenes/Objects/doorZ.tscn" id="5_0t8t1"]
 [ext_resource type="PackedScene" uid="uid://82rmbw1dkpbv" path="res://Scenes/Objects/doorX.tscn" id="6_xppvw"]
-[ext_resource type="PackedScene" uid="uid://cj4v2r4efeyip" path="res://Resources/Models/hallway.gltf" id="7_qm336"]
+[ext_resource type="PackedScene" uid="uid://cj4v2r4efeyip" path="res://Resources/Models/Enviro/hallway.gltf" id="7_qm336"]
 
 [node name="Node3D2" type="Node3D"]
 

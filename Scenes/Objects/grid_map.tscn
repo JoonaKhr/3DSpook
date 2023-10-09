@@ -4,4 +4,5 @@
 
 [node name="GridMap" type="GridMap"]
 mesh_library = ExtResource("1_t3ugg")
-cell_size = Vector3(6, 6, 6)
+cell_size = Vector3(6, 2, 6)
+metadata/_editor_floor_ = Vector3(0, 0, 0)
