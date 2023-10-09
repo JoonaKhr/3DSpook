@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://eqjkgg85cg2m"
-path="res://.godot/imported/hallway_x_crossing.gltf-c5704ae77856d30f61d46ccc3c6ff6a8.scn"
+uid="uid://dw8wru2a1ex2t"
+path="res://.godot/imported/hallway_turn.gltf-263492f1133dd5d9d7d8dbc9638d1b46.scn"
 
 [deps]
 
-source_file="res://Resources/Models/hallway_x_crossing.gltf"
-dest_files=["res://.godot/imported/hallway_x_crossing.gltf-c5704ae77856d30f61d46ccc3c6ff6a8.scn"]
+source_file="res://Resources/Models/hallway_turn.gltf"
+dest_files=["res://.godot/imported/hallway_turn.gltf-263492f1133dd5d9d7d8dbc9638d1b46.scn"]
 
 [params]
 

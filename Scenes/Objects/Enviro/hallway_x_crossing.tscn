@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxn7dv2ncffks"]
-
-[ext_resource type="PackedScene" uid="uid://dl5piq6ldx35p" path="res://Resources/Models/hallway_x_crossing.gltf" id="1_lcs64"]
-[ext_resource type="Material" uid="uid://jxt6it8qy3fl" path="res://Resources/Materials/m_enviro.tres" id="2_xshmy"]
-
-[node name="hallway_x_crossing" instance=ExtResource("1_lcs64")]
-
-[node name="Mesh2" parent="." index="0"]
-material_override = ExtResource("2_xshmy")
