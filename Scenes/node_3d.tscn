@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwgra6jcr7akn"]
+[gd_scene load_steps=8 format=3 uid="uid://bwgra6jcr7akn"]
 
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="1_xlapj"]
 [ext_resource type="PackedScene" uid="uid://cwj7yna3cka1r" path="res://Scenes/Objects/lightswitch.tscn" id="2_h4hrg"]
@@ -6,61 +6,19 @@
 [ext_resource type="Script" path="res://Scripts/button.gd" id="3_lcym8"]
 [ext_resource type="PackedScene" uid="uid://b6hkvcqwkl73m" path="res://Scenes/Objects/doorZ.tscn" id="5_0t8t1"]
 [ext_resource type="PackedScene" uid="uid://82rmbw1dkpbv" path="res://Scenes/Objects/doorX.tscn" id="6_xppvw"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_5nw6q"]
-size = Vector3(20, 0.2, 3)
-
-[sub_resource type="BoxMesh" id="BoxMesh_l60q6"]
-size = Vector3(20, 0.25, 3)
+[ext_resource type="PackedScene" uid="uid://dhjvv1xt26uvs" path="res://Resources/Models/hallway.gltf" id="7_qm336"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(3.26, 0, 0, 0, 3.26, 0, 0, 0, 3.26, 0, -1.90991, 0)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_5nw6q")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_l60q6")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.00310666, -0.999995, 0, 0.999995, 0.00310666, 0, 1.39062, -1.62743)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/StaticBody3D"]
-shape = SubResource("BoxShape3D_5nw6q")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/StaticBody3D"]
-mesh = SubResource("BoxMesh_l60q6")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="StaticBody3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.00310666, -0.999995, 0, 0.999995, 0.00310666, 0, 1.39062, -1.62743)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/StaticBody3D/StaticBody3D"]
-shape = SubResource("BoxShape3D_5nw6q")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/StaticBody3D/StaticBody3D"]
-mesh = SubResource("BoxMesh_l60q6")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="StaticBody3D/StaticBody3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.00310666, -0.999995, 0, 0.999995, 0.00310666, 0, 1.39062, -1.62743)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/StaticBody3D/StaticBody3D/StaticBody3D"]
-shape = SubResource("BoxShape3D_5nw6q")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/StaticBody3D/StaticBody3D/StaticBody3D"]
-mesh = SubResource("BoxMesh_l60q6")
+[node name="hallway" parent="." instance=ExtResource("7_qm336")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -21.6783, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_xlapj")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.0434, 1.10156, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.0434, 5.23564, 0)
 SPEED = 15.0
 
 [node name="lightswitch" parent="." instance=ExtResource("2_h4hrg")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.1784, 3.96571)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.9807, 2.1784, 3.96571)
 script = ExtResource("3_lcym8")
 
 [node name="ceiling_light" parent="lightswitch" instance=ExtResource("2_vmhun")]

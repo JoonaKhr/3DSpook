@@ -21,12 +21,32 @@ meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
 meshes/light_baking=1
-meshes/lightmap_texel_size=0.2
+meshes/lightmap_texel_size=6.0
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"meshes": {
+"default_mesh": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 1,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": false,
+"save_to_file/make_streamable": "",
+"save_to_file/path": ""
+}
+},
+"nodes": {
+"PATH:Mesh2": {
+"generate/navmesh": 1,
+"generate/physics": true,
+"physics/shape_type": 2
+}
+}
+}
 gltf/embedded_image_handling=1

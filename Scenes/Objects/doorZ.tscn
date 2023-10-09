@@ -11,6 +11,9 @@ size = Vector3(0.2, 6, 3)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fasam"]
 albedo_color = Color(1, 0.0352941, 1, 1)
 
+[sub_resource type="Animation" id="Animation_hhpnl"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_tovap"]
 resource_name = "open"
 tracks/0/type = "value"
@@ -25,9 +28,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_hhpnl"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eb2uw"]
 _data = {
