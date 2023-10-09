@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b47x3p8yt171p"
-path="res://.godot/imported/hallway_deadEnd.gltf-f00cd848d24fdb9495c23aaf04c89eeb.scn"
+uid="uid://cj4v2r4efeyip"
+path="res://.godot/imported/hallway.gltf-a720218f631544a098a042bfbb3e34c2.scn"
 
 [deps]
 
-source_file="res://Resources/Models/hallway_deadEnd.gltf"
-dest_files=["res://.godot/imported/hallway_deadEnd.gltf-f00cd848d24fdb9495c23aaf04c89eeb.scn"]
+source_file="res://Resources/Models/Enviro/hallway.gltf"
+dest_files=["res://.godot/imported/hallway.gltf-a720218f631544a098a042bfbb3e34c2.scn"]
 
 [params]
 

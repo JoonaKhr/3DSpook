@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cj4v2r4efeyip"
-path="res://.godot/imported/hallway.gltf-2532964dce36733fd602e347924e5372.scn"
+uid="uid://cgvgic2sqxp37"
+path="res://.godot/imported/room_wall.gltf-d41dcd05dd609958e876155529d780d5.scn"
 
 [deps]
 
-source_file="res://Resources/Models/hallway.gltf"
-dest_files=["res://.godot/imported/hallway.gltf-2532964dce36733fd602e347924e5372.scn"]
+source_file="res://Resources/Models/Enviro/room_wall.gltf"
+dest_files=["res://.godot/imported/room_wall.gltf-d41dcd05dd609958e876155529d780d5.scn"]
 
 [params]
 
