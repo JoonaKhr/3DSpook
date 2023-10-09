@@ -2,18 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2dijlh7ydtyt"
-path.s3tc="res://.godot/imported/hallway_x_crossing_0.png-7c2534311129feafc66a1b8c9ff3497d.s3tc.ctex"
+uid="uid://bunkh0bg1gq0d"
+path.s3tc="res://.godot/imported/envTilemap.png-55902c13ee5367531d1635300cf008a4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://Resources/Models/hallway_x_crossing_0.png"
-dest_files=["res://.godot/imported/hallway_x_crossing_0.png-7c2534311129feafc66a1b8c9ff3497d.s3tc.ctex"]
+source_file="res://Resources/Textures/Enviro/envTilemap.png"
+dest_files=["res://.godot/imported/envTilemap.png-55902c13ee5367531d1635300cf008a4.s3tc.ctex"]
 
 [params]
 

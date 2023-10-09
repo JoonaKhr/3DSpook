@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://k5piogriemah"]
+
+[ext_resource type="PackedScene" uid="uid://cj4v2r4efeyip" path="res://Resources/Models/hallway.gltf" id="1_1pio7"]
+[ext_resource type="Material" uid="uid://jxt6it8qy3fl" path="res://Resources/Materials/m_enviro.tres" id="2_gkhsv"]
+
+[node name="hallway" instance=ExtResource("1_1pio7")]
+
+[node name="Mesh2" parent="." index="0"]
+material_override = ExtResource("2_gkhsv")
