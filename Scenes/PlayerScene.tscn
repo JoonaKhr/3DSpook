@@ -13,6 +13,8 @@ height = 4.0
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_c4xhs")
 
+[node name="inventory" parent="." instance=ExtResource("2_cmbys")]
+
 [node name="pausemenu" parent="." instance=ExtResource("2_c0kcq")]
 visible = false
 menu = "res://Scenes/menu.tscn"

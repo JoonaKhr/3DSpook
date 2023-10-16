@@ -26,3 +26,5 @@ func interact():
 func unlockDoor(item):
     if item == requiredItem:
         locked = false
+    else:
+        print("Requires item: ", requiredItem.iName)

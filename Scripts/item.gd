@@ -1,7 +1,17 @@
 extends Node3D
 
-var n = ""
-@export var itemIcon: Image
+@export var iname = ""
+@export var descrip = ""
+signal press
 
-func pickupItem(pickupee):
-    pickupee.inventory.obtainItem(self)
+func pickupItem():
+    print("Picked up: ", iname)
+    get_parent().get_node("Player").inventory.obtainItem(self)
+    queue_free()
+
+func useItem(target):
+    print("Trying to use item ", iname, " on ", target)
+
+
+func _on_press():
+    pickupItem()
