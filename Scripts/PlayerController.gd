@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @export var SPEED = 5.0
+@export var sprintMult = 1.5
 const JUMP_VELOCITY = 4.5
 const RAY_LENGTH = 5
 var rot_x = 0
@@ -61,9 +62,13 @@ func _physics_process(delta):
 
 	var input_dir = Input.get_vector("left", "right", "forwards", "backwards")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if Input.is_action_pressed("sprint"):
+		sprintMult = 1.5
+	else:
+		sprintMult = 1
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * SPEED * sprintMult
+		velocity.z = direction.z * SPEED * sprintMult
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)

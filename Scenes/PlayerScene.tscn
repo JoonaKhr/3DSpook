@@ -16,6 +16,9 @@ script = ExtResource("1_c4xhs")
 [node name="inventory" parent="." instance=ExtResource("2_cmbys")]
 mouse_filter = 2
 
+[node name="BlankKeyHolder" type="Marker3D" parent="inventory"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.134944, 0.688469, -1.17588)
+
 [node name="pausemenu" parent="." instance=ExtResource("2_c0kcq")]
 visible = false
 menu = "res://Scenes/menu.tscn"

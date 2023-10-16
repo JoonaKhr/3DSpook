@@ -1,6 +1,6 @@
 extends Control
 
-var itemClass = preload("res://Scenes/Items/key.tscn")
+@onready var blankkeyholder = $BlankKeyHolder
 var itemList = []
 var heldItem
 
@@ -9,13 +9,15 @@ func _ready():
 	heldItem = 0
 
 func obtainItem(item):
-	if item.iname == itemClass.instantiate().iname:
-		var itemChild = itemClass.instantiate()
-		add_child(itemChild)
-		itemList.append(itemChild)
+	item.get_parent().remove_child(item)
+	add_child(item)
+	item.global_position = blankkeyholder.global_position
+	itemList.append(item)
 
 func removeItem(item):
+	remove_child(item)
 	itemList.erase(item)
+	item.queue_free()
 
 func changeHeldItem(input):
 	if input == MOUSE_BUTTON_WHEEL_UP:
