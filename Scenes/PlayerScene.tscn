@@ -44,4 +44,5 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0.509804)
+
 [node name="inventory" parent="." instance=ExtResource("2_cmbys")]
