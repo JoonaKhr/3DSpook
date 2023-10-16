@@ -18,35 +18,35 @@ texture_repeat = false
 [sub_resource type="LabelSettings" id="LabelSettings_j3gmr"]
 line_spacing = 4.0
 font = ExtResource("1_r0d10")
-font_size = 24
-font_color = Color(0, 0.443137, 0.0313726, 1)
+font_size = 18
+font_color = Color(0, 0.921569, 0.113725, 1)
 shadow_size = 0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o2pc3"]
 shader = ExtResource("2_2pssq")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.4
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.1
 shader_parameter/scanlines_width = 0.25
 shader_parameter/grille_opacity = 0.3
 shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/pixelate = true
+shader_parameter/pixelate = false
 shader_parameter/roll = true
-shader_parameter/roll_speed = 8.0
-shader_parameter/roll_size = 15.0
-shader_parameter/roll_variation = 1.8
+shader_parameter/roll_speed = 1.0
+shader_parameter/roll_size = 10.0
+shader_parameter/roll_variation = 1.6
 shader_parameter/distort_intensity = 0.05
 shader_parameter/noise_opacity = 0.4
 shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.06
-shader_parameter/aberration = 0.03
+shader_parameter/static_noise_intensity = 0.1
+shader_parameter/aberration = 0.02
 shader_parameter/brightness = 1.4
-shader_parameter/discolor = true
+shader_parameter/discolor = false
 shader_parameter/warp_amount = 1.0
 shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_intensity = 0.3
 shader_parameter/vignette_opacity = 0.5
 
-[node name="Node3D" type="Node3D"]
+[node name="monitor" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_f8t1s")
@@ -57,10 +57,10 @@ disable_3d = true
 canvas_item_default_texture_filter = 0
 
 [node name="Label" type="Label" parent="SubViewport"]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 553.0
-offset_bottom = 283.0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 607.0
+offset_bottom = 337.0
 scale = Vector2(0.8, 1.2)
 text = "Use WASD to move
 Left Click to interact
@@ -77,4 +77,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0, 0, 0, 1)
+
+[node name="cursor_timer" type="Timer" parent="."]
+wait_time = 0.8
