@@ -22,6 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6396, -0.10684)
 
 [node name="Camera3D" parent="CharacterBody3D/Pivot" index="0"]
 transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, 0, 0, 0)
+current = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 

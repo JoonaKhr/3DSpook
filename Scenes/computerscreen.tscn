@@ -1,17 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://l8llsts52nv6"]
+[gd_scene load_steps=9 format=3 uid="uid://l8llsts52nv6"]
 
+[ext_resource type="Script" path="res://Scripts/computerscreen.gd" id="1_0ouqo"]
 [ext_resource type="FontFile" uid="uid://dc03unw7itkjp" path="res://Resources/Mx437_IBM_VGA_9x16-2x.ttf" id="1_r0d10"]
 [ext_resource type="Shader" path="res://Resources/crt.gdshader" id="2_2pssq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_f8t1s"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pled4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bh5r8"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywtr1"]
 resource_local_to_scene = true
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_pled4")
+albedo_texture = SubResource("ViewportTexture_bh5r8")
+albedo_texture_force_srgb = true
 texture_filter = 0
 texture_repeat = false
 
@@ -47,6 +49,7 @@ shader_parameter/vignette_intensity = 0.3
 shader_parameter/vignette_opacity = 0.5
 
 [node name="monitor" type="Node3D"]
+script = ExtResource("1_0ouqo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_f8t1s")
@@ -68,6 +71,16 @@ Mouse Wheel to cycle through inventory"
 label_settings = SubResource("LabelSettings_j3gmr")
 autowrap_mode = 2
 
+[node name="cursor" type="Label" parent="SubViewport"]
+unique_name_in_owner = true
+offset_left = 64.0
+offset_top = 176.0
+offset_right = 104.0
+offset_bottom = 202.0
+scale = Vector2(0.8, 1.2)
+text = "█"
+label_settings = SubResource("LabelSettings_j3gmr")
+
 [node name="ColorRect" type="ColorRect" parent="SubViewport"]
 material = SubResource("ShaderMaterial_o2pc3")
 anchors_preset = 15
@@ -77,6 +90,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+metadata/_edit_lock_ = true
 
 [node name="cursor_timer" type="Timer" parent="."]
-wait_time = 0.8
+wait_time = 1.2
+autostart = true
+
+[connection signal="timeout" from="cursor_timer" to="." method="_on_timer_timeout"]
