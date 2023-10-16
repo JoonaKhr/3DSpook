@@ -12,7 +12,6 @@ height = 4.0
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_c4xhs")
-inventory = ExtResource("2_cmbys")
 
 [node name="pausemenu" parent="." instance=ExtResource("2_c0kcq")]
 visible = false
@@ -45,3 +44,4 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0.509804)
+[node name="inventory" parent="." instance=ExtResource("2_cmbys")]
