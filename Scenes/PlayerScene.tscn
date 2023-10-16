@@ -13,6 +13,8 @@ height = 4.0
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_c4xhs")
 
+[node name="inventory" parent="." instance=ExtResource("2_cmbys")]
+
 [node name="pausemenu" parent="." instance=ExtResource("2_c0kcq")]
 visible = false
 menu = "res://Scenes/menu.tscn"
@@ -29,5 +31,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6396, -0.561918)
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 current = true
 fov = 90.0
-
-[node name="inventory" parent="." instance=ExtResource("2_cmbys")]

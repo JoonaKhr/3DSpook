@@ -45,7 +45,9 @@ func _physics_process(delta):
 		if result:
 			if get_tree().get_nodes_in_group("lightswitches").has(result["collider"]):
 				result["collider"].press.emit()
-			print(result)
+			if get_tree().get_nodes_in_group("pickupables").has(result["collider"]):
+				result["collider"].press.emit(self)
+			print(result["collider"])
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -65,5 +67,4 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-	print(velocity)
 	move_and_slide()

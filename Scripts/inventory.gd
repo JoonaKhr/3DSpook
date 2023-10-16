@@ -27,3 +27,4 @@ func changeHeldItem(input):
 			heldItem -= 1
 		if heldItem < 0:
 			heldItem = itemList.size()-1
+	print(itemList[heldItem])

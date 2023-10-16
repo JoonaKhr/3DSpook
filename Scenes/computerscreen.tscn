@@ -14536,6 +14536,7 @@ cache/0/39/0/kerning_overrides/39/0 = Vector2(0, 0)
 [sub_resource type="LabelSettings" id="LabelSettings_j3gmr"]
 font = SubResource("FontFile_tj0u5")
 font_size = 44
+font_color = Color(0, 0.443137, 0.0313726, 1)
 
 [node name="Node3D" type="Node3D"]
 

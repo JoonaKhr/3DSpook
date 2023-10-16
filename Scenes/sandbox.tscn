@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds25triw57p7p"]
+[gd_scene load_steps=6 format=3 uid="uid://ds25triw57p7p"]
 
 [ext_resource type="PackedScene" uid="uid://det4vhq1t7ov0" path="res://Scenes/Objects/grid_map.tscn" id="1_67gpl"]
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="2_e6eja"]
 [ext_resource type="Environment" path="res://Resources/greenfog.tres" id="3_dbgfh"]
 [ext_resource type="PackedScene" uid="uid://br3v4uvklu41t" path="res://Scenes/computerscreen.tscn" id="4_msqgk"]
+[ext_resource type="PackedScene" uid="uid://gvxvaswgxqt3" path="res://Scenes/Items/key.tscn" id="5_m7yey"]
 
 [node name="sandbox" type="Node3D"]
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_e6eja")]
+[node name="Player" parent="." instance=ExtResource("2_e6eja")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 8.57629, 1.99026, -7.65428)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -24,3 +25,6 @@ data = {
 
 [node name="Node3D" parent="." instance=ExtResource("4_msqgk")]
 transform = Transform3D(1, 0, 0, 0, -0.275151, -0.961401, 0, 0.961401, -0.275151, 9.20147, 2.5646, -10.6843)
+
+[node name="Key" parent="." instance=ExtResource("5_m7yey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.36365, 1.13362, -9.80669)
