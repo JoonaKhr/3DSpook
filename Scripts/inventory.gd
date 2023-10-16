@@ -1,5 +1,6 @@
 extends Control
 
+var itemClass = preload("res://Scenes/Items/key.tscn")
 var itemList = []
 var heldItem
 
@@ -8,7 +9,10 @@ func _ready():
 	heldItem = 0
 
 func obtainItem(item):
-	itemList.append(item)
+	if item.iname == itemClass.instantiate().iname:
+		var itemChild = itemClass.instantiate()
+		add_child(itemChild)
+		itemList.append(itemChild)
 
 func removeItem(item):
 	itemList.erase(item)

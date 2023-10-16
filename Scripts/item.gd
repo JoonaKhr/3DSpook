@@ -7,7 +7,7 @@ signal press
 func pickupItem():
     print("Picked up: ", iname)
     get_parent().get_node("Player").inventory.obtainItem(self)
-    visible = false
+    queue_free()
 
 func useItem(target):
     print("Trying to use item ", iname, " on ", target)
