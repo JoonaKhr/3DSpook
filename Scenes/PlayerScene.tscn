@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c0diii2blledv"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_c4xhs"]
-[ext_resource type="PackedScene" uid="uid://bqy33rwx6p2gu" path="res://Scenes/pausemenu.tscn" id="2_c0kcq"]
+[ext_resource type="PackedScene" path="res://Scenes/pausemenu.tscn" id="2_c0kcq"]
 [ext_resource type="PackedScene" uid="uid://huhgi0dcuejl" path="res://Scenes/inventory.tscn" id="2_cmbys"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0j8gy"]
@@ -31,19 +31,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6396, -0.561918)
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 current = true
 fov = 90.0
-
-[node name="crosshair" type="ColorRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 1.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(1, 1, 1, 0.509804)
-[node name="inventory" parent="." instance=ExtResource("2_cmbys")]

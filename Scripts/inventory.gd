@@ -5,9 +5,6 @@ var heldItem
 
 func _ready():
 	itemList.append("Empty hand")
-	itemList.append("Gun")
-	itemList.append("Keycard 1")
-	itemList.append("Keycard 2")
 	heldItem = 0
 
 func obtainItem(item):
