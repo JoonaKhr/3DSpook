@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxejs1ghn7w6t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dmlpr"]
+size = Vector3(1, 0.3, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jrl8d"]
+size = Vector3(0.6, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4tcp3"]
+size = Vector3(1.1, 0.6, 0.3)
+
+[node name="gun" type="Node3D"]
+
+[node name="barrel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.181482, 0)
+mesh = SubResource("BoxMesh_dmlpr")
+skeleton = NodePath("")
+
+[node name="grip" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.663822, 0.747891, 0, -0.747891, 0.663822, 0, 0, 0, 1, 0.316023, -0.0383006, 0)
+mesh = SubResource("BoxMesh_jrl8d")
+skeleton = NodePath("")
+
+[node name="pickup" type="StaticBody3D" parent="."]
+
+[node name="collision" type="CollisionShape3D" parent="pickup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0555648, 0.0360484, 0)
+shape = SubResource("BoxShape3D_4tcp3")
