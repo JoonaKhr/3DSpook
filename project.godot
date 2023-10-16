@@ -49,10 +49,6 @@ mouse_left={
 ]
 }
 
-[navigation]
-
-3d/default_cell_height=0.01
-
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
