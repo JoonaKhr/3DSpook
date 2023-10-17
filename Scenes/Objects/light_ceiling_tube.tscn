@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt58177b7x1bb"]
+
+[ext_resource type="PackedScene" uid="uid://du2vhxm05ybid" path="res://Resources/Models/Props/lightCeiling_tube.gltf" id="1_1la86"]
+[ext_resource type="Material" uid="uid://dcv6m71p1rifa" path="res://Resources/Materials/m_light.tres" id="2_uplnf"]
+
+[node name="lightCeiling_tube" instance=ExtResource("1_1la86")]
+
+[node name="lightCeiling_tube" parent="." index="0"]
+material_override = ExtResource("2_uplnf")

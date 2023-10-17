@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://hprpgh7hgqt5"]
+
+[ext_resource type="Material" uid="uid://bb8htub3jjwsw" path="res://Resources/Materials/m_indicatorLight.tres" id="2_qppqv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5pj1"]
+resource_name = "Duck_Tex_0"
+transparency = 2
+alpha_scissor_threshold = 0.01
+alpha_antialiasing_mode = 0
+vertex_color_use_as_albedo = true
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yugaq"]
+_surfaces = [{
+"aabb": AABB(-0.1125, -0.1125, 0, 0.225, 0.225, 0.1125),
+"format": 4097,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 1, 0, 2, 0, 3, 0, 4, 0, 1, 0, 3, 0, 4, 0, 0, 0, 1, 0),
+"name": "Duck_Tex_0",
+"primitive": 3,
+"vertex_count": 5,
+"vertex_data": PackedByteArray(102, 102, 230, 189, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 102, 102, 230, 61, 0, 0, 0, 0, 102, 102, 230, 61, 0, 0, 0, 0, 102, 102, 230, 61, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 102, 102, 230, 189, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wsi6v"]
+resource_name = "default_mesh"
+_surfaces = [{
+"aabb": AABB(-0.1125, -0.1125, 0, 0.225, 0.225, 0.1125),
+"attribute_data": PackedByteArray(0, 0, 64, 63, 0, 0, 0, 62, 0, 0, 96, 63, 0, 0, 0, 62, 0, 0, 96, 63, 0, 0, 0, 0, 0, 0, 64, 63, 0, 0, 0, 62, 0, 0, 96, 63, 0, 0, 0, 0, 0, 0, 64, 63, 0, 0, 0, 0, 0, 0, 64, 63, 0, 0, 0, 62, 0, 0, 96, 63, 0, 0, 0, 0, 0, 0, 64, 63, 0, 0, 0, 0, 0, 0, 64, 63, 0, 0, 0, 62, 0, 0, 96, 63, 0, 0, 0, 0, 0, 0, 64, 63, 0, 0, 0, 0),
+"format": 4119,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0, 6, 0, 8, 0, 7, 0, 9, 0, 11, 0, 10, 0),
+"material": SubResource("StandardMaterial3D_o5pj1"),
+"name": "Duck_Tex_0",
+"primitive": 3,
+"vertex_count": 12,
+"vertex_data": PackedByteArray(102, 102, 230, 189, 0, 0, 0, 0, 0, 0, 0, 0, 84, 85, 170, 170, 255, 191, 255, 191, 0, 0, 0, 0, 0, 0, 0, 0, 102, 102, 230, 61, 84, 85, 170, 170, 255, 191, 255, 191, 0, 0, 0, 0, 102, 102, 230, 61, 0, 0, 0, 0, 84, 85, 170, 170, 255, 191, 255, 191, 0, 0, 0, 0, 0, 0, 0, 0, 102, 102, 230, 61, 170, 170, 170, 170, 255, 191, 255, 159, 102, 102, 230, 61, 0, 0, 0, 0, 0, 0, 0, 0, 170, 170, 170, 170, 255, 191, 255, 159, 0, 0, 0, 0, 102, 102, 230, 61, 0, 0, 0, 0, 170, 170, 170, 170, 255, 191, 255, 159, 0, 0, 0, 0, 102, 102, 230, 189, 0, 0, 0, 0, 170, 170, 84, 85, 255, 255, 255, 223, 102, 102, 230, 61, 0, 0, 0, 0, 0, 0, 0, 0, 170, 170, 84, 85, 255, 255, 255, 223, 0, 0, 0, 0, 0, 0, 0, 0, 102, 102, 230, 61, 170, 170, 84, 85, 255, 255, 255, 223, 0, 0, 0, 0, 102, 102, 230, 189, 0, 0, 0, 0, 84, 85, 84, 85, 255, 191, 255, 191, 0, 0, 0, 0, 0, 0, 0, 0, 102, 102, 230, 61, 84, 85, 84, 85, 255, 191, 255, 191, 102, 102, 230, 189, 0, 0, 0, 0, 0, 0, 0, 0, 84, 85, 84, 85, 255, 191, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yugaq")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rj5js"]
+points = PackedVector3Array(0, 0.1125, 0, 0.1125, 0, 0, -0.1125, 0, 0, 0, 0, 0.1125, 0, -0.1125, 0)
+
+[node name="indicatorLight" type="StaticBody3D"]
+
+[node name="indicatorLight" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_qppqv")
+mesh = SubResource("ArrayMesh_wsi6v")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_rj5js")
