@@ -1,33 +1,49 @@
-extends Control
+extends Node3D
 
-@onready var blankkeyholder = $BlankKeyHolder
-var itemList = []
+var itemDict = {}
 var heldItem
+var index
 
 func _ready():
-	itemList.append("Empty hand")
-	heldItem = 0
+	for child in get_children():
+		itemDict[child] = null
+	index = 0
+	heldItem = get_child(index)
 
 func obtainItem(item):
 	item.get_parent().remove_child(item)
-	add_child(item)
-	item.global_position = blankkeyholder.global_position
-	itemList.append(item)
+	if itemDict[heldItem] == null:
+		heldItem.add_child(item)
+		itemDict[heldItem] = item
+	else:
+		var previousItem = itemDict[heldItem]
+		
+		print("helditem", heldItem)
+		print("itemdict[helditem]", previousItem)
+		print(heldItem.get_child(0))
+		heldItem.remove_child(heldItem.get_child(0))
+		get_parent().get_parent().add_child(previousItem)
+		get_child(index).global_position = item.global_position
+		
+	item.global_position = heldItem.global_position
 
 func removeItem(item):
-	remove_child(item)
-	itemList.erase(item)
+	for child in get_children():
+		if child.get_child(0) == item:
+			itemDict.erase(item)
+	itemDict.erase(item)
 	item.queue_free()
 
 func changeHeldItem(input):
 	if input == MOUSE_BUTTON_WHEEL_UP:
-		if heldItem <= itemList.size():
-			heldItem += 1
-		if heldItem == itemList.size():
-			heldItem = 0
+		if index <= get_child_count():
+			index += 1
+		if index == get_child_count():
+			index = 0
 	if input == MOUSE_BUTTON_WHEEL_DOWN:
-		if heldItem >= 0:
-			heldItem -= 1
-		if heldItem < 0:
-			heldItem = itemList.size()-1
-	print(itemList[heldItem])
+		if index >= 0:
+			index -= 1
+		if index < 0:
+			index = get_child_count()-1
+	heldItem = get_child(index)
+	print(itemDict[heldItem])

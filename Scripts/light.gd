@@ -19,4 +19,4 @@ func interact():
 
 
 func _on_flickoff_timer_timeout():
-	$AnimationPlayer.play(animations.get_animation_list()[randi_range(0, animations.get_animation_list().size()-1)])
+	$AnimationPlayer.play(animations.get_animation_Dict()[randi_range(0, animations.get_animation_Dict().size()-1)])
