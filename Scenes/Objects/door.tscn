@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1j7hmrqol1k5"]
+
+[ext_resource type="PackedScene" uid="uid://cg50y7hngbkvu" path="res://Scenes/Objects/door_piece_1.tscn" id="1_hkf1k"]
+[ext_resource type="PackedScene" uid="uid://cu6prnayxtne3" path="res://Scenes/Objects/door_piece_2.tscn" id="3_fm10n"]
+
+[sub_resource type="Animation" id="Animation_2wrxv"]
+resource_name = "door_open"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door_piece 1")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.2, 1, 0.0348265, 0, 0, 0.5, 1, 0.2, 0, 0, 1, 1, 1, 0, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door_piece 2")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.2, 1, -0.0957814, 0, 0, 0.5, 1, -0.2, 0, 0, 1, 1, -1, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mak3r"]
+_data = {
+"door_open": SubResource("Animation_2wrxv")
+}
+
+[node name="door" type="Node3D"]
+
+[node name="door_piece 1" parent="." instance=ExtResource("1_hkf1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="door_piece 2" parent="." instance=ExtResource("3_fm10n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mak3r")
+}

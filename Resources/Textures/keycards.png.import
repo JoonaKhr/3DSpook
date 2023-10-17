@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bunkh0bg1gq0d"
-path="res://.godot/imported/envTilemap.png-55902c13ee5367531d1635300cf008a4.ctex"
+uid="uid://ckmjux0tul4xy"
+path="res://.godot/imported/keycards.png-c91149bff76f109870301e0daf9c2f14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Textures/Enviro/envTilemap.png"
-dest_files=["res://.godot/imported/envTilemap.png-55902c13ee5367531d1635300cf008a4.ctex"]
+source_file="res://Resources/Textures/keycards.png"
+dest_files=["res://.godot/imported/keycards.png-c91149bff76f109870301e0daf9c2f14.ctex"]
 
 [params]
 

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfjp2t44q8g17"]
+
+[ext_resource type="PackedScene" uid="uid://bmq4v71773vtj" path="res://Resources/Models/Props/keycard.gltf" id="1_p2d2h"]
+[ext_resource type="Material" uid="uid://b104rsnjsi37n" path="res://Resources/Materials/m_keycard.tres" id="2_1uev8"]
+
+[node name="keycard" instance=ExtResource("1_p2d2h")]
+
+[node name="Mesh2" parent="." index="0"]
+material_override = ExtResource("2_1uev8")
