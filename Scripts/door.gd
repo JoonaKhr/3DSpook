@@ -1,30 +1,23 @@
-extends StaticBody3D
+extends Node3D
 
 @onready var animation = $AnimationPlayer
 
-var open = false
+@export var open: bool = false
 @export var locked = false
-@export var requiredItem: PackedScene
 
 func _ready():
-    var openAnimation = animation.get_animation("open")
-    if rotation_degrees.y != 90:
-        openAnimation.track_set_key_value(0, 0, Vector3(transform.origin.x, transform.origin.y, transform.origin.z))
-        openAnimation.track_set_key_value(0, 1, Vector3(transform.origin.x, transform.origin.y, (transform.origin.z + 10)))
-    else:
-        openAnimation.track_set_key_value(0, 0, Vector3(transform.origin.x, transform.origin.y, transform.origin.z))
-        openAnimation.track_set_key_value(0, 1, Vector3(transform.origin.x+10, transform.origin.y, transform.origin.z))
+	if open == false:
+		animation.seek(0.0, true)
 
 func interact():
-    if !open and !locked:
-        open = true
-        animation.play("open")
-    elif open:
-        open = false
-        animation.play_backwards("open")
+	if !open and !locked:
+		open = true
+		animation.play("door_open")
+		print("Opening doors")
+	elif open:
+		open = false
+		animation.play_backwards("door_open")
+		print("Closing doors")
 
 func unlockDoor(item):
-    if item == requiredItem:
-        locked = false
-    else:
-        print("Requires item: ", requiredItem.iName)
+	pass

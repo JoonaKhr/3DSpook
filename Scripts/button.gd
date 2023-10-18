@@ -12,6 +12,7 @@ func _ready():
 			doors.append(child)
 
 	print(lights)
+	print(doors)
 
 func randomFlicker():
 	$flickerTimer.wait_time = randf_range(60, 240)

@@ -48,6 +48,8 @@ func _physics_process(delta):
 				result["collider"].press.emit()
 			if get_tree().get_nodes_in_group("pickupables").has(result["collider"]):
 				result["collider"].press.emit()
+			if get_tree().get_nodes_in_group("doorswitches").has(result["collider"]):
+				result["collider"].press.emit()
 			print(result["collider"])
 	# Add the gravity.
 	if not is_on_floor():

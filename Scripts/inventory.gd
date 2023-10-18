@@ -11,21 +11,13 @@ func _ready():
 	heldItem = get_child(index)
 
 func obtainItem(item):
-	item.get_parent().remove_child(item)
 	if itemDict[heldItem] == null:
+		item.get_parent().remove_child(item)
 		heldItem.add_child(item)
 		itemDict[heldItem] = item
+		item.global_position = heldItem.global_position
 	else:
-		var previousItem = itemDict[heldItem]
-		
-		print("helditem", heldItem)
-		print("itemdict[helditem]", previousItem)
-		print(heldItem.get_child(0))
-		heldItem.remove_child(heldItem.get_child(0))
-		get_parent().get_parent().add_child(previousItem)
-		get_child(index).global_position = item.global_position
-		
-	item.global_position = heldItem.global_position
+		pass
 
 func removeItem(item):
 	for child in get_children():

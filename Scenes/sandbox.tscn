@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ds25triw57p7p"]
+[gd_scene load_steps=9 format=3 uid="uid://ds25triw57p7p"]
 
 [ext_resource type="PackedScene" uid="uid://det4vhq1t7ov0" path="res://Scenes/Objects/grid_map.tscn" id="1_67gpl"]
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="2_e6eja"]
-[ext_resource type="Environment" uid="uid://df4oq6kaiqjj4" path="res://Resources/greenfog.tres" id="3_dbgfh"]
-[ext_resource type="PackedScene" uid="uid://l8llsts52nv6" path="res://Scenes/computerscreen.tscn" id="4_msqgk"]
+[ext_resource type="Environment" path="res://Resources/greenfog.tres" id="3_dbgfh"]
+[ext_resource type="PackedScene" uid="uid://br3v4uvklu41t" path="res://Scenes/computerscreen.tscn" id="4_msqgk"]
 [ext_resource type="PackedScene" uid="uid://gvxvaswgxqt3" path="res://Scenes/Items/key.tscn" id="5_m7yey"]
+[ext_resource type="PackedScene" uid="uid://cjdqtcuyp0tsi" path="res://Scenes/Objects/keycard_reader.tscn" id="6_preht"]
+[ext_resource type="PackedScene" uid="uid://dss2yxr6i24eq" path="res://Scenes/Objects/door.tscn" id="8_4vk86"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/keycard.tscn" id="8_bvbo6"]
 
 [node name="sandbox" type="Node3D"]
 
@@ -28,6 +31,27 @@ transform = Transform3D(1, 0, 0, 0, -0.275151, -0.961401, 0, 0.961401, -0.275151
 
 [node name="Key" parent="." instance=ExtResource("5_m7yey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.36365, 1.13362, -9.80669)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Key2" parent="." instance=ExtResource("5_m7yey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.53313, 1.13362, -9.80669)
+collision_layer = 2
+collision_mask = 2
+
+[node name="keycard" parent="." instance=ExtResource("8_bvbo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.70412, 1, -9.3819)
+
+[node name="door" parent="." instance=ExtResource("8_4vk86")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99809, 1, -11.8777)
+
+[node name="keycardReader" parent="door" groups=["doorswitches"] instance=ExtResource("6_preht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42783, 1.13084, 0.876371)
+requiredColor = Color(0, 1, 1, 1)
+
+[node name="keycardReader2" parent="door" groups=["doorswitches"] instance=ExtResource("6_preht")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.95372, 1.02422, -1.54101)
+requiredColor = Color(0, 1, 1, 1)
+
+[connection signal="press" from="door/keycardReader" to="door/keycardReader" method="_on_press"]
+[connection signal="press" from="door/keycardReader2" to="door/keycardReader2" method="_on_press"]
