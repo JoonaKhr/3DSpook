@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4uoohfr3vyaf"]
+[gd_scene load_steps=7 format=3 uid="uid://cl0s4y4pu18rq"]
 
 [ext_resource type="Material" uid="uid://jxt6it8qy3fl" path="res://Resources/Materials/m_enviro.tres" id="2_o6q26"]
-[ext_resource type="PackedScene" uid="uid://dt58177b7x1bb" path="res://Scenes/Objects/light_ceiling_tube.tscn" id="3_v1rn4"]
+[ext_resource type="PackedScene" uid="uid://reaefpve6luj" path="res://Scenes/Objects/light_ceiling_tube.tscn" id="3_v1rn4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qru0r"]
 resource_name = "Duck_Tex_0"

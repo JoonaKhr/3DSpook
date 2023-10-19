@@ -15,8 +15,12 @@ func _ready():
 			
 
 func unlockDoors():
-	pass
+	door.locked = false
+	unlockLight.material_override.emission = Color(0, 255, 0, 255)
 
+func readkeycard(card):
+	if card.color == requiredColor:
+		unlockDoors()
 
 func _on_press():
 	door.interact()

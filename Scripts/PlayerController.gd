@@ -44,6 +44,8 @@ func _physics_process(delta):
 	var result = raycastFromMouse()
 	if Input.is_action_just_pressed("mouse_left"):
 		if result:
+			if inventory.itemDict[inventory.heldItem] != null:
+				inventory.itemDict[inventory.heldItem].useItem(result["collider"])
 			if get_tree().get_nodes_in_group("lightswitches").has(result["collider"]):
 				result["collider"].press.emit()
 			if get_tree().get_nodes_in_group("pickupables").has(result["collider"]):
