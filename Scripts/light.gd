@@ -10,6 +10,7 @@ func _ready():
 
 
 func interact():
+# While the light is on start the flickering animation
 	if light.visible:
 		flickoff.stop()
 		light.visible = false
@@ -17,6 +18,6 @@ func interact():
 		flickoff.start()
 		light.visible = true
 
-
+# Play spooky flickering animations
 func _on_flickoff_timer_timeout():
 	$AnimationPlayer.play(animations.get_animation_Dict()[randi_range(0, animations.get_animation_Dict().size()-1)])

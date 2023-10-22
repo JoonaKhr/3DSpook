@@ -6,6 +6,7 @@ extends Node3D
 @export var locked = false
 var cardReaders = []
 
+# Get the keycard readers attached to this door and append them to a list for ease of access
 func _ready():
 	if open == false:
 		animation.seek(0.0, true)
@@ -13,6 +14,7 @@ func _ready():
 		if get_tree().get_nodes_in_group("doorswitches").has(child):
 			cardReaders.append(child)
 
+# Open or Close
 func interact():
 	if !open and !locked:
 		openDoor()
@@ -21,17 +23,21 @@ func interact():
 		closeDoor()
 		print("Closing doors")
 
+# Open the door
 func openDoor():
 	open = true
 	animation.play("door_open")
 
+# Close the door
 func closeDoor():
 	open = false
 	animation.play_backwards("door_open")
 
+# Automatic closing of the door after x seconds
 func _on_close_timer_timeout():
 	closeDoor()
 
+# Check if the animation is finished for color changing and door closing timer
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "door_open" and open == true:
 		$closeTimer.start()

@@ -4,12 +4,14 @@ var itemDict = {}
 var heldItem
 var index
 
+# Fill the inventory with null slots, set index to zero and helditem as the first null slot in inventory
 func _ready():
 	for child in get_children():
 		itemDict[child] = null
 	index = 0
 	heldItem = get_child(index)
 
+# Pickup an item if holding null
 func obtainItem(item):
 	if itemDict[heldItem] == null:
 		item.get_parent().remove_child(item)
@@ -19,6 +21,7 @@ func obtainItem(item):
 	else:
 		pass
 
+# Remove item (unused)
 func removeItem(item):
 	for child in get_children():
 		if child.get_child(0) == item:
@@ -26,6 +29,7 @@ func removeItem(item):
 	itemDict.erase(item)
 	item.queue_free()
 
+# Mousewheel changes held item
 func changeHeldItem(input):
 	if input == MOUSE_BUTTON_WHEEL_UP:
 		if index <= get_child_count():
