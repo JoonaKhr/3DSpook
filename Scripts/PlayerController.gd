@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var SPEED = 5.0
 @export var sprintMult = 1.5
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 3.5
 const RAY_LENGTH = 5
 var rot_x = 0
 var rot_y = 0
@@ -24,6 +24,12 @@ func _input(event):
 		rotate_y(-event.relative.x * 0.002)
 		$Pivot.rotate_x(-event.relative.y * 0.002)
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
+	
+	if Input.is_action_just_pressed("toggle_flashlight"):
+		if %flashlight.visible:
+			%flashlight.visible = false
+		else:
+			%flashlight.visible = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

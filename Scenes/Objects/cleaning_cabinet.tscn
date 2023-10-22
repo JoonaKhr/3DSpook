@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://nw3srbtvct25"]
+[gd_scene load_steps=9 format=3 uid="uid://dckec8po0r4yp"]
 
 [ext_resource type="Material" uid="uid://jxt6it8qy3fl" path="res://Resources/Materials/m_enviro.tres" id="2_ctol7"]
-[ext_resource type="PackedScene" uid="uid://b1c2k3f83wjd6" path="res://Scenes/Objects/cleaning_cabinet_door.tscn" id="3_dry5d"]
+[ext_resource type="PackedScene" uid="uid://cak1jpyul45cn" path="res://Scenes/Objects/cleaning_cabinet_door.tscn" id="3_dry5d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mo62"]
 resource_name = "Duck_Tex_0"
@@ -96,7 +96,7 @@ mesh = SubResource("ArrayMesh_hhm6x")
 skeleton = NodePath("")
 
 [node name="cleaningCabinetDoor" parent="cleaningCabinet" instance=ExtResource("3_dry5d")]
-transform = Transform3D(-0.766268, 0, 0.64252, 0, 1, 0, -0.64252, 0, -0.766268, 0, 0, 0)
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConcavePolygonShape3D_g32xj")
