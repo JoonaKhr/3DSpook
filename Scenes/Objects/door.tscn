@@ -37,3 +37,9 @@ script = ExtResource("1_d8irx")
 libraries = {
 "": SubResource("AnimationLibrary_mak3r")
 }
+
+[node name="closeTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="closeTimer" to="." method="_on_close_timer_timeout"]

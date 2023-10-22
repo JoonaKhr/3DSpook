@@ -62,3 +62,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477797, 0.66215, 0.439343)
 
 [node name="unlockLight" parent="." instance=ExtResource("3_tlkj2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.715297, 0.66215, 0.439343)
+
+[node name="Timer" type="Timer" parent="unlockLight"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="unlockLight/Timer" to="." method="_on_timer_timeout"]
