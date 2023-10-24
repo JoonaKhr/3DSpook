@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cg50y7hngbkvu"]
+[gd_scene load_steps=6 format=3 uid="uid://bofol7x7rgw4c"]
 
 [ext_resource type="Material" uid="uid://jxt6it8qy3fl" path="res://Resources/Materials/m_enviro.tres" id="2_olr2k"]
 
@@ -48,6 +48,7 @@ data = PackedVector3Array(0, 0.5, 0, -0.5, 1, 0, -0.5, 1, 0.25, 0, 0.5, 0, -0.5,
 
 [node name="door piece 1" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_olr2k")
+cast_shadow = 2
 mesh = SubResource("ArrayMesh_tguoc")
 skeleton = NodePath("")
 

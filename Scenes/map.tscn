@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://coxk8353dayk"]
+[gd_scene load_steps=11 format=3 uid="uid://coxk8353dayk"]
 
 [ext_resource type="PackedScene" uid="uid://det4vhq1t7ov0" path="res://Scenes/Objects/grid_map.tscn" id="1_hk2t8"]
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="2_g2hd0"]
@@ -8,19 +8,22 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/chair.tscn" id="5_dmqyx"]
 [ext_resource type="PackedScene" uid="uid://chq6voqfyvsg7" path="res://Scenes/Objects/computer_terminal.tscn" id="6_3rebe"]
 [ext_resource type="PackedScene" uid="uid://dckec8po0r4yp" path="res://Scenes/Objects/cleaning_cabinet.tscn" id="8_x2dq7"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/sleeping_pod_person.tscn" id="9_8n3c2"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_ggwhw"]
+density = 5.0
+albedo = Color(0, 0, 0, 1)
 
 [node name="map" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35.7971)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_g2hd0")]
 transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 54.5454, 3.96123, -7.6456)
+SPEED = 3.0
 metadata/_edit_group_ = true
 
 [node name="invslot1" parent="CharacterBody3D/inventory" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.317603, 0.15, -0.617592)
-
-[node name="CollisionShape3D" parent="CharacterBody3D" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MeshInstance3D" parent="CharacterBody3D" index="3"]
 visible = false
@@ -64,12 +67,38 @@ transform = Transform3D(-1.2, 0, -4.53027e-08, 0, 1.2, 0, 4.53027e-08, 0, -1.2, 
 transform = Transform3D(-4.83795e-08, -1.08757, -0.507142, -1.2, 9.68576e-08, -4.53027e-08, 7.25457e-08, 0.507142, -1.08757, 57.6, 3.6, -5.9)
 
 [node name="cleaningCabinet" parent="chief_office" instance=ExtResource("8_x2dq7")]
-transform = Transform3D(-1.2, 0, 1.04907e-07, 0, 1.2, 0, -1.04907e-07, 0, -1.2, 62.2, 3.04221, -8.1971)
+transform = Transform3D(-1.2, 0, 1.04907e-07, 0, 1.2, 0, -1.04907e-07, 0, -1.2, 61.9, 3.04221, -7.5971)
 
 [node name="cleaningCabinet2" parent="chief_office" instance=ExtResource("8_x2dq7")]
-transform = Transform3D(-1.2, 0, 1.04907e-07, 0, 1.2, 0, -1.04907e-07, 0, -1.2, 62.2, 3.04221, -7.3971)
+transform = Transform3D(-1.2, 0, 1.04907e-07, 0, 1.2, 0, -1.04907e-07, 0, -1.2, 61.9, 3.04221, -6.7971)
 
 [node name="cleaningCabinet3" parent="chief_office" instance=ExtResource("8_x2dq7")]
-transform = Transform3D(-1.2, 0, 1.04907e-07, 0, 1.2, 0, -1.04907e-07, 0, -1.2, 62.2, 3.04221, -6.5971)
+transform = Transform3D(-1.2, 0, 1.04907e-07, 0, 1.2, 0, -1.04907e-07, 0, -1.2, 61.9, 3.04221, -5.9971)
+
+[node name="cleaningCabinet4" parent="chief_office" instance=ExtResource("8_x2dq7")]
+transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 58.8, 3.04221, -1.4971)
+
+[node name="cleaningCabinet5" parent="chief_office" instance=ExtResource("8_x2dq7")]
+transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 58, 3.04221, -1.4971)
+
+[node name="cleaningCabinet6" parent="chief_office" instance=ExtResource("8_x2dq7")]
+transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 57.2, 3.04221, -1.4971)
+
+[node name="cleaningCabinet7" parent="chief_office" instance=ExtResource("8_x2dq7")]
+transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 61.2, 3.04221, -1.4971)
+
+[node name="cleaningCabinet8" parent="chief_office" instance=ExtResource("8_x2dq7")]
+transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 60.4, 3.04221, -1.4971)
+
+[node name="cleaningCabinet9" parent="chief_office" instance=ExtResource("8_x2dq7")]
+transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 59.6, 3.04221, -1.4971)
+
+[node name="sleepingPod_person" parent="chief_office" instance=ExtResource("9_8n3c2")]
+transform = Transform3D(0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, 0.766044, 72.8, 3, -20.4971)
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.5, 8)
+size = Vector3(4, 3, 11)
+material = SubResource("FogMaterial_ggwhw")
 
 [editable path="CharacterBody3D"]
