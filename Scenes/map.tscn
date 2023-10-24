@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://coxk8353dayk"]
+[gd_scene load_steps=13 format=3 uid="uid://coxk8353dayk"]
 
 [ext_resource type="PackedScene" uid="uid://det4vhq1t7ov0" path="res://Scenes/Objects/grid_map.tscn" id="1_hk2t8"]
+[ext_resource type="Script" path="res://Scripts/map.gd" id="1_tbn5i"]
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="2_g2hd0"]
 [ext_resource type="MeshLibrary" uid="uid://dpn5okgjtpvgv" path="res://meshlibrary_no_nav.tres" id="3_vb76p"]
 [ext_resource type="Environment" uid="uid://df4oq6kaiqjj4" path="res://Resources/greenfog.tres" id="4_dmtiy"]
@@ -11,14 +12,18 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/sleeping_pod_person.tscn" id="9_8n3c2"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_ggwhw"]
-density = 5.0
+density = 3.0
 albedo = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_injy4"]
+size = Vector3(4, 3, 3)
 
 [node name="map" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35.7971)
+script = ExtResource("1_tbn5i")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_g2hd0")]
-transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 54.5454, 3.96123, -7.6456)
+[node name="CharacterBody3D" parent="." groups=["player"] instance=ExtResource("2_g2hd0")]
+transform = Transform3D(-0.25, 0, 2.18556e-08, 0, 0.25, 0, -2.18556e-08, 0, -0.25, -6.4546, 3.96123, -6.6456)
 SPEED = 3.0
 metadata/_edit_group_ = true
 
@@ -100,5 +105,17 @@ transform = Transform3D(0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, 0.766044, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.5, 8)
 size = Vector3(4, 3, 11)
 material = SubResource("FogMaterial_ggwhw")
+
+[node name="exit_teleport" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4, -1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="exit_teleport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 12)
+shape = SubResource("BoxShape3D_injy4")
+
+[node name="teleport" type="Marker3D" parent="exit_teleport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 4.33492)
+
+[connection signal="body_entered" from="exit_teleport" to="." method="_on_exit_teleport_body_entered"]
 
 [editable path="CharacterBody3D"]
