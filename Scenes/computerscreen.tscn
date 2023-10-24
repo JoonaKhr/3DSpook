@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://l8llsts52nv6"]
 
 [ext_resource type="Script" path="res://Scripts/computerscreen.gd" id="1_0ouqo"]
-[ext_resource type="FontFile" uid="uid://dc03unw7itkjp" path="res://Resources/Mx437_IBM_VGA_9x16-2x.ttf" id="1_r0d10"]
 [ext_resource type="Shader" path="res://Resources/crt.gdshader" id="2_2pssq"]
+[ext_resource type="FontFile" uid="uid://bhu4gapyylt33" path="res://Resources/Mx437_IBM_VGA_9x16.ttf" id="2_ahbag"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_f8t1s"]
 
@@ -19,8 +19,8 @@ texture_repeat = false
 
 [sub_resource type="LabelSettings" id="LabelSettings_j3gmr"]
 line_spacing = 4.0
-font = ExtResource("1_r0d10")
-font_size = 18
+font = ExtResource("2_ahbag")
+font_size = 24
 font_color = Color(0, 0.921569, 0.113725, 1)
 shadow_size = 0
 
@@ -62,9 +62,8 @@ canvas_item_default_texture_filter = 0
 [node name="Label" type="Label" parent="SubViewport"]
 offset_left = 64.0
 offset_top = 64.0
-offset_right = 607.0
-offset_bottom = 337.0
-scale = Vector2(0.8, 1.2)
+offset_right = 388.0
+offset_bottom = 179.0
 text = "Use WASD to move
 Left Click to interact
 Mouse Wheel to cycle through inventory"
@@ -76,8 +75,7 @@ unique_name_in_owner = true
 offset_left = 64.0
 offset_top = 176.0
 offset_right = 104.0
-offset_bottom = 202.0
-scale = Vector2(0.8, 1.2)
+offset_bottom = 204.0
 text = "█"
 label_settings = SubResource("LabelSettings_j3gmr")
 

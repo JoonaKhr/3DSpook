@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://boqcldsrhupj6"]
 
-[ext_resource type="FontFile" uid="uid://fq1ry0peb8j6" path="res://Resources/WitchkinFree.otf" id="1_f4rkp"]
+[ext_resource type="FontFile" uid="uid://bhu4gapyylt33" path="res://Resources/Mx437_IBM_VGA_9x16.ttf" id="1_wj1g6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6jsko"]
 
@@ -11,8 +11,10 @@ bg_color = Color(0, 0, 0.0588235, 1)
 bg_color = Color(0.0392157, 0.0392157, 0.156863, 0.607843)
 
 [resource]
-default_font = ExtResource("1_f4rkp")
+default_font = ExtResource("1_wj1g6")
 default_font_size = 30
+Button/colors/font_hover_color = Color(1.78084e-06, 0.921996, 0.113586, 1)
+Button/colors/font_pressed_color = Color(1.78084e-06, 0.921996, 0.113586, 1)
 Button/styles/focus = SubResource("StyleBoxEmpty_6jsko")
 Button/styles/normal = SubResource("StyleBoxFlat_vq3gi")
 Panel/styles/panel = SubResource("StyleBoxFlat_hnyc3")

@@ -28,7 +28,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(0.3, 2),
 "update": 0,
-"values": [Vector2(328, 140), Vector2(50, 140)]
+"values": [Vector2(424, 128), Vector2(224, 128)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -90,15 +90,15 @@ scale_amount_max = 2.0
 
 [node name="BtnCont" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.285
-anchor_top = 0.222
-anchor_right = 0.722
-anchor_bottom = 0.716
-offset_left = -0.320007
-offset_top = -3.856
-offset_right = 0.271484
-offset_bottom = -4.01602
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -196.0
+offset_right = 152.0
+offset_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1

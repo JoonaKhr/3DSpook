@@ -1,30 +1,49 @@
-extends StaticBody3D
+extends Node3D
 
 @onready var animation = $AnimationPlayer
 
-var open = false
+@export var open: bool = false
 @export var locked = false
-@export var requiredItem: PackedScene
+var cardReaders = []
 
+# Get the keycard readers attached to this door and append them to a list for ease of access
 func _ready():
-    var openAnimation = animation.get_animation("open")
-    if rotation_degrees.y != 90:
-        openAnimation.track_set_key_value(0, 0, Vector3(transform.origin.x, transform.origin.y, transform.origin.z))
-        openAnimation.track_set_key_value(0, 1, Vector3(transform.origin.x, transform.origin.y, (transform.origin.z + 10)))
-    else:
-        openAnimation.track_set_key_value(0, 0, Vector3(transform.origin.x, transform.origin.y, transform.origin.z))
-        openAnimation.track_set_key_value(0, 1, Vector3(transform.origin.x+10, transform.origin.y, transform.origin.z))
+	if open == false:
+		animation.seek(0.0, true)
+	for child in self.get_children():
+		if get_tree().get_nodes_in_group("doorswitches").has(child):
+			cardReaders.append(child)
 
+# Open or Close
 func interact():
-    if !open and !locked:
-        open = true
-        animation.play("open")
-    elif open:
-        open = false
-        animation.play_backwards("open")
+	if !open and !locked:
+		openDoor()
+		print("Opening doors")
+	elif open:
+		closeDoor()
+		print("Closing doors")
 
-func unlockDoor(item):
-    if item == requiredItem:
-        locked = false
-    else:
-        print("Requires item: ", requiredItem.iName)
+# Open the door
+func openDoor():
+	open = true
+	animation.play("door_open")
+
+# Close the door
+func closeDoor():
+	open = false
+	animation.play_backwards("door_open")
+
+# Automatic closing of the door after x seconds
+func _on_close_timer_timeout():
+	closeDoor()
+
+# Check if the animation is finished for color changing and door closing timer
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "door_open" and open == true:
+		$closeTimer.start()
+		for child in cardReaders:
+			child.openLight()
+	else:
+		$closeTimer.stop()
+		for child in cardReaders:
+			child.lockDoors()

@@ -1,15 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://hprpgh7hgqt5"]
+[gd_scene load_steps=5 format=3 uid="uid://dij5bs6p5p8ny"]
 
-[ext_resource type="Material" uid="uid://bb8htub3jjwsw" path="res://Resources/Materials/m_indicatorLight.tres" id="2_qppqv"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5pj1"]
-resource_name = "Duck_Tex_0"
-transparency = 2
-alpha_scissor_threshold = 0.01
-alpha_antialiasing_mode = 0
-vertex_color_use_as_albedo = true
-texture_filter = 0
-texture_repeat = false
+[ext_resource type="Material" uid="uid://dri06brr15clq" path="res://Resources/Materials/m_indicatorLight.tres" id="2_qppqv"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_yugaq"]
 _surfaces = [{
@@ -32,7 +23,7 @@ _surfaces = [{
 "format": 4119,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0, 6, 0, 8, 0, 7, 0, 9, 0, 11, 0, 10, 0),
-"material": SubResource("StandardMaterial3D_o5pj1"),
+"material": ExtResource("2_qppqv"),
 "name": "Duck_Tex_0",
 "primitive": 3,
 "vertex_count": 12,
