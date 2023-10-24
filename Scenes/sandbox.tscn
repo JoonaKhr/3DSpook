@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://ds25triw57p7p"]
+[gd_scene load_steps=11 format=3 uid="uid://ds25triw57p7p"]
 
 [ext_resource type="PackedScene" uid="uid://det4vhq1t7ov0" path="res://Scenes/Objects/grid_map.tscn" id="1_67gpl"]
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="2_e6eja"]
-[ext_resource type="Environment" path="res://Resources/greenfog.tres" id="3_dbgfh"]
+[ext_resource type="Environment" uid="uid://df4oq6kaiqjj4" path="res://Resources/greenfog.tres" id="3_dbgfh"]
 [ext_resource type="PackedScene" uid="uid://br3v4uvklu41t" path="res://Scenes/computerscreen.tscn" id="4_msqgk"]
 [ext_resource type="PackedScene" uid="uid://gvxvaswgxqt3" path="res://Scenes/Items/key.tscn" id="5_m7yey"]
 [ext_resource type="PackedScene" uid="uid://cjdqtcuyp0tsi" path="res://Scenes/Objects/keycard_reader.tscn" id="6_preht"]
 [ext_resource type="Script" path="res://Scripts/item.gd" id="7_iuipy"]
 [ext_resource type="PackedScene" uid="uid://dss2yxr6i24eq" path="res://Scenes/Objects/door.tscn" id="8_4vk86"]
 [ext_resource type="PackedScene" uid="uid://bub0r3q257xpe" path="res://Scenes/Objects/keycard.tscn" id="8_bvbo6"]
+[ext_resource type="PackedScene" uid="uid://cl0s4y4pu18rq" path="res://Scenes/Objects/light_ceiling.tscn" id="10_pgtob"]
 
 [node name="sandbox" type="Node3D"]
 
@@ -52,6 +53,13 @@ requiredColor = Color(0, 1, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.66061, 1, -9.43432)
 script = ExtResource("7_iuipy")
 color = Color(0, 1, 0, 1)
+
+[node name="lightCeiling" parent="." instance=ExtResource("10_pgtob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64228, 4, -8.37221)
+isLightOn = true
+
+[node name="lightCeiling2" parent="." instance=ExtResource("10_pgtob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14087, 4, -8.31456)
 
 [connection signal="press" from="door/keycardReader" to="door/keycardReader" method="_on_press"]
 [connection signal="press" from="keycard" to="keycard" method="_on_press"]
