@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ctuhs4jprvrrb"]
+
+[ext_resource type="Shader" path="res://Resources/Shaders/s_pulsate.gdshader" id="1_ng3c2"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ng3c2")
