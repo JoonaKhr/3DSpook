@@ -17,7 +17,7 @@ func obtainItem(item):
 		item.get_parent().remove_child(item)
 		heldItem.add_child(item)
 		itemDict[heldItem] = item
-		item.global_position = heldItem.global_position
+		item.position = heldItem.position
 	else:
 		pass
 
@@ -31,6 +31,7 @@ func removeItem(item):
 
 # Mousewheel changes held item
 func changeHeldItem(input):
+	var previousHeldItem = heldItem
 	if input == MOUSE_BUTTON_WHEEL_UP:
 		if index <= get_child_count():
 			index += 1
@@ -42,4 +43,7 @@ func changeHeldItem(input):
 		if index < 0:
 			index = get_child_count()-1
 	heldItem = get_child(index)
+	previousHeldItem.global_position = previousHeldItem.get_parent().global_position
+	heldItem.global_position = $hand.position
+
 	print(itemDict[heldItem])

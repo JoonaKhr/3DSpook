@@ -8,7 +8,7 @@ var isLightOn = false
 
 func _ready():
 	isLightOn = get_parent().state
-	flickoff.wait_time = randf_range(1, 5)
+	flickoff.wait_time = randf_range(120, 240)
 	if isLightOn:
 		flickoff.start()
 		light.visible = true
