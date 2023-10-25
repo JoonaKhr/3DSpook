@@ -149,7 +149,6 @@ shape = SubResource("ConcavePolygonShape3D_dy4r3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.200382, -0.437332)
-light_energy = 2.0
 shadow_enabled = true
 omni_range = 15.0
 
@@ -159,3 +158,5 @@ omni_range = 15.0
 libraries = {
 "": SubResource("AnimationLibrary_tbqm2")
 }
+
+[connection signal="timeout" from="FlickoffTimer" to="." method="_on_flickoff_timer_timeout"]

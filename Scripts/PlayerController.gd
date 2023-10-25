@@ -54,11 +54,7 @@ func _physics_process(delta):
 		if result:
 			if inventory.itemDict[inventory.heldItem] != null:
 				inventory.itemDict[inventory.heldItem].useItem(result["collider"])
-			if get_tree().get_nodes_in_group("lightswitches").has(result["collider"]):
-				result["collider"].press.emit()
-			if get_tree().get_nodes_in_group("pickupables").has(result["collider"]):
-				result["collider"].press.emit()
-			if get_tree().get_nodes_in_group("doorswitches").has(result["collider"]):
+			if result["collider"].has_signal("press"):
 				result["collider"].press.emit()
 			print(result["collider"])
 # Add the gravity.

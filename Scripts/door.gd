@@ -8,8 +8,9 @@ var cardReaders = []
 
 # Get the keycard readers attached to this door and append them to a list for ease of access
 func _ready():
+	animation.set_assigned_animation("door_open")
 	if open == false:
-		animation.seek(0.0, true)
+		animation.advance(0.0)
 	for child in self.get_children():
 		if get_tree().get_nodes_in_group("doorswitches").has(child):
 			cardReaders.append(child)

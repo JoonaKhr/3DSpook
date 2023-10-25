@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtow818sjl2bh"]
+[gd_scene load_steps=5 format=3 uid="uid://dtow818sjl2bh"]
 
 [ext_resource type="Material" uid="uid://jxt6it8qy3fl" path="res://Resources/Materials/m_enviro.tres" id="1_xtnbj"]
 
@@ -41,15 +41,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0mgso")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_u26mk"]
-points = PackedVector3Array(0, 0.05, 0.05, 0, 0.05, 0.025, -0.0125, 0.0375, 0.05, 0.0125, 0.0375, 0.05, 0.0125, 0.0375, 0.025, -0.0125, 0.0375, 0.025, 0, 0.025, 0.05, 0, 0.025, 0.025)
-
 [node name="switch_nub" type="StaticBody3D"]
 
 [node name="switch_nub" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_xtnbj")
 mesh = SubResource("ArrayMesh_8jy74")
 skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_u26mk")

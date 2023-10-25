@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://4f4ml7qno7ee"]
+[gd_scene load_steps=7 format=3 uid="uid://4f4ml7qno7ee"]
 
 [ext_resource type="PackedScene" uid="uid://b8eo6272c1txt" path="res://Scenes/Objects/switch_base.tscn" id="1_htl80"]
+[ext_resource type="Script" path="res://Scripts/button.gd" id="1_k4wq8"]
 [ext_resource type="PackedScene" uid="uid://dtow818sjl2bh" path="res://Scenes/Objects/switch_nub.tscn" id="2_28p6c"]
 
 [sub_resource type="Animation" id="Animation_sjry8"]
@@ -19,8 +20,12 @@ _data = {
 "switch_toggle": SubResource("Animation_sjry8")
 }
 
-[node name="switch" type="Node3D"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x3vjb"]
+points = PackedVector3Array(-0.025, 0.025, 0, 0, 0, 0, -0.025, 0.025, 0.025, -0.025, 0.075, 0, 0, 0, 0.025, 0.025, 0.025, 0, -0.025, 0.075, 0.025, 0, 0.1, 0, 0.025, 0.025, 0.025, 0.025, 0.075, 0, 0, 0.1, 0.025, 0.025, 0.075, 0.025)
+
+[node name="switch" type="StaticBody3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_k4wq8")
 
 [node name="switch_base" parent="." instance=ExtResource("1_htl80")]
 
@@ -30,3 +35,8 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_nryrt")
 }
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_x3vjb")
+
+[connection signal="press" from="." to="." method="_on_press"]
