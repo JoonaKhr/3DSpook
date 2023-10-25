@@ -5,6 +5,9 @@ extends Node3D
 @export var color: Color
 signal press
 
+func _ready():
+	$Mesh2.material_override.albedo_color = color
+
 #Pickup item if holding nothing at all ( nothing at all~ )
 func pickupItem():
 	print("Picked up: ", iname)

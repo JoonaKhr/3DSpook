@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bub0r3q257xpe"]
+[gd_scene load_steps=7 format=3 uid="uid://bub0r3q257xpe"]
 
+[ext_resource type="Script" path="res://Scripts/item.gd" id="1_4kq0j"]
 [ext_resource type="Material" uid="uid://epc5qsqto3aw" path="res://Resources/Materials/m_keycard.tres" id="2_1uev8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cp88"]
@@ -47,6 +48,7 @@ points = PackedVector3Array(-0.1, 0, -0.025, -0.1, 0, 0, -0.1, 0.19998, -0.025, 
 [node name="keycard" type="StaticBody3D"]
 collision_layer = 2
 collision_mask = 2
+script = ExtResource("1_4kq0j")
 
 [node name="Mesh2" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_1uev8")
@@ -55,3 +57,5 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_3o4h4")
+
+[connection signal="press" from="." to="." method="_on_press"]
