@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/sleeping_pod_person.tscn" id="9_8n3c2"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_ggwhw"]
-density = 3.0
+density = 2.5
 albedo = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_injy4"]
@@ -102,7 +102,7 @@ transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 
 transform = Transform3D(0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, 0.766044, 72.8, 3, -20.4971)
 
 [node name="FogVolume" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.5, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.5, 7.5)
 size = Vector3(4, 3, 11)
 material = SubResource("FogMaterial_ggwhw")
 
