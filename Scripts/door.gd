@@ -12,7 +12,7 @@ func _ready():
 	if open == false:
 		animation.advance(0.0)
 	for child in self.get_children():
-		if get_tree().get_nodes_in_group("doorswitches").has(child):
+		if get_tree().get_nodes_in_group("reader").has(child):
 			cardReaders.append(child)
 
 # Open or Close

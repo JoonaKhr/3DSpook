@@ -34,7 +34,7 @@ transform = Transform3D(1, 0, 0, 0, -0.275151, -0.961401, 0, 0.961401, -0.275151
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99809, 1, -11.8777)
 locked = true
 
-[node name="keycardReader" parent="door" groups=["doorswitches"] instance=ExtResource("6_preht")]
+[node name="keycardReader" parent="door" instance=ExtResource("6_preht")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18088, 1.09857, 0.8777)
 requiredColor = Color(0, 1, 0, 1)
 
@@ -55,5 +55,3 @@ color = Color(1, 0, 0, 1)
 [node name="keycard2" parent="." instance=ExtResource("8_bvbo6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.57496, 1, -9.42818)
 color = Color(0, 1, 0, 1)
-
-[connection signal="press" from="door/keycardReader" to="door/keycardReader" method="_on_press"]

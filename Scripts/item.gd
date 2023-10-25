@@ -15,7 +15,7 @@ func pickupItem():
 
 # Use item on target currently only useful for keycards
 func useItem(target):
-	if get_tree().get_nodes_in_group("doorswitches").has(target):
+	if get_tree().get_nodes_in_group("reader").has(target):
 		target.readkeycard(self)
 	print("Trying to use item ", iname, " on ", target)
 

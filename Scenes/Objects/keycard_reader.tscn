@@ -46,7 +46,7 @@ shadow_mesh = SubResource("ArrayMesh_wkset")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_prwb6"]
 points = PackedVector3Array(0.9, 0.9, 0.45, 0.9, 0.9, 0, 0, 0.9, 0.45, 0.9, -4.996e-17, 0.45, 0.9, -4.996e-17, 0, 0, 0.9, 0, 0, -4.996e-17, 0.45, 0, -4.996e-17, 0)
 
-[node name="keycardReader" type="StaticBody3D"]
+[node name="keycardReader" type="StaticBody3D" groups=["reader"]]
 script = ExtResource("1_mlixy")
 
 [node name="keycardReader" type="MeshInstance3D" parent="."]
@@ -67,4 +67,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.715297, 0.66215, 0.439343)
 wait_time = 0.5
 one_shot = true
 
+[connection signal="press" from="." to="." method="_on_press"]
 [connection signal="timeout" from="unlockLight/Timer" to="." method="_on_timer_timeout"]
