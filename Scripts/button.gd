@@ -19,6 +19,7 @@ func _ready():
 
 # Light interaction
 func _on_press():
+	$sfx.play()
 	for light in lights:
 		if state:
 			animationplayer.play_backwards("switch_toggle")
