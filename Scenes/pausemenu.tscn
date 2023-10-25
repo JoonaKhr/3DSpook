@@ -3,12 +3,11 @@
 [ext_resource type="Theme" uid="uid://boqcldsrhupj6" path="res://default_theme.tres" id="1_0x5o3"]
 [ext_resource type="Script" path="res://Scripts/pausemenu.gd" id="2_4djrw"]
 [ext_resource type="PackedScene" uid="uid://dlvvc6xxkthxq" path="res://Scenes/Objects/volume.tscn" id="3_ylkwo"]
-[ext_resource type="AudioStream" uid="uid://bba02f6mmvqbo" path="res://Resources/SFX/Update Sine.ogg" id="4_5n300"]
-[ext_resource type="AudioStream" uid="uid://yerj1h6istbe" path="res://Resources/SFX/Accepting Key.ogg" id="5_1x4ol"]
+[ext_resource type="AudioStream" uid="uid://bba02f6mmvqbo" path="res://Resources/SFX/menu_button.ogg" id="4_av4nw"]
+[ext_resource type="AudioStream" uid="uid://yerj1h6istbe" path="res://Resources/SFX/menu_apply.ogg" id="5_yunxf"]
 
 [sub_resource type="Animation" id="Animation_axrf0"]
 resource_name = "settings"
-length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -16,7 +15,7 @@ tracks/0/path = NodePath("Panel/BtnCont:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(0.3, 2),
 "update": 0,
 "values": [Vector2(384, 128), Vector2(70, 128)]
@@ -28,7 +27,7 @@ tracks/1/path = NodePath("Panel/Panel:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [false, true]
@@ -40,7 +39,7 @@ tracks/2/path = NodePath("Panel/Panel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.6, 1.2, 1.5),
+"times": PackedFloat32Array(0.3, 0.6, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.301961), Color(1, 1, 1, 1)]
@@ -53,6 +52,7 @@ _data = {
 
 [node name="pausemenu" type="Control"]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,6 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0x5o3")
 script = ExtResource("2_4djrw")
+menu = "res://Scenes/menu.tscn"
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -168,11 +169,11 @@ libraries = {
 }
 
 [node name="button" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_5n300")
+stream = ExtResource("4_av4nw")
 bus = &"Sfx"
 
 [node name="apply" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_1x4ol")
+stream = ExtResource("5_yunxf")
 bus = &"Sfx"
 
 [connection signal="pressed" from="Panel/BtnCont/Continue" to="." method="_on_continue_pressed"]

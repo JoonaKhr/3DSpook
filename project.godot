@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.1", "Forward Plus")
 boot_splash/image="res://Resources/Textures/spookybg.png"
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [filesystem]
 
 import/blender/enabled=false

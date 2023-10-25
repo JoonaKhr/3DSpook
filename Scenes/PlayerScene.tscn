@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c0diii2blledv"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_c4xhs"]
-[ext_resource type="PackedScene" path="res://Scenes/pausemenu.tscn" id="2_c0kcq"]
+[ext_resource type="PackedScene" uid="uid://bqy33rwx6p2gu" path="res://Scenes/pausemenu.tscn" id="2_c0kcq"]
 [ext_resource type="PackedScene" uid="uid://huhgi0dcuejl" path="res://Scenes/inventory.tscn" id="2_cmbys"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0j8gy"]
@@ -32,8 +32,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133858, 0.15, -0.601)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.381306, 0.15, -0.619)
 
 [node name="pausemenu" parent="." instance=ExtResource("2_c0kcq")]
-visible = false
-menu = "res://Scenes/menu.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_0j8gy")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://4f4ml7qno7ee"]
+[gd_scene load_steps=8 format=3 uid="uid://4f4ml7qno7ee"]
 
 [ext_resource type="PackedScene" uid="uid://b8eo6272c1txt" path="res://Scenes/Objects/switch_base.tscn" id="1_htl80"]
 [ext_resource type="Script" path="res://Scripts/button.gd" id="1_k4wq8"]
 [ext_resource type="PackedScene" uid="uid://dtow818sjl2bh" path="res://Scenes/Objects/switch_nub.tscn" id="2_28p6c"]
+[ext_resource type="AudioStream" uid="uid://c5yv4wn1nmqdf" path="res://Resources/SFX/switch.ogg" id="4_00ecd"]
 
 [sub_resource type="Animation" id="Animation_sjry8"]
 resource_name = "switch_toggle"
@@ -38,5 +39,9 @@ libraries = {
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_x3vjb")
+
+[node name="sfx" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_00ecd")
+bus = &"Sfx"
 
 [connection signal="press" from="." to="." method="_on_press"]

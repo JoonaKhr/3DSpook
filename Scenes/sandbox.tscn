@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://det4vhq1t7ov0" path="res://Scenes/Objects/grid_map.tscn" id="1_67gpl"]
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="2_e6eja"]
 [ext_resource type="Environment" uid="uid://df4oq6kaiqjj4" path="res://Resources/greenfog.tres" id="3_dbgfh"]
-[ext_resource type="PackedScene" uid="uid://br3v4uvklu41t" path="res://Scenes/computerscreen.tscn" id="4_msqgk"]
+[ext_resource type="PackedScene" uid="uid://l8llsts52nv6" path="res://Scenes/computerscreen.tscn" id="4_msqgk"]
 [ext_resource type="PackedScene" uid="uid://cjdqtcuyp0tsi" path="res://Scenes/Objects/keycard_reader.tscn" id="6_preht"]
 [ext_resource type="PackedScene" uid="uid://dss2yxr6i24eq" path="res://Scenes/Objects/door.tscn" id="8_4vk86"]
 [ext_resource type="PackedScene" uid="uid://bub0r3q257xpe" path="res://Scenes/Items/keycard.tscn" id="8_bvbo6"]

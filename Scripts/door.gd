@@ -27,11 +27,13 @@ func interact():
 # Open the door
 func openDoor():
 	open = true
+	$door_open.play()
 	animation.play("door_open")
 
 # Close the door
 func closeDoor():
 	open = false
+	$door_close.play()
 	animation.play_backwards("door_open")
 
 # Automatic closing of the door after x seconds

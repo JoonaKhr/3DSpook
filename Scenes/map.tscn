@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://coxk8353dayk"]
+[gd_scene load_steps=13 format=3 uid="uid://coxk8353dayk"]
 
 [ext_resource type="PackedScene" uid="uid://det4vhq1t7ov0" path="res://Scenes/Objects/grid_map.tscn" id="1_hk2t8"]
 [ext_resource type="Script" path="res://Scripts/map.gd" id="1_tbn5i"]
@@ -9,13 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://chq6voqfyvsg7" path="res://Scenes/Objects/computer_terminal.tscn" id="6_3rebe"]
 [ext_resource type="PackedScene" uid="uid://dckec8po0r4yp" path="res://Scenes/Objects/cleaning_cabinet.tscn" id="8_x2dq7"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/sleeping_pod_person.tscn" id="9_8n3c2"]
-
-[sub_resource type="FogMaterial" id="FogMaterial_ggwhw"]
-density = 2.5
-albedo = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://fqwrra03hco2" path="res://Scenes/Objects/sleeping_pod.tscn" id="10_q174t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_injy4"]
 size = Vector3(4, 3, 3)
+
+[sub_resource type="FogMaterial" id="FogMaterial_ggwhw"]
+density = 2.0
+albedo = Color(0, 0, 0, 1)
 
 [node name="map" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35.7971)
@@ -45,9 +46,6 @@ data = {
 "cells": PackedInt32Array(65536, 65533, 1048582, 65537, 65532, 7, 131071, 65532, 1048583, 131071, 65534, 655367, 65537, 65534, 1441799, 65537, 65533, 1441800, 131071, 65533, 1048584, 65536, 65532, 8, 65536, 65534, 655368, 65536, 65535, 655360, 65536, 0, 655361, 65538, 65533, 1441792, 65540, 65533, 1441792, 65541, 65533, 1441792, 65539, 65533, 4, 65539, 65534, 10, 65539, 65532, 655369, 65540, 65532, 1441799, 65540, 65535, 1441799, 65539, 65535, 655367, 65539, 65531, 1048583, 65540, 65534, 7, 65542, 65534, 10, 65542, 65532, 655369, 65542, 65535, 655367, 65542, 65531, 1048583, 65543, 65531, 7, 65543, 65534, 7, 65543, 65535, 1441799, 65543, 65532, 1441799, 65542, 65533, 1441796, 65543, 65533, 1441792, 65544, 65533, 1441792, 65545, 65533, 1441792, 65546, 65534, 655367, 65547, 65534, 1441799, -65526, 65532, 655360, -65526, 65533, 1441794, -65527, 65533, 1441792, -65528, 65533, 1441792, 131070, 65533, 1048576, -65528, 65534, 1441793, -65529, 65533, 1048579, -65529, 65532, 0, 7, 65530, 655365, 65542, 65529, 1441797, -65529, 65531, 655360, 65541, 65529, 1048576, 65540, 65530, 0, 65540, 65531, 9, 65540, 65529, 3, 65536, 65531, 655360, 65539, 65529, 655362, 65537, 65530, 1048586, 65538, 65530, 1441799, 65538, 65529, 1441804, 65537, 65529, 1048588, 65536, 65527, 1048579, 65537, 65527, 1048576, 65539, 65527, 2, 65538, 65527, 1441792, 65536, 65528, 655360, 65537, 65528, 1048583, 65538, 65528, 7, 65539, 65528, 1048579, 65540, 65528, 1441797, -65529, 65534, 655362, 5, 65528, 1441794, 5, 65527, 2, 131071, 65530, 1441802, 131071, 65529, 1441801, 131071, 65528, 7, 131071, 65531, 1441799, 131069, 65531, 655367, 131069, 65528, 1048583, 131070, 65531, 655372, 131070, 65530, 12, 131070, 65528, 12, 131070, 65529, 655372, 131069, 65530, 1048583, 131069, 65529, 655367, 65536, 65530, 655364, 65536, 65529, 1441795, 131069, 65533, 1441792, 131068, 65533, 655363, 131068, 65532, 5, 65532, 65531, 2, 65531, 65531, 1048578, 65531, 65532, 655365, -5, 65533, 655362, -4, 65533, 1441794, -4, 65532, 5, -65540, 65531, 0, -65540, 65530, 0, -65540, 65529, 3, -65541, 65529, 1441805, -65539, 65529, 1048576, -65537, 65529, 1048590, -131072, 65529, 1048590, -131071, 65529, 1048590, -131071, 65530, 655372, -65537, 65530, 655372, -131072, 65530, 655372, -65538, 65527, 1048583, -65538, 65528, 1048588, -65538, 65529, 1048584, -65538, 65530, 655367, -131070, 65530, 1441799, -131070, 65529, 1441804, -131072, 65527, 12, -131071, 65527, 12, -131070, 65528, 1441804, -65537, 65527, 12, -65533, 65528, 655362, -65532, 65528, 1441797, -131067, 65528, 1441794, 4, 65527, 1048581, -65533, 65527, 1048578, -131067, 65527, 655360, -131067, 65526, 2, -131070, 65527, 9, -131070, 65526, 1048578, -131068, 65526, 1048576, -131069, 65526, 1048576, 131067, 65533, 1441792, 131066, 65533, 1441796, 131065, 65533, 1441796, 131064, 65533, 1441796, 131065, 65534, 13, 131065, 65532, 655373, 131066, 65534, 13, 131064, 65534, 13, 131064, 65532, 655373, 131066, 65532, 655373, 131063, 65533, 1048579, 131063, 65534, 13, 131063, 65532, 655373, 65536, 65526, 1441795, 131071, 65527, 13, 131071, 65525, 655373, 131071, 65526, 1441796, 65536, 65525, 655369, 131070, 65526, 1048579, 131070, 65525, 655373, 131070, 65527, 13, 65537, 65525, 1441799, 65536, 65524, 1048583, 65537, 65524, 7, 65546, 65533, 1048585, 65547, 65533, 9, 65547, 65530, 5, 11, 65529, 2, 7, 65529, 3, 10, 65529, 3, 9, 65529, 1441792, 8, 65529, 1441792, 10, 65530, 655365, -65526, 65531, 655360, 65547, 65532, 1048578, 65548, 65532, 1048586, 65548, 65531, 1048585, 65547, 65531, 655362, 65549, 65531, 7, 65549, 65532, 1441799)
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("4_dmtiy")
 
 [node name="chief_office" type="Node3D" parent="."]
 
@@ -96,13 +94,83 @@ transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 
 [node name="cleaningCabinet9" parent="chief_office" instance=ExtResource("8_x2dq7")]
 transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 59.6, 3.04221, -1.4971)
 
-[node name="sleepingPod_person" parent="chief_office" instance=ExtResource("9_8n3c2")]
+[node name="sleepingPod_person" parent="chief_office" groups=["pod_full"] instance=ExtResource("9_8n3c2")]
 transform = Transform3D(0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, 0.766044, 72.8, 3, -20.4971)
 
-[node name="FogVolume" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4.5, 7.5)
-size = Vector3(4, 3, 11)
-material = SubResource("FogMaterial_ggwhw")
+[node name="pod_room" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28.4)
+
+[node name="sleepingPod" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.08985, 3, -11.1079)
+
+[node name="sleepingPod2" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.08985, 3, -9.10789)
+
+[node name="sleepingPod3" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.08985, 3, -7.10789)
+
+[node name="sleepingPod4" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.08985, 3, -5.10789)
+
+[node name="sleepingPod5" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.08985, 3, -3.10789)
+
+[node name="sleepingPod6" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.08985, 3, -1.10789)
+
+[node name="sleepingPod7" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.08985, 3, 0.0921059)
+
+[node name="sleepingPod8" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.08985, 3, -1.90789)
+
+[node name="sleepingPod9" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.08985, 3, -3.90789)
+
+[node name="sleepingPod10" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.08985, 3, -5.90789)
+
+[node name="sleepingPod11" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.08985, 3, -7.90789)
+
+[node name="sleepingPod12" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.08985, 3, -9.90789)
+
+[node name="sleepingPod13" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.48985, 3, -11.1079)
+
+[node name="sleepingPod14" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.48985, 3, -9.10789)
+
+[node name="sleepingPod15" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.48985, 3, -7.10789)
+
+[node name="sleepingPod16" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.48985, 3, -5.10789)
+
+[node name="sleepingPod17" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.48985, 3, -3.10789)
+
+[node name="sleepingPod18" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.48985, 3, -1.10789)
+
+[node name="sleepingPod19" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.68985, 3, 0.0921059)
+
+[node name="sleepingPod20" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.68985, 3, -1.90789)
+
+[node name="sleepingPod21" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.68985, 3, -3.90789)
+
+[node name="sleepingPod22" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.68985, 3, -5.90789)
+
+[node name="sleepingPod23" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.68985, 3, -7.90789)
+
+[node name="sleepingPod24" parent="pod_room" instance=ExtResource("10_q174t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.68985, 3, -9.90789)
 
 [node name="exit_teleport" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4, -1)
@@ -113,6 +181,14 @@ shape = SubResource("BoxShape3D_injy4")
 
 [node name="teleport" type="Marker3D" parent="exit_teleport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 4.33492)
+
+[node name="FogVolume" type="FogVolume" parent="exit_teleport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 8.5)
+size = Vector3(4, 3, 11)
+material = SubResource("FogMaterial_ggwhw")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("4_dmtiy")
 
 [connection signal="body_entered" from="exit_teleport" to="." method="_on_exit_teleport_body_entered"]
 
