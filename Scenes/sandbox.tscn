@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ds25triw57p7p"]
+[gd_scene load_steps=10 format=3 uid="uid://ds25triw57p7p"]
 
 [ext_resource type="PackedScene" uid="uid://det4vhq1t7ov0" path="res://Scenes/Objects/grid_map.tscn" id="1_67gpl"]
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="2_e6eja"]
 [ext_resource type="Environment" uid="uid://df4oq6kaiqjj4" path="res://Resources/greenfog.tres" id="3_dbgfh"]
 [ext_resource type="PackedScene" uid="uid://br3v4uvklu41t" path="res://Scenes/computerscreen.tscn" id="4_msqgk"]
 [ext_resource type="PackedScene" uid="uid://cjdqtcuyp0tsi" path="res://Scenes/Objects/keycard_reader.tscn" id="6_preht"]
-[ext_resource type="Script" path="res://Scripts/item.gd" id="7_iuipy"]
 [ext_resource type="PackedScene" uid="uid://dss2yxr6i24eq" path="res://Scenes/Objects/door.tscn" id="8_4vk86"]
 [ext_resource type="PackedScene" uid="uid://bub0r3q257xpe" path="res://Scenes/Items/keycard.tscn" id="8_bvbo6"]
 [ext_resource type="PackedScene" uid="uid://cl0s4y4pu18rq" path="res://Scenes/Objects/light_ceiling.tscn" id="10_pgtob"]
@@ -39,11 +38,6 @@ locked = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18088, 1.09857, 0.8777)
 requiredColor = Color(0, 1, 0, 1)
 
-[node name="keycard" parent="." groups=["pickupables"] instance=ExtResource("8_bvbo6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.66061, 1, -9.43432)
-script = ExtResource("7_iuipy")
-color = Color(0, 1, 0, 1)
-
 [node name="switch" parent="." instance=ExtResource("11_62w3u")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.56614, 2.29189, -11)
 state = true
@@ -54,5 +48,12 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.184773, 0.341623, 0.
 [node name="lightCeiling2" parent="switch" instance=ExtResource("10_pgtob")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.485055, 0.341623, 0.537088)
 
+[node name="keycard" parent="." instance=ExtResource("8_bvbo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75016, 1, -9.28424)
+color = Color(1, 0, 0, 1)
+
+[node name="keycard2" parent="." instance=ExtResource("8_bvbo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.57496, 1, -9.42818)
+color = Color(0, 1, 0, 1)
+
 [connection signal="press" from="door/keycardReader" to="door/keycardReader" method="_on_press"]
-[connection signal="press" from="keycard" to="keycard" method="_on_press"]

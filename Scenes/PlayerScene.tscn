@@ -31,9 +31,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133858, 0.15, -0.601)
 [node name="invslot5" type="Marker3D" parent="inventory"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.381306, 0.15, -0.619)
 
-[node name="hand" type="Marker3D" parent="inventory"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244709, 0.781232, -1.2271)
-
 [node name="pausemenu" parent="." instance=ExtResource("2_c0kcq")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

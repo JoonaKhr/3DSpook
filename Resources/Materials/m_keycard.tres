@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ckmjux0tul4xy" path="res://Resources/Textures/keycards.png" id="1_1jbft"]
 
 [resource]
+resource_local_to_scene = true
 albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
 albedo_texture = ExtResource("1_1jbft")
 texture_filter = 0
