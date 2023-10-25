@@ -30,3 +30,6 @@ func interact():
 # Play spooky flickering animations
 func _on_flickoff_timer_timeout():
 	$AnimationPlayer.play(animations.get_animation_list()[randi_range(0, animations.get_animation_list().size()-1)])
+
+func _process(_delta):
+	lighttube.material_override.emission_energy = light.light_energy

@@ -715,3 +715,4 @@ item/12/navigation_mesh = SubResource("NavigationMesh_6ojco")
 item/12/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 item/12/navigation_layers = 1
 item/12/preview = SubResource("ImageTexture_pibo2")
+
