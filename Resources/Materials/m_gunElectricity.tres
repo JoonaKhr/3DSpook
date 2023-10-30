@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://wowa3heul2ei"]
+
+[ext_resource type="Shader" path="res://Resources/Shaders/s_gunElectricity.gdshader" id="1_npwqt"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_npwqt")
