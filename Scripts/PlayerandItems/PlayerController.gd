@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export var SPEED = 5.0
 @export var sprintMult = 1.5
 const JUMP_VELOCITY = 3.5
-const RAY_LENGTH = 5
+var RAY_LENGTH = 5
 var rot_x = 0
 var rot_y = 0
 var inventory
@@ -24,7 +24,7 @@ func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * 0.002)
 		$Pivot.rotate_x(-event.relative.y * 0.002)
-		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
+		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.5)
 	
 	if Input.is_action_just_pressed("toggle_flashlight"):
 		if %flashlight.visible:
@@ -37,7 +37,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # Raycasting code for interacting with the environment
 func raycastFromMouse():
-	var space_state = get_world_3d().direct_space_state
+	var space_state = get_world_3d().get_direct_space_state()
 	var cam = $Pivot/Camera3D
 	var mousepos = get_viewport().get_mouse_position()
 
@@ -49,14 +49,22 @@ func raycastFromMouse():
 	return space_state.intersect_ray(query)
 
 func _physics_process(delta):
-	var result = raycastFromMouse()
+	
 	if Input.is_action_just_pressed("mouse_left"):
-		if result:
-			if inventory.itemDict[inventory.heldItem] != null:
-				inventory.itemDict[inventory.heldItem].useItem(result["collider"])
-			if result["collider"].has_signal("press"):
-				result["collider"].press.emit()
-			print(result["collider"])
+		var usedItem = inventory.getCurrentItem()
+		if  usedItem != null and get_tree().get_nodes_in_group("gun").has(usedItem):
+			RAY_LENGTH = 150
+			var result = raycastFromMouse()
+			usedItem.shoot(result)
+		else:
+			RAY_LENGTH = 5
+			var result = raycastFromMouse()
+			if result:
+				if inventory.itemDict[inventory.heldItem] != null:
+					inventory.itemDict[inventory.heldItem].useItem(result["collider"])
+				if result["collider"].has_signal("press"):
+					result["collider"].press.emit()
+				print(result["collider"])
 # Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta

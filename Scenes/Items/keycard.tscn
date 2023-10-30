@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bub0r3q257xpe"]
 
-[ext_resource type="Script" path="res://Scripts/item.gd" id="1_4kq0j"]
+[ext_resource type="Script" path="res://Scripts/PlayerandItems/item.gd" id="1_4kq0j"]
 [ext_resource type="Material" uid="uid://epc5qsqto3aw" path="res://Resources/Materials/m_keycard.tres" id="2_1uev8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cp88"]

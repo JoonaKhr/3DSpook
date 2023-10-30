@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://4f4ml7qno7ee"]
 
 [ext_resource type="PackedScene" uid="uid://b8eo6272c1txt" path="res://Scenes/Objects/switch_base.tscn" id="1_htl80"]
-[ext_resource type="Script" path="res://Scripts/button.gd" id="1_k4wq8"]
+[ext_resource type="Script" path="res://Scripts/MapItems/button.gd" id="1_iqpl1"]
 [ext_resource type="PackedScene" uid="uid://dtow818sjl2bh" path="res://Scenes/Objects/switch_nub.tscn" id="2_28p6c"]
 [ext_resource type="AudioStream" uid="uid://c5yv4wn1nmqdf" path="res://Resources/SFX/switch.ogg" id="4_00ecd"]
 
@@ -26,7 +26,7 @@ points = PackedVector3Array(-0.025, 0.025, 0, 0, 0, 0, -0.025, 0.025, 0.025, -0.
 
 [node name="switch" type="StaticBody3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-script = ExtResource("1_k4wq8")
+script = ExtResource("1_iqpl1")
 
 [node name="switch_base" parent="." instance=ExtResource("1_htl80")]
 

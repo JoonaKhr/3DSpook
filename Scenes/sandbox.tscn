@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ds25triw57p7p"]
+[gd_scene load_steps=13 format=3 uid="uid://ds25triw57p7p"]
 
 [ext_resource type="PackedScene" uid="uid://det4vhq1t7ov0" path="res://Scenes/Objects/grid_map.tscn" id="1_67gpl"]
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="2_e6eja"]
@@ -8,7 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://dss2yxr6i24eq" path="res://Scenes/Objects/door.tscn" id="8_4vk86"]
 [ext_resource type="PackedScene" uid="uid://bub0r3q257xpe" path="res://Scenes/Items/keycard.tscn" id="8_bvbo6"]
 [ext_resource type="PackedScene" uid="uid://cl0s4y4pu18rq" path="res://Scenes/Objects/light_ceiling.tscn" id="10_pgtob"]
+[ext_resource type="PackedScene" uid="uid://xnkbca7fwn36" path="res://Scenes/Items/gun.tscn" id="10_pqd0o"]
 [ext_resource type="PackedScene" uid="uid://4f4ml7qno7ee" path="res://Scenes/Objects/switch.tscn" id="11_62w3u"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_eyh3n"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60ur0"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_eyh3n")
+albedo_texture_force_srgb = true
+texture_filter = 0
+texture_repeat = false
 
 [node name="sandbox" type="Node3D"]
 
@@ -29,6 +41,10 @@ data = {
 
 [node name="Node3D" parent="." instance=ExtResource("4_msqgk")]
 transform = Transform3D(1, 0, 0, 0, -0.275151, -0.961401, 0, 0.961401, -0.275151, 9.20147, 2.5646, -10.6843)
+labelText = "Use WASD to move/nLeft Click to interact\\nMouse Wheel to cycle through inventory"
+
+[node name="MeshInstance3D" parent="Node3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_60ur0")
 
 [node name="door" parent="." instance=ExtResource("8_4vk86")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99809, 1, -11.8777)
@@ -55,3 +71,8 @@ color = Color(1, 0, 0, 1)
 [node name="keycard2" parent="." instance=ExtResource("8_bvbo6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.57496, 1, -9.42818)
 color = Color(0, 1, 0, 1)
+
+[node name="gun" parent="." instance=ExtResource("10_pqd0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.67425, 1, -9.57792)
+
+[editable path="Node3D"]

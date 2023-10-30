@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c0diii2blledv"]
 
-[ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_c4xhs"]
+[ext_resource type="Script" path="res://Scripts/PlayerandItems/PlayerController.gd" id="1_yb3sx"]
 [ext_resource type="PackedScene" uid="uid://bqy33rwx6p2gu" path="res://Scenes/pausemenu.tscn" id="2_c0kcq"]
 [ext_resource type="PackedScene" uid="uid://huhgi0dcuejl" path="res://Scenes/inventory.tscn" id="2_cmbys"]
 
@@ -12,7 +12,7 @@ height = 4.0
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 safe_margin = 0.01
-script = ExtResource("1_c4xhs")
+script = ExtResource("1_yb3sx")
 
 [node name="inventory" parent="." instance=ExtResource("2_cmbys")]
 

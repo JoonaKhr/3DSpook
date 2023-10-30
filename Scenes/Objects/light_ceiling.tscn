@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cl0s4y4pu18rq"]
 
-[ext_resource type="Script" path="res://Scripts/light.gd" id="1_6jhhj"]
+[ext_resource type="Script" path="res://Scripts/MapItems/light.gd" id="1_cwsic"]
 [ext_resource type="Material" uid="uid://jxt6it8qy3fl" path="res://Resources/Materials/m_enviro.tres" id="2_o6q26"]
 [ext_resource type="PackedScene" uid="uid://reaefpve6luj" path="res://Scenes/Objects/light_ceiling_tube.tscn" id="3_v1rn4"]
 
@@ -135,7 +135,7 @@ _data = {
 }
 
 [node name="lightCeiling" type="StaticBody3D"]
-script = ExtResource("1_6jhhj")
+script = ExtResource("1_cwsic")
 
 [node name="lightCeiling" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_o6q26")

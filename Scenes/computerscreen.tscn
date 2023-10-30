@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://l8llsts52nv6"]
 
-[ext_resource type="Script" path="res://Scripts/computerscreen.gd" id="1_0ouqo"]
+[ext_resource type="Script" path="res://Scripts/MapItems/computerscreen.gd" id="1_0ouqo"]
 [ext_resource type="Shader" path="res://Resources/crt.gdshader" id="2_2pssq"]
 [ext_resource type="FontFile" uid="uid://bhu4gapyylt33" path="res://Resources/Mx437_IBM_VGA_9x16.ttf" id="2_ahbag"]
 

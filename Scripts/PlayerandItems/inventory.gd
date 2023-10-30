@@ -21,6 +21,9 @@ func obtainItem(item):
 	else:
 		pass
 
+func getCurrentItem():
+	return itemDict[heldItem]
+
 # Remove item (unused)
 func removeItem(item):
 	for child in get_children():
@@ -45,9 +48,12 @@ func changeHeldItem(input):
 	heldItem = get_child(index)
 	if previousHeldItem != null:
 		previousHeldItem.position = previousHeldItem.get_parent().position
+		previousHeldItem.rotation_degrees = Vector3(0, 90.0, 0)
 		print("previous item ", previousHeldItem)
 		print("previous item parent ", previousHeldItem.get_parent())
 	if itemDict[heldItem] != null:
 		itemDict[heldItem].position = Vector3(itemDict[heldItem].position.x, 0.8, -0.5)
+		getCurrentItem().rotation_degrees = Vector3(0, -90.0, 0)
 
 	print("current item ", itemDict[heldItem])
+
