@@ -64,20 +64,8 @@ offset_left = 64.0
 offset_top = 64.0
 offset_right = 388.0
 offset_bottom = 179.0
-text = "Use WASD to move
-Left Click to interact
-Mouse Wheel to cycle through inventory"
 label_settings = SubResource("LabelSettings_j3gmr")
 autowrap_mode = 2
-
-[node name="cursor" type="Label" parent="SubViewport"]
-unique_name_in_owner = true
-offset_left = 64.0
-offset_top = 176.0
-offset_right = 104.0
-offset_bottom = 204.0
-text = "█"
-label_settings = SubResource("LabelSettings_j3gmr")
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport"]
 material = SubResource("ShaderMaterial_o2pc3")

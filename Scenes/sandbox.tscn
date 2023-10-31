@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ds25triw57p7p"]
+[gd_scene load_steps=11 format=3 uid="uid://ds25triw57p7p"]
 
 [ext_resource type="PackedScene" uid="uid://det4vhq1t7ov0" path="res://Scenes/Objects/grid_map.tscn" id="1_67gpl"]
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="2_e6eja"]
@@ -10,17 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cl0s4y4pu18rq" path="res://Scenes/Objects/light_ceiling.tscn" id="10_pgtob"]
 [ext_resource type="PackedScene" uid="uid://xnkbca7fwn36" path="res://Scenes/Items/gun.tscn" id="10_pqd0o"]
 [ext_resource type="PackedScene" uid="uid://4f4ml7qno7ee" path="res://Scenes/Objects/switch.tscn" id="11_62w3u"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_eyh3n"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60ur0"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_eyh3n")
-albedo_texture_force_srgb = true
-texture_filter = 0
-texture_repeat = false
 
 [node name="sandbox" type="Node3D"]
 
@@ -38,13 +27,6 @@ bake_navigation = false
 data = {
 "cells": PackedInt32Array(65535, 65535, 0, 65535, 0, 655361, 65535, 65534, 3, 0, 65534, 655363, 65534, 65534, 1048579, 65534, 65535, 1441794, 65533, 65535, 1441792, 65532, 65535, 1441796, 65532, 65534, 1, 65531, 65535, 1048577, 65532, 0, 655361, 65534, 65533, 1048578, 0, 65533, 2, 65535, 65533, 655363, 65535, 65532, 1, 1, 65534, 2, 1, 65535, 655361)
 }
-
-[node name="Node3D" parent="." instance=ExtResource("4_msqgk")]
-transform = Transform3D(1, 0, 0, 0, -0.275151, -0.961401, 0, 0.961401, -0.275151, 9.20147, 2.5646, -10.6843)
-labelText = "Use WASD to move/nLeft Click to interact\\nMouse Wheel to cycle through inventory"
-
-[node name="MeshInstance3D" parent="Node3D" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_60ur0")
 
 [node name="door" parent="." instance=ExtResource("8_4vk86")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99809, 1, -11.8777)
@@ -73,6 +55,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.57496, 1, -9.42818)
 color = Color(0, 1, 0, 1)
 
 [node name="gun" parent="." instance=ExtResource("10_pqd0o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.67425, 1, -9.57792)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.67425, 1.36252, -9.57792)
 
-[editable path="Node3D"]
+[node name="monitor" parent="." instance=ExtResource("4_msqgk")]
+transform = Transform3D(1, 0, 0, 0, -0.470504, -0.882398, 0, 0.882398, -0.470504, 9.01522, 2.74891, -10.495)
+labelTexts = PackedStringArray("WASD to move", "Left Click to interact", "F to toggle flashlight", "Shift to sprint", "Space to jump")

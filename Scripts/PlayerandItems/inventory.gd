@@ -17,7 +17,8 @@ func obtainItem(item):
 		item.get_parent().remove_child(item)
 		heldItem.add_child(item)
 		itemDict[heldItem] = item
-		item.position = heldItem.position
+		item.position = Vector3(heldItem.position.x, 0.8, -0.5)
+		item.rotation_degrees = Vector3(0, -90, 0)
 	else:
 		pass
 
