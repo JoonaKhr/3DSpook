@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://eq5p4sr3dp0r"]
+[gd_scene load_steps=4 format=3 uid="uid://eq5p4sr3dp0r"]
 
+[ext_resource type="Material" uid="uid://wowa3heul2ei" path="res://Resources/Materials/m_gunElectricity.tres" id="1_owjno"]
 [ext_resource type="Material" uid="uid://ctuhs4jprvrrb" path="res://Resources/Materials/m_pulsate.tres" id="1_uiqfj"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5pi42"]
-size = Vector2(8, 8)
+size = Vector2(8, 0.1)
 subdivide_width = 64
 subdivide_depth = 64
 
@@ -11,6 +12,7 @@ subdivide_depth = 64
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114358, 0)
+material_override = ExtResource("1_owjno")
 mesh = SubResource("PlaneMesh_5pi42")
 surface_material_override/0 = ExtResource("1_uiqfj")
 
