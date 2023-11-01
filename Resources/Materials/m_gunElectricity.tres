@@ -5,6 +5,8 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gkk6e"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_86b8e"]
+width = 256
+height = 256
 noise = SubResource("FastNoiseLite_gkk6e")
 
 [resource]
@@ -12,4 +14,5 @@ render_priority = 0
 shader = ExtResource("1_npwqt")
 shader_parameter/color = Vector3(0.1, 0.3, 0.8)
 shader_parameter/emissionStrength = 2.0
+shader_parameter/movementStrength = 0.3
 shader_parameter/noise = SubResource("NoiseTexture2D_86b8e")
