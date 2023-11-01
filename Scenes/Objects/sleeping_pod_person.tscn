@@ -44,7 +44,7 @@ shadow_mesh = SubResource("ArrayMesh_b1qrs")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nkoq3"]
 points = PackedVector3Array(0, 0, -1.6, 0, 1.19998, -1.6, 1.2, 0, -1.6, 0, 0, 0, 0.199922, 0.999941, -0.8, 0.199922, 1.3, -1.50008, 1.2, 1.19998, -1.6, 0, 0.399951, 0, 1.2, 0, 0, 0.199922, 0.59999, -0.100078, 0.999961, 0.999941, -0.8, 0.999961, 1.3, -1.50008, 1.2, 0.399951, 0, 0.999961, 0.59999, -0.100078)
 
-[node name="sleepingPod_person" type="StaticBody3D"]
+[node name="sleepingPod_person" type="StaticBody3D" groups=["filled_pod"]]
 
 [node name="Mesh2" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_3qwld")
