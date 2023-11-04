@@ -33,4 +33,5 @@ shape = SubResource("BoxShape3D_4tcp3")
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.512655, 0.17507, 0)
 
+[connection signal="activate" from="." to="." method="_on_activate"]
 [connection signal="press" from="." to="." method="_on_press"]

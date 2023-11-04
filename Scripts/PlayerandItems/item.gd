@@ -1,31 +1,39 @@
 extends Node3D
 
 @export var iname = ""
-@export var descrip = ""
+@export var activated = false
 @export var color: Color
+var original_position: Vector3
+var player
 var electricityMat = preload("res://Resources/Materials/m_gunElectricity.tres")
 signal press
+signal activate
 
 func _ready():
+	original_position = position
+	player = get_tree().get_nodes_in_group("player")[0]
+	if activated == false:
+		visible = false
 	if self.has_node("Mesh2"):
 		$Mesh2.material_override.albedo_color = color
 
 #Pickup item if holding nothing at all ( nothing at all~ )
 func pickupItem():
 	print("Picked up: ", iname)
-	get_parent().get_node("Player").inventory.obtainItem(self)
+	player.inventory.obtainItem(self)
 
 func shoot(target):
-	var barrel = $Marker3D.global_position
-	var targetPoint = target["position"]
-	lineDraw(barrel, targetPoint)
+	if activated == true:
+		var barrel = $Marker3D.global_position
+		var targetPoint = target["position"]
+		lineDraw(barrel, targetPoint)
 	#print("trying to draw I guess ?")
 	
 func lineDraw(from: Vector3, to: Vector3, persist_s = 0.1):
 	var mesh_instance := MeshInstance3D.new()
 	var immediate_mesh := ImmediateMesh.new()
 	var directionVector = (to - from).normalized();
-	var playerDirection = get_parent().get_parent().get_parent().transform.basis.x * -1.0
+	var playerDirection = player.transform.basis.x * -1.0
 	var vertexDistance = 0.05
 	var stripThickness = 0.01
 	var amountOfVertexes = int(from.distance_to(to) / vertexDistance)
@@ -54,9 +62,13 @@ func lineDraw(from: Vector3, to: Vector3, persist_s = 0.1):
 
 # Use item on target currently only useful for keycards
 func useItem(target):
-	if get_tree().get_nodes_in_group("reader").has(target):
+	if get_tree().get_nodes_in_group("reader").has(target) and activated == true:
 		target.readkeycard(self)
 	print("Trying to use item ", iname, " on ", target)
 
 func _on_press():
 	pickupItem()
+
+func _on_activate():
+	visible = true
+	activated = true

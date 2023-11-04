@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0diii2blledv"]
+[gd_scene load_steps=9 format=3 uid="uid://c0diii2blledv"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerandItems/PlayerController.gd" id="1_yb3sx"]
 [ext_resource type="PackedScene" uid="uid://bqy33rwx6p2gu" path="res://Scenes/pausemenu.tscn" id="2_c0kcq"]
 [ext_resource type="PackedScene" uid="uid://huhgi0dcuejl" path="res://Scenes/inventory.tscn" id="2_cmbys"]
+[ext_resource type="PackedScene" uid="uid://bub0r3q257xpe" path="res://Scenes/Items/keycard.tscn" id="3_dc1dr"]
+[ext_resource type="PackedScene" uid="uid://xnkbca7fwn36" path="res://Scenes/Items/gun.tscn" id="4_tioku"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0j8gy"]
 height = 4.0
@@ -10,26 +12,32 @@ height = 4.0
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rjcbi"]
 height = 4.0
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[sub_resource type="BoxMesh" id="BoxMesh_iedih"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
 safe_margin = 0.01
 script = ExtResource("1_yb3sx")
 
 [node name="inventory" parent="." instance=ExtResource("2_cmbys")]
+unique_name_in_owner = true
 
-[node name="invslot1" type="Marker3D" parent="inventory"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.317603, 0.15, -0.617587)
+[node name="keycard" parent="inventory" instance=ExtResource("3_dc1dr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.547945, 0, -0.890654)
+iname = "Blue Keycard"
+color = Color(0, 0, 1, 1)
 
-[node name="invslot2" type="Marker3D" parent="inventory"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.209468, 0.15, -0.61)
+[node name="gun" parent="inventory" instance=ExtResource("4_tioku")]
+transform = Transform3D(0.00500986, -0.0449686, -0.497949, 0.496926, 0.0553615, 0, 0.0551344, -0.494887, 0.0452468, 0.366865, 0, -0.553441)
+iname = "Stun Gun"
 
-[node name="invslot3" type="Marker3D" parent="inventory"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.654002)
+[node name="keycard2" parent="inventory" instance=ExtResource("3_dc1dr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.856105)
+iname = "Green Keycard"
+color = Color(0, 1, 0, 1)
 
-[node name="invslot4" type="Marker3D" parent="inventory"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133858, 0.15, -0.601)
-
-[node name="invslot5" type="Marker3D" parent="inventory"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.381306, 0.15, -0.619)
+[node name="Marker3D" type="Marker3D" parent="inventory"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.702001, 0.0200607, -0.836018)
 
 [node name="pausemenu" parent="." instance=ExtResource("2_c0kcq")]
 
@@ -52,6 +60,13 @@ light_energy = 2.0
 distance_fade_enabled = true
 spot_range = 15.0
 spot_angle = 40.0
+
+[node name="Hand" type="Marker3D" parent="Pivot"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09706, -0.753778, -1.01396)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/Hand"]
+mesh = SubResource("BoxMesh_iedih")
 
 [node name="crosshair" type="ColorRect" parent="."]
 anchors_preset = 8

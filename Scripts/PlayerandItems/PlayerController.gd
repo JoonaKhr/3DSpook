@@ -17,9 +17,9 @@ func _input(event):
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
-			inventory.changeHeldItem(event.button_index)
+			inventory.change_held_item(event.button_index)
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
-			inventory.changeHeldItem(event.button_index)
+			inventory.change_held_item(event.button_index)
 # Capture mouse motion for camera
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * 0.002)
@@ -51,7 +51,7 @@ func raycastFromMouse():
 func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("mouse_left"):
-		var usedItem = inventory.getCurrentItem()
+		var usedItem = inventory.get_current_item()
 		if  usedItem != null and get_tree().get_nodes_in_group("gun").has(usedItem):
 			RAY_LENGTH = 150
 			var result = raycastFromMouse()
@@ -60,8 +60,8 @@ func _physics_process(delta):
 			RAY_LENGTH = 5
 			var result = raycastFromMouse()
 			if result:
-				if inventory.itemDict[inventory.heldItem] != null:
-					inventory.itemDict[inventory.heldItem].useItem(result["collider"])
+				if inventory.get_current_item() != null:
+					inventory.get_current_item().useItem(result["collider"])
 				if result["collider"].has_signal("press"):
 					result["collider"].press.emit()
 				print(result["collider"])

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bub0r3q257xpe" path="res://Scenes/Items/keycard.tscn" id="8_bvbo6"]
 [ext_resource type="PackedScene" uid="uid://cl0s4y4pu18rq" path="res://Scenes/Objects/light_ceiling.tscn" id="10_pgtob"]
 [ext_resource type="PackedScene" uid="uid://xnkbca7fwn36" path="res://Scenes/Items/gun.tscn" id="10_pqd0o"]
-[ext_resource type="PackedScene" uid="uid://4f4ml7qno7ee" path="res://Scenes/Objects/switch.tscn" id="11_62w3u"]
+[ext_resource type="PackedScene" uid="uid://doo5mkpco72ha" path="res://Scenes/Objects/switch.tscn" id="11_62w3u"]
 
 [node name="sandbox" type="Node3D"]
 
@@ -44,19 +44,25 @@ state = true
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.184773, 0.341623, 0.525558)
 
 [node name="lightCeiling2" parent="switch" instance=ExtResource("10_pgtob")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.485055, 0.341623, 0.537088)
-
-[node name="keycard" parent="." instance=ExtResource("8_bvbo6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75016, 1, -9.28424)
-color = Color(1, 0, 0, 1)
-
-[node name="keycard2" parent="." instance=ExtResource("8_bvbo6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.57496, 1, -9.42818)
-color = Color(0, 1, 0, 1)
-
-[node name="gun" parent="." instance=ExtResource("10_pqd0o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.67425, 1.36252, -9.57792)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.04686, 0.341623, 0.537088)
 
 [node name="monitor" parent="." instance=ExtResource("4_msqgk")]
 transform = Transform3D(1, 0, 0, 0, -0.470504, -0.882398, 0, 0.882398, -0.470504, 9.01522, 2.74891, -10.495)
 labelTexts = PackedStringArray("WASD to move", "Left Click to interact", "F to toggle flashlight", "Shift to sprint", "Space to jump")
+
+[node name="keycard" parent="." instance=ExtResource("8_bvbo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55637, 1, -9.33996)
+iname = "Blue Keycard"
+activated = true
+color = Color(0, 0, 1, 1)
+
+[node name="keycard2" parent="." instance=ExtResource("8_bvbo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.02404, 1, -9.38622)
+iname = "Green Keycard"
+activated = true
+color = Color(0, 1, 0, 1)
+
+[node name="gun" parent="." instance=ExtResource("10_pqd0o")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.04228, 1, -9.38972)
+iname = "Stun Gun"
+activated = true
