@@ -64,7 +64,6 @@ func lineDraw(from: Vector3, to: Vector3, persist_s = 0.1):
 func useItem(target):
 	if get_tree().get_nodes_in_group("reader").has(target) and activated == true:
 		target.readkeycard(self)
-	print("Trying to use item ", iname, " on ", target)
 
 func _on_press():
 	pickupItem()

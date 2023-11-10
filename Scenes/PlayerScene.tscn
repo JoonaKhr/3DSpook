@@ -36,9 +36,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.856105)
 iname = "Green Keycard"
 color = Color(0, 1, 0, 1)
 
-[node name="Marker3D" type="Marker3D" parent="inventory"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.702001, 0.0200607, -0.836018)
-
 [node name="pausemenu" parent="." instance=ExtResource("2_c0kcq")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

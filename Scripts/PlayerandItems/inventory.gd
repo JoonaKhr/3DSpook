@@ -4,7 +4,7 @@ var item_list = []
 var held_item
 var index
 var last_equipped
-
+var hand_item
 # Fill the inventory with null slots, set index to zero and held_item as the first null slot in inventory
 func _ready():
 	%Hand.get_child(0).visible = false
@@ -13,7 +13,6 @@ func _ready():
 			item_list.append(child)
 	index = 0
 	held_item = item_list[index]
-	print(item_list)
 
 # Pickup an item if holding null
 func obtainItem(item):
@@ -22,7 +21,8 @@ func obtainItem(item):
 			child.activate.emit()
 
 func get_current_item():
-	return item_list[index]
+	if %Hand.get_children().size() == 2:
+		return %Hand.get_child(1)
 
 # Mousewheel changes held item
 func change_held_item(input):
@@ -42,19 +42,22 @@ func change_held_item(input):
 		previous_held_item.position = previous_held_item.original_position
 		previous_held_item.rotation_degrees = Vector3(0, 90.0, 0)
 	if held_item.activated == true:
-		equip_to_hand()
+		equip_to_hand(previous_held_item)
 	
 
-func equip_to_hand():
-	unequip()
-	var hand_item = load(held_item.scene_file_path).instantiate()
-	last_equipped = held_item
+func equip_to_hand(previous_item):
+	unequip(previous_item, hand_item)
+	hand_item = load(held_item.scene_file_path).instantiate()
 	held_item.visible = false
 	hand_item.set("activated", held_item.get("activated"))
+	hand_item.set("color", held_item.get("color"))
 	hand_item.position = %Hand.position
 	hand_item.rotation_degrees = Vector3(0, -90, 0)
 	%Hand.add_child(hand_item)
+	
 
-func unequip():
-	%Hand.get_child(1).queue_free()
-	last_equipped.visible = true
+func unequip(item, h_item):
+	if item.activated == true:
+		item.visible = true
+	if h_item != null:
+		h_item.queue_free()

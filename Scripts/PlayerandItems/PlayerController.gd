@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export var SPEED = 5.0
 @export var sprintMult = 1.5
 const JUMP_VELOCITY = 3.5
-var RAY_LENGTH = 5
+var ray_length = 5
 var rot_x = 0
 var rot_y = 0
 var inventory
@@ -36,13 +36,13 @@ func _input(event):
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # Raycasting code for interacting with the environment
-func raycastFromMouse():
+func raycastFromMouse(r_length):
 	var space_state = get_world_3d().get_direct_space_state()
 	var cam = $Pivot/Camera3D
 	var mousepos = get_viewport().get_mouse_position()
-
+	print(r_length)
 	var origin = cam.project_ray_origin(mousepos)
-	var end = origin + cam.project_ray_normal(mousepos) * RAY_LENGTH
+	var end = origin + cam.project_ray_normal(mousepos) * r_length
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	query.collide_with_areas = true
 
@@ -53,18 +53,17 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("mouse_left"):
 		var usedItem = inventory.get_current_item()
 		if  usedItem != null and get_tree().get_nodes_in_group("gun").has(usedItem):
-			RAY_LENGTH = 150
-			var result = raycastFromMouse()
+			ray_length = 150
+			var result = raycastFromMouse(ray_length)
 			usedItem.shoot(result)
-		else:
-			RAY_LENGTH = 5
-			var result = raycastFromMouse()
-			if result:
-				if inventory.get_current_item() != null:
-					inventory.get_current_item().useItem(result["collider"])
-				if result["collider"].has_signal("press"):
-					result["collider"].press.emit()
-				print(result["collider"])
+		ray_length = 2
+		var result = raycastFromMouse(ray_length)
+		if result:
+			if inventory.get_current_item() != null:
+				inventory.get_current_item().useItem(result["collider"])
+			if result["collider"].has_signal("press"):
+				result["collider"].press.emit()
+			print(result["collider"])
 # Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
