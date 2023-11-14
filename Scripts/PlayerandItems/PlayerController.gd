@@ -24,7 +24,7 @@ func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * 0.002)
 		$Pivot.rotate_x(-event.relative.y * 0.002)
-		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.5)
+		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.5, 1.5)
 	
 	if Input.is_action_just_pressed("toggle_flashlight"):
 		if %flashlight.visible:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ds25triw57p7p"]
+[gd_scene load_steps=13 format=3 uid="uid://ds25triw57p7p"]
 
 [ext_resource type="PackedScene" uid="uid://det4vhq1t7ov0" path="res://Scenes/Objects/grid_map.tscn" id="1_67gpl"]
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="2_e6eja"]
@@ -10,11 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://cl0s4y4pu18rq" path="res://Scenes/Objects/light_ceiling.tscn" id="10_pgtob"]
 [ext_resource type="PackedScene" uid="uid://xnkbca7fwn36" path="res://Scenes/Items/gun.tscn" id="10_pqd0o"]
 [ext_resource type="PackedScene" uid="uid://doo5mkpco72ha" path="res://Scenes/Objects/switch.tscn" id="11_62w3u"]
+[ext_resource type="PackedScene" uid="uid://byg8e7qgmdhut" path="res://Scenes/Objects/computer_terminal_with_screen.tscn" id="11_svlfh"]
+[ext_resource type="JSON" path="res://Texts/texts.json" id="12_qa8cf"]
 
 [node name="sandbox" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_e6eja")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 8.57629, 1.99026, -7.65428)
+transform = Transform3D(-0.274352, 0, 0.12137, 0, 0.3, 0, -0.12137, 0, -0.274352, -1.24372, 1.99026, 2.45862)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("3_dbgfh")
@@ -25,7 +27,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.01, 1.5, 3.259)
 [node name="GridMap" parent="." instance=ExtResource("1_67gpl")]
 bake_navigation = false
 data = {
-"cells": PackedInt32Array(65535, 65535, 0, 65535, 0, 655361, 65535, 65534, 3, 0, 65534, 655363, 65534, 65534, 1048579, 65534, 65535, 1441794, 65533, 65535, 1441792, 65532, 65535, 1441796, 65532, 65534, 1, 65531, 65535, 1048577, 65532, 0, 655361, 65534, 65533, 1048578, 0, 65533, 2, 65535, 65533, 655363, 65535, 65532, 1, 1, 65534, 2, 1, 65535, 655361)
+"cells": PackedInt32Array(65535, 65535, 0, 65535, 65534, 3, 0, 65534, 655363, 65534, 65534, 1048579, 65534, 65535, 1441794, 65533, 65535, 1441792, 65532, 65535, 1441796, 65532, 65534, 1, 65531, 65535, 1048577, 65532, 0, 655361, 65534, 65533, 1048578, 0, 65533, 2, 65535, 65533, 655363, 65535, 65532, 1, 1, 65534, 2, 1, 65535, 655361, 0, 0, 7, 65534, 0, 1048583, 65534, 2, 655367, 0, 2, 1441799, 65535, 0, 8, 65534, 1, 1048588, 65535, 2, 655372, 0, 1, 1441804, 65535, 1, 1441806)
 }
 
 [node name="door" parent="." instance=ExtResource("8_4vk86")]
@@ -48,7 +50,6 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.04686, 0.341623, 0.5
 
 [node name="monitor" parent="." instance=ExtResource("4_msqgk")]
 transform = Transform3D(1, 0, 0, 0, -0.470504, -0.882398, 0, 0.882398, -0.470504, 9.01522, 2.74891, -10.495)
-labelTexts = PackedStringArray("WASD to move", "Left Click to interact", "F to toggle flashlight", "Shift to sprint", "Space to jump")
 
 [node name="keycard" parent="." instance=ExtResource("8_bvbo6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55637, 1, -9.33996)
@@ -66,3 +67,8 @@ color = Color(0, 1, 0, 1)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.04228, 1, -9.38972)
 iname = "Stun Gun"
 activated = true
+
+[node name="computerTerminal" parent="." instance=ExtResource("11_svlfh")]
+transform = Transform3D(-0.841982, 0, 0.539506, 0, 1, 0, -0.539506, 0, -0.841982, -4.3605, 0.908487, 6.02457)
+text_file = ExtResource("12_qa8cf")
+json_header = "generator_offline"

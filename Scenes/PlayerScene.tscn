@@ -42,6 +42,7 @@ color = Color(0, 1, 0, 1)
 shape = SubResource("CapsuleShape3D_0j8gy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_rjcbi")
 
 [node name="Pivot" type="Node3D" parent="."]
