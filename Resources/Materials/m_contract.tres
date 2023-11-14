@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dg3kebt8c06ml"]
+
+[ext_resource type="Shader" path="res://Resources/Shaders/s_contract.gdshader" id="1_8jw2u"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_8jw2u")
+shader_parameter/location = null

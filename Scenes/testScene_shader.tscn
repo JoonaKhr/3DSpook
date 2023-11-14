@@ -1,20 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://eq5p4sr3dp0r"]
 
-[ext_resource type="Material" uid="uid://wowa3heul2ei" path="res://Resources/Materials/m_gunElectricity.tres" id="1_owjno"]
-[ext_resource type="Material" uid="uid://ctuhs4jprvrrb" path="res://Resources/Materials/m_pulsate.tres" id="1_uiqfj"]
+[ext_resource type="Material" uid="uid://dg3kebt8c06ml" path="res://Resources/Materials/m_contract.tres" id="1_k66cg"]
+[ext_resource type="Script" path="res://Scripts/contractShaderHelper.gd" id="2_po32c"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_5pi42"]
-size = Vector2(8, 0.1)
-subdivide_width = 64
-subdivide_depth = 64
+[sub_resource type="CylinderMesh" id="CylinderMesh_k12bq"]
+rings = 32
 
 [node name="Node3D" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114358, 0)
-material_override = ExtResource("1_owjno")
-mesh = SubResource("PlaneMesh_5pi42")
-surface_material_override/0 = ExtResource("1_uiqfj")
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("1_k66cg")
+mesh = SubResource("CylinderMesh_k12bq")
+surface_material_override/0 = ExtResource("1_k66cg")
+script = ExtResource("2_po32c")
+
+[node name="Node3D" type="Node3D" parent="MeshInstance3D"]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.527949, 0.849276, 0, -0.849276, -0.527949, 0, 2.74231, -1.10404)
