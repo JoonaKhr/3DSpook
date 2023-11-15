@@ -4,6 +4,9 @@
 [ext_resource type="Script" path="res://Scripts/contractShaderHelper.gd" id="2_po32c"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_k12bq"]
+material = ExtResource("1_k66cg")
+flip_faces = true
+height = 5.0
 rings = 32
 
 [node name="Node3D" type="Node3D"]
@@ -12,7 +15,6 @@ rings = 32
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 material_override = ExtResource("1_k66cg")
 mesh = SubResource("CylinderMesh_k12bq")
-surface_material_override/0 = ExtResource("1_k66cg")
 script = ExtResource("2_po32c")
 
 [node name="Node3D" type="Node3D" parent="MeshInstance3D"]

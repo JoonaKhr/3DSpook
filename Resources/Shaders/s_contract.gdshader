@@ -7,8 +7,9 @@ void fragment() {
 }
 
 void vertex() {
-	vec3 point_to_vertex_direction = normalize(location - VERTEX);
-	float point_to_vertex_distance = distance(location, VERTEX);
-	//VERTEX = point_to_vertex_direction * smoothstep(0, point_to_vertex_distance, point_to_vertex_distance);
-	VERTEX += location;
+	vec3 direction_to_vertex = normalize(VERTEX - location);
+	float distance_to_point = distance(location, VERTEX);
+	
+	vec3 contraction = direction_to_vertex * distance_to_point * smoothstep(0.4, 0.7, distance_to_point);
+	VERTEX = contraction;
 }

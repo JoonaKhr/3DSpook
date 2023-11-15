@@ -1,7 +1,6 @@
 @tool
 extends Node3D
 
-var shader_location = self.mesh.surface_get_material(0).get_shader_param("location")
 var contract_point:Node3D
 
 func _ready():
@@ -9,4 +8,4 @@ func _ready():
 
 
 func _process(delta):
-	shader_location = contract_point.transform
+	self.mesh.surface_get_material(0).set_shader_parameter("location", contract_point.position)
