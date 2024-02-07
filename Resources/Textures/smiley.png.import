@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsmk84wvnysoy"
-path.s3tc="res://.godot/imported/smiley.png-5e7e55d58caff550b4ad06a061f912c6.s3tc.ctex"
+path.s3tc="res://.godot/imported/smiley.png-a8e3f92baa65d4b63483240e87956fa3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/smiley.png"
-dest_files=["res://.godot/imported/smiley.png-5e7e55d58caff550b4ad06a061f912c6.s3tc.ctex"]
+source_file="res://Resources/Textures/smiley.png"
+dest_files=["res://.godot/imported/smiley.png-a8e3f92baa65d4b63483240e87956fa3.s3tc.ctex"]
 
 [params]
 

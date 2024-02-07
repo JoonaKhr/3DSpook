@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dc03unw7itkjp"
-path="res://.godot/imported/Mx437_IBM_VGA_9x16-2x.ttf-e142f42b5507164c1921cb162d3882da.fontdata"
+uid="uid://bhu4gapyylt33"
+path="res://.godot/imported/Mx437_IBM_VGA_9x16.ttf-90cf02198213c96b25da12df927f256a.fontdata"
 
 [deps]
 
-source_file="res://Resources/Mx437_IBM_VGA_9x16-2x.ttf"
-dest_files=["res://.godot/imported/Mx437_IBM_VGA_9x16-2x.ttf-e142f42b5507164c1921cb162d3882da.fontdata"]
+source_file="res://Resources/Fonts/Mx437_IBM_VGA_9x16.ttf"
+dest_files=["res://.godot/imported/Mx437_IBM_VGA_9x16.ttf-90cf02198213c96b25da12df927f256a.fontdata"]
 
 [params]
 
@@ -26,13 +26,12 @@ oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
-compress=false
+compress=true
 preload=[{
 "chars": [],
 "glyphs": [],
 "name": "New Configuration",
-"size": Vector2i(16, 0),
-"variation_embolden": 0.0
+"size": Vector2i(16, 0)
 }]
 language_support={}
 script_support={}

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://boqcldsrhupj6"]
 
-[ext_resource type="FontFile" uid="uid://bhu4gapyylt33" path="res://Resources/Mx437_IBM_VGA_9x16.ttf" id="1_wj1g6"]
+[ext_resource type="FontFile" uid="uid://bhu4gapyylt33" path="res://Resources/Fonts/Mx437_IBM_VGA_9x16.ttf" id="1_wj1g6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6jsko"]
 
