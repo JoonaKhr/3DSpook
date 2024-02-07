@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://brhfkvovnj6ke"]
+
+[ext_resource type="PackedScene" uid="uid://bpywse3ct1rfp" path="res://Resources/Models/Props/specimenContainerFrame.gltf" id="1_k2jmm"]
+[ext_resource type="Material" uid="uid://jxt6it8qy3fl" path="res://Resources/Materials/m_enviro.tres" id="2_kde1u"]
+[ext_resource type="PackedScene" uid="uid://bqj542tktkdku" path="res://Resources/Models/Props/SpecimenContainerGlass.gltf" id="3_wnaax"]
+[ext_resource type="Material" uid="uid://cka8b71lf5miw" path="res://Resources/Materials/m_enviro_translucent.tres" id="4_hvj00"]
+[ext_resource type="PackedScene" uid="uid://bwbpmcfe6tnxd" path="res://Resources/Models/Props/specimen.gltf" id="5_jtfyd"]
+
+[sub_resource type="Animation" id="Animation_6cs55"]
+resource_name = "specimenFloat"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("specimen")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.29744, 0.60075, -0.3171, 3, 1, 0.29744, 0.73059, -0.3171, 6, 1, 0.29744, 0.60075, -0.3171)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tionf"]
+_data = {
+"specimenFloat": SubResource("Animation_6cs55")
+}
+
+[node name="specimen_container" instance=ExtResource("1_k2jmm")]
+
+[node name="containerFrame" parent="." index="0"]
+material_override = ExtResource("2_kde1u")
+
+[node name="containerGlass" parent="." index="1" instance=ExtResource("3_wnaax")]
+
+[node name="containerGlass" parent="containerGlass" index="0"]
+material_override = ExtResource("4_hvj00")
+
+[node name="specimen" parent="." index="2" instance=ExtResource("5_jtfyd")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.29744, 0.725556, -0.3171)
+
+[node name="Mesh" parent="specimen" index="0"]
+material_override = ExtResource("2_kde1u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_tionf")
+}
+
+[editable path="containerGlass"]
+[editable path="specimen"]

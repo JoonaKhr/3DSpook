@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cka8b71lf5miw"]
+
+[ext_resource type="Texture2D" uid="uid://bunkh0bg1gq0d" path="res://Resources/Textures/Enviro/envTilemap.png" id="1_3286s"]
+
+[resource]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.494118)
+albedo_texture = ExtResource("1_3286s")
+texture_filter = 0
