@@ -52,12 +52,13 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("mouse_left"):
 		var usedItem = inventory.get_current_item()
+		var result
 		if  usedItem != null and get_tree().get_nodes_in_group("gun").has(usedItem):
 			ray_length = 150
-			var result = raycastFromMouse(ray_length)
+			result = raycastFromMouse(ray_length)
 			usedItem.shoot(result)
 		ray_length = 2
-		var result = raycastFromMouse(ray_length)
+		result = raycastFromMouse(ray_length)
 		if result:
 			if inventory.get_current_item() != null:
 				inventory.get_current_item().useItem(result["collider"])

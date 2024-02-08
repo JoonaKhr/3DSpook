@@ -56,8 +56,8 @@ fov = 90.0
 unique_name_in_owner = true
 light_energy = 2.0
 distance_fade_enabled = true
-spot_range = 15.0
-spot_angle = 40.0
+spot_range = 18.545
+spot_angle = 51.898
 
 [node name="Hand" type="Marker3D" parent="Pivot"]
 unique_name_in_owner = true
