@@ -40,6 +40,7 @@ points = PackedVector3Array(0, 0.1125, 0, 0.1125, 0, 0, -0.1125, 0, 0, 0, 0, 0.1
 [node name="indicatorLight" type="StaticBody3D"]
 
 [node name="indicatorLight" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_qppqv")
 mesh = SubResource("ArrayMesh_hmcwm")
 skeleton = NodePath("")
 
