@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://l8llsts52nv6"]
+[gd_scene load_steps=10 format=3 uid="uid://l8llsts52nv6"]
 
-[ext_resource type="Script" path="res://Scripts/MapItems/computerscreen.gd" id="1_0ouqo"]
+[ext_resource type="Script" path="res://Scripts/monitor_control.gd" id="1_u5fe1"]
+[ext_resource type="PackedScene" uid="uid://846fkm3naktt" path="res://Scenes/monitor_control.tscn" id="1_vyycu"]
 [ext_resource type="Shader" path="res://Resources/Shaders/crt.gdshader" id="2_2pssq"]
 [ext_resource type="FontFile" uid="uid://bhu4gapyylt33" path="res://Resources/Fonts/Mx437_IBM_VGA_9x16.ttf" id="2_ahbag"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_f8t1s"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_bh5r8"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("MonitorViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywtr1"]
 resource_local_to_scene = true
@@ -48,18 +49,25 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.3
 shader_parameter/vignette_opacity = 0.5
 
-[node name="monitor" type="Node3D"]
-script = ExtResource("1_0ouqo")
+[node name="Monitor" type="Node3D"]
+script = ExtResource("1_u5fe1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_f8t1s")
 surface_material_override/0 = SubResource("StandardMaterial3D_ywtr1")
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="cursor_timer" type="Timer" parent="."]
+wait_time = 1.2
+autostart = true
+
+[node name="MonitorViewport" type="SubViewport" parent="."]
 disable_3d = true
 canvas_item_default_texture_filter = 0
 
-[node name="Label" type="Label" parent="SubViewport"]
+[node name="MonitorControl" parent="MonitorViewport" instance=ExtResource("1_vyycu")]
+
+[node name="Label" type="Label" parent="MonitorViewport"]
+visible = false
 offset_left = 64.0
 offset_top = 64.0
 offset_right = 388.0
@@ -67,7 +75,7 @@ offset_bottom = 179.0
 label_settings = SubResource("LabelSettings_j3gmr")
 autowrap_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="SubViewport"]
+[node name="ColorRect" type="ColorRect" parent="MonitorViewport"]
 material = SubResource("ShaderMaterial_o2pc3")
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,9 +85,3 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 metadata/_edit_lock_ = true
-
-[node name="cursor_timer" type="Timer" parent="."]
-wait_time = 1.2
-autostart = true
-
-[connection signal="timeout" from="cursor_timer" to="." method="_on_timer_timeout"]

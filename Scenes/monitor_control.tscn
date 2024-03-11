@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://846fkm3naktt"]
+
+[node name="MonitorControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -640.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+
+[node name="DebugScreen" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 2.0
+offset_right = 575.0
+offset_bottom = 514.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 214.0
+offset_right = 400.0
+offset_bottom = 333.0
+text = "This here is a button"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 377.0
+offset_right = 440.0
+offset_bottom = 494.0

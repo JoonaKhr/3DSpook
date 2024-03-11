@@ -7,15 +7,21 @@ var ray_length = 5
 var rot_x = 0
 var rot_y = 0
 var inventory
+var input_dir = Vector3(0, 0, 0)
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	inventory = $inventory
 
-func _input(event):
+func _unhandled_input(event):
+	input_dir = Input.get_vector("left", "right", "forwards", "backwards")
 # Capture mouse wheel scrolling for inventory
+	if Input.is_action_just_pressed("showmouse"):
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event is InputEventMouseButton:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 			inventory.change_held_item(event.button_index)
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
@@ -74,7 +80,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 
 # Get the input direction and handle the movement/deceleration.
-	var input_dir = Input.get_vector("left", "right", "forwards", "backwards")
+	
 # Get the forward direction from the character node
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
