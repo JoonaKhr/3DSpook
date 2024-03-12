@@ -15,7 +15,7 @@ func _ready():
 	for child in get_children():
 		if child.has_method("interact"):
 			lights.append(child)
-	print(lights)
+	#print(lights)
 
 # Light interaction
 func _on_press():

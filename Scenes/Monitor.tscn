@@ -1,11 +1,43 @@
-[gd_scene load_steps=10 format=3 uid="uid://l8llsts52nv6"]
+[gd_scene load_steps=11 format=3 uid="uid://l8llsts52nv6"]
 
-[ext_resource type="Script" path="res://Scripts/monitor_control.gd" id="1_u5fe1"]
+[ext_resource type="Script" path="res://Scripts/MapItems/monitor_control.gd" id="1_4n4hh"]
 [ext_resource type="PackedScene" uid="uid://846fkm3naktt" path="res://Scenes/monitor_control.tscn" id="1_vyycu"]
 [ext_resource type="Shader" path="res://Resources/Shaders/crt.gdshader" id="2_2pssq"]
 [ext_resource type="FontFile" uid="uid://bhu4gapyylt33" path="res://Resources/Fonts/Mx437_IBM_VGA_9x16.ttf" id="2_ahbag"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_f8t1s"]
+[sub_resource type="LabelSettings" id="LabelSettings_j3gmr"]
+line_spacing = 4.0
+font = ExtResource("2_ahbag")
+font_size = 24
+font_color = Color(0, 0.921569, 0.113725, 1)
+shadow_size = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o2pc3"]
+shader = ExtResource("2_2pssq")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.1
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 2.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.6
+shader_parameter/distort_intensity = 0.022
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.1
+shader_parameter/aberration = 0.01
+shader_parameter/brightness = 1.3
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.5
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_kmc5s"]
+size = Vector2(2, 2)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_bh5r8"]
 viewport_path = NodePath("MonitorViewport")
@@ -18,53 +50,19 @@ albedo_texture_force_srgb = true
 texture_filter = 0
 texture_repeat = false
 
-[sub_resource type="LabelSettings" id="LabelSettings_j3gmr"]
-line_spacing = 4.0
-font = ExtResource("2_ahbag")
-font_size = 24
-font_color = Color(0, 0.921569, 0.113725, 1)
-shadow_size = 0
+[sub_resource type="BoxShape3D" id="BoxShape3D_hma1g"]
+size = Vector3(2, 2, 0.1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o2pc3"]
-shader = ExtResource("2_2pssq")
-shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.1
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.3
-shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/pixelate = false
-shader_parameter/roll = true
-shader_parameter/roll_speed = 1.0
-shader_parameter/roll_size = 10.0
-shader_parameter/roll_variation = 1.6
-shader_parameter/distort_intensity = 0.05
-shader_parameter/noise_opacity = 0.4
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.1
-shader_parameter/aberration = 0.02
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = false
-shader_parameter/warp_amount = 1.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.3
-shader_parameter/vignette_opacity = 0.5
-
-[node name="Monitor" type="Node3D"]
-script = ExtResource("1_u5fe1")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_f8t1s")
-surface_material_override/0 = SubResource("StandardMaterial3D_ywtr1")
-
-[node name="cursor_timer" type="Timer" parent="."]
-wait_time = 1.2
-autostart = true
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_4n4hh")
 
 [node name="MonitorViewport" type="SubViewport" parent="."]
-disable_3d = true
 canvas_item_default_texture_filter = 0
+gui_embed_subwindows = true
+render_target_update_mode = 4
 
 [node name="MonitorControl" parent="MonitorViewport" instance=ExtResource("1_vyycu")]
+mouse_filter = 1
 
 [node name="Label" type="Label" parent="MonitorViewport"]
 visible = false
@@ -84,4 +82,20 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 metadata/_edit_lock_ = true
+
+[node name="Quad" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_kmc5s")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_ywtr1")
+
+[node name="Area3D" type="Area3D" parent="Quad"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quad/Area3D"]
+shape = SubResource("BoxShape3D_hma1g")
+
+[node name="cursor_timer" type="Timer" parent="."]
+wait_time = 1.2
+autostart = true

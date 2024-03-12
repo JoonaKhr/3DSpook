@@ -46,7 +46,7 @@ func raycastFromMouse(r_length):
 	var space_state = get_world_3d().get_direct_space_state()
 	var cam = $Pivot/Camera3D
 	var mousepos = get_viewport().get_mouse_position()
-	print(r_length)
+	#print(r_length)
 	var origin = cam.project_ray_origin(mousepos)
 	var end = origin + cam.project_ray_normal(mousepos) * r_length
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
@@ -70,7 +70,8 @@ func _physics_process(delta):
 				inventory.get_current_item().useItem(result["collider"])
 			if result["collider"].has_signal("press"):
 				result["collider"].press.emit()
-			print(result["collider"])
+			#print(result["collider"])
+			
 # Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
