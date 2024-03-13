@@ -45,7 +45,8 @@ texture_repeat = false
 [sub_resource type="GDScript" id="GDScript_q67yb"]
 script/source = "extends Area3D
 
-signal press"
+signal press
+"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hma1g"]
 size = Vector3(2, 2, 0.05)

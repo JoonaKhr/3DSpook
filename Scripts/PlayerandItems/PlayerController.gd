@@ -15,27 +15,27 @@ func _ready():
 
 func _unhandled_input(event):
 	
-	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		input_dir = Input.get_vector("left", "right", "forwards", "backwards")
-	# Capture mouse wheel scrolling for inventory
-		if Input.is_action_just_pressed("showmouse"):
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		if event is InputEventMouseButton:
-			if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
-				inventory.change_held_item(event.button_index)
-			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
-				inventory.change_held_item(event.button_index)
-	# Capture mouse motion for camera
-		if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			rotate_y(-event.relative.x * 0.002)
-			$Pivot.rotate_x(-event.relative.y * 0.002)
-			$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.5, 1.5)
-		
-		if Input.is_action_just_pressed("toggle_flashlight"):
-			if %flashlight.visible:
-				%flashlight.visible = false
-			else:
-				%flashlight.visible = true
+	#if Input.mouse_mode is Input.MOUSE_MODE_CAPTURED or Input.MOUSE_MODE_VISIBLE:
+	input_dir = Input.get_vector("left", "right", "forwards", "backwards")
+# Capture mouse wheel scrolling for inventory
+	if Input.is_action_just_pressed("showmouse"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
+			inventory.change_held_item(event.button_index)
+		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+			inventory.change_held_item(event.button_index)
+# Capture mouse motion for camera
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		rotate_y(-event.relative.x * 0.002)
+		$Pivot.rotate_x(-event.relative.y * 0.002)
+		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.5, 1.5)
+	
+	if Input.is_action_just_pressed("toggle_flashlight"):
+		if %flashlight.visible:
+			%flashlight.visible = false
+		else:
+			%flashlight.visible = true
 	elif Input.is_action_just_pressed("showmouse") and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 # Get the gravity from the project settings to be synced with RigidBody nodes.
