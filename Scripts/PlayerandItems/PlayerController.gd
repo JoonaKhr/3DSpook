@@ -70,7 +70,7 @@ func _physics_process(delta):
 				inventory.get_current_item().useItem(result["collider"])
 			if result["collider"].has_signal("press"):
 				result["collider"].press.emit()
-			#print(result["collider"])
+			print(result["collider"])
 			
 # Add the gravity.
 	if not is_on_floor():

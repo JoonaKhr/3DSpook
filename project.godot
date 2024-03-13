@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/image="res://Resources/Textures/spookybg.png"
 config/icon="res://icon.svg"
 
+[autoload]
+
+Player="*res://Scripts/PlayerandItems/player_var.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"

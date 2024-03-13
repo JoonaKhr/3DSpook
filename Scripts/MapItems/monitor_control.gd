@@ -73,3 +73,7 @@ func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Ve
 	last_event_time = now
 
 	node_viewport.push_input(event)
+
+
+func _on_press():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

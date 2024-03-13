@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ucvtqeps74kf"]
+
+[ext_resource type="Script" path="res://Scripts/MapItems/interact_zone.gd" id="1_afjpm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t6soj"]
+resource_local_to_scene = true
+
+[node name="interact_zone" type="Area3D"]
+script = ExtResource("1_afjpm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_t6soj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
