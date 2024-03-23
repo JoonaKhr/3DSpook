@@ -1,8 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://byg8e7qgmdhut"]
+[gd_scene load_steps=12 format=3 uid="uid://byg8e7qgmdhut"]
 
 [ext_resource type="Material" uid="uid://jxt6it8qy3fl" path="res://Resources/Materials/m_enviro.tres" id="1_2cm28"]
 [ext_resource type="PackedScene" uid="uid://l8llsts52nv6" path="res://Scenes/Monitor.tscn" id="2_62fus"]
 [ext_resource type="PackedScene" uid="uid://ucvtqeps74kf" path="res://Scenes/Objects/interact_zone.tscn" id="3_bhmxo"]
+
+[sub_resource type="GDScript" id="GDScript_e1s43"]
+script/source = "extends StaticBody3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$anim.play(\"light_flicker\")
+"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hykt"]
 resource_name = "Duck_Tex_0"
@@ -52,8 +61,31 @@ data = PackedVector3Array(0, 0, 0, 0, 0.6, 0, 0.6, 0.6, 0, 0, 0, 0, 0.6, 0.6, 0,
 resource_local_to_scene = true
 size = Vector3(1.2, 1.8, 1.1)
 
+[sub_resource type="Animation" id="Animation_40urf"]
+resource_name = "light_flicker"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("monitor_light:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 1.1, 1.2, 2.3, 2.4, 2.9, 3, 4.4, 4.5, 4.9, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g4j4n"]
+_data = {
+"light_flicker": SubResource("Animation_40urf")
+}
+
 [node name="ComputerTerminal" type="StaticBody3D"]
 input_ray_pickable = false
+script = SubResource("GDScript_e1s43")
 
 [node name="Mesh2" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_2cm28")
@@ -71,5 +103,15 @@ transform = Transform3D(0.385, 0, 0, 0, -1.68289e-08, -0.385, 0, 0.385, -1.68289
 [node name="CollisionShape3D" parent="interact_zone" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.9, 0.23217)
 shape = SubResource("BoxShape3D_rdir1")
+
+[node name="monitor_light" type="SpotLight3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.3, 1.2, -0.2)
+spot_range = 3.0
+spot_angle = 74.9962
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g4j4n")
+}
 
 [editable path="interact_zone"]
