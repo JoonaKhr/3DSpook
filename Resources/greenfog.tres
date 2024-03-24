@@ -3,9 +3,9 @@
 [resource]
 ambient_light_energy = 0.8
 tonemap_exposure = 0.25
-ssao_enabled = true
-ssil_enabled = true
 glow_normalized = true
 fog_density = 0.05
 volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.0431373, 0.203922, 0.145098, 1)
+volumetric_fog_density = 0.1
+volumetric_fog_albedo = Color(0.305882, 0.0901961, 0.054902, 1)
+volumetric_fog_length = 24.0

@@ -50,3 +50,8 @@ func _on_animation_player_animation_finished(anim_name):
 		$closeTimer.stop()
 		for child in cardReaders:
 			child.lockDoors()
+
+func _on_player_detected(body:Node3D):
+	if body.name == "Player":
+		if !locked:
+			openDoor()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dss2yxr6i24eq"]
+[gd_scene load_steps=9 format=3 uid="uid://dss2yxr6i24eq"]
 
 [ext_resource type="Script" path="res://Scripts/MapItems/door.gd" id="1_d8irx"]
 [ext_resource type="PackedScene" uid="uid://bofol7x7rgw4c" path="res://Scenes/Objects/door_piece_1.tscn" id="1_hkf1k"]
@@ -28,6 +28,9 @@ _data = {
 "door_open": SubResource("Animation_2wrxv")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fumxv"]
+size = Vector3(3, 4, 3)
+
 [node name="door" type="Node3D"]
 script = ExtResource("1_d8irx")
 
@@ -41,17 +44,25 @@ libraries = {
 }
 
 [node name="closeTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
+one_shot = true
 
 [node name="door_open" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_tjbox")
-volume_db = -15.0
+volume_db = -25.0
 bus = &"Sfx"
 
 [node name="door_close" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_dv72o")
-volume_db = -15.0
+volume_db = -25.0
 bus = &"Sfx"
+
+[node name="player_detect" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_detect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_fumxv")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="closeTimer" to="." method="_on_close_timer_timeout"]
+[connection signal="body_entered" from="player_detect" to="." method="_on_player_detected"]

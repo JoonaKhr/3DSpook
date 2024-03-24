@@ -18,7 +18,7 @@ points = PackedVector3Array(-0.000195742, -4.89354e-05, -1, -0.000195742, 0.1767
 mass = 0.01
 can_sleep = false
 continuous_cd = true
-constant_torque = Vector3(0, 0.05, 0)
+max_contacts_reported = 4
 
 [node name="sylinder" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.01464e-05, 0, 0)

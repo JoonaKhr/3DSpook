@@ -1,6 +1,5 @@
-[gd_scene load_steps=16 format=3 uid="uid://coxk8353dayk"]
+[gd_scene load_steps=17 format=3 uid="uid://coxk8353dayk"]
 
-[ext_resource type="PackedScene" uid="uid://det4vhq1t7ov0" path="res://Scenes/Objects/grid_map.tscn" id="1_hk2t8"]
 [ext_resource type="Script" path="res://Scripts/map.gd" id="1_tbn5i"]
 [ext_resource type="MeshLibrary" uid="uid://qmbiwgvlouyo" path="res://meshlibrary.tres" id="2_8ecpi"]
 [ext_resource type="PackedScene" uid="uid://c0diii2blledv" path="res://Scenes/PlayerScene.tscn" id="2_g2hd0"]
@@ -13,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bekp1sxjs5eo3" path="res://Scenes/Objects/server_rack.tscn" id="10_wf7r5"]
 [ext_resource type="PackedScene" uid="uid://dsrmvinjs1spb" path="res://Scenes/Objects/specimen_container.tscn" id="11_6desp"]
 [ext_resource type="PackedScene" uid="uid://b1tpcwt4atbs6" path="res://Scenes/Objects/cup.tscn" id="13_e0n3e"]
+[ext_resource type="Environment" uid="uid://df4oq6kaiqjj4" path="res://Resources/greenfog.tres" id="14_83lq4"]
+[ext_resource type="PackedScene" uid="uid://dss2yxr6i24eq" path="res://Scenes/Objects/door.tscn" id="14_i2sor"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_injy4"]
 size = Vector3(4, 3, 3)
@@ -26,21 +27,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35.7971)
 script = ExtResource("1_tbn5i")
 
 [node name="top_floor" type="GridMap" parent="."]
+visible = false
 mesh_library = ExtResource("2_8ecpi")
 cell_size = Vector3(6, 2, 6)
 data = {
-"cells": PackedInt32Array(262142, 65523, 1, 262142, 65530, 1, 262142, 65531, 655364, 262142, 65524, 655364, 262141, 65531, 1048576, 196608, 65531, 1048576, 262143, 65531, 4, 196609, 65531, 655364, 196609, 65524, 4, 262141, 65524, 1441792, 196608, 65524, 655364, 262143, 65524, 4, 262140, 65531, 655364, 262138, 65531, 655363, 262139, 65531, 1048576, 262140, 65530, 0, 262140, 65529, 0, 262140, 65528, 0, 262140, 65527, 0, 262140, 65526, 0, 262140, 65525, 1441796, 262140, 65524, 1048579, 262143, 65532, 0, 262143, 65533, 0, 196609, 65530, 0, 196609, 65529, 0, 196609, 65528, 0, 196609, 65527, 0, 196609, 65526, 0, 196609, 65525, 0, 262143, 65525, 12, 196608, 65523, 0, 196608, 65522, 0, 196608, 65521, 655374, 196608, 65519, 7, 262140, 65521, 655367, 262140, 65519, 1048583, 196610, 65524, 1048585, 196613, 65524, 7, 196613, 65531, 1441799, 196610, 65531, 1048590, 262134, 65530, 655367, 262138, 65530, 655374, 262138, 65525, 1441806, 262134, 65525, 1048583, 262139, 65525, 1048576, 262137, 65526, 1048582, 262136, 65526, 1048582, 262135, 65526, 1048582, 262135, 65527, 1048582, 262135, 65528, 1048582, 262135, 65529, 1048582, 262136, 65529, 1048582, 262137, 65529, 1048582, 262137, 65528, 1048582, 262137, 65527, 1048582, 262136, 65527, 1048582, 262136, 65528, 1048582, 262143, 65520, 1048582, 262142, 65520, 1048582, 262141, 65520, 1048582, 196612, 65525, 1048582, 196611, 65525, 1048582, 196611, 65526, 1048582, 196611, 65527, 1048582, 196611, 65528, 1048582, 196611, 65529, 1048582, 196611, 65530, 1048582, 196612, 65530, 1048582, 196612, 65529, 1048582, 196612, 65528, 1048582, 196612, 65527, 1048582, 196612, 65526, 1048582, 196610, 65525, 1048589, 196610, 65526, 1048589, 196610, 65527, 1048589, 196610, 65528, 1048589, 196610, 65529, 1048589, 196610, 65530, 1048589, 196611, 65524, 13, 196612, 65524, 13, 196613, 65526, 1441805, 196613, 65525, 1441805, 196613, 65527, 1441805, 196613, 65528, 1441805, 196613, 65529, 1441805, 196613, 65530, 1441805, 196612, 65531, 655373, 196611, 65531, 655373, 262137, 65530, 655373, 262136, 65530, 655373, 262135, 65530, 655373, 262134, 65529, 1048589, 262134, 65528, 1048589, 262134, 65527, 1048589, 262134, 65526, 1048589, 262135, 65525, 13, 262136, 65525, 13, 262137, 65525, 13, 262138, 65526, 1441805, 262138, 65527, 1441805, 262138, 65528, 1441805, 262138, 65529, 1441805, 196608, 65520, 1441805, 262143, 65521, 655373, 262142, 65521, 655373, 262141, 65521, 655373, 262140, 65520, 1048589, 262141, 65519, 13, 262142, 65519, 13, 262143, 65519, 13, 262143, 65534, 8, 262141, 65534, 1048583, 262141, 0, 655367, 196609, 65534, 7, 196609, 0, 1441799, 196608, 0, 655373, 262143, 0, 655373, 262142, 0, 655373, 262141, 65535, 1048589, 262142, 65534, 13, 196608, 65534, 13, 196609, 65535, 1441805, 196608, 65535, 1441798, 262143, 65535, 1441798, 262142, 65535, 1441798)
+"cells": PackedInt32Array(262142, 65523, 1, 262142, 65530, 1, 262142, 65531, 655364, 262142, 65524, 655364, 262141, 65531, 1048576, 196608, 65531, 1048576, 262143, 65531, 4, 196609, 65531, 1441795, 196609, 65524, 3, 262141, 65524, 1441792, 196608, 65524, 655364, 262143, 65524, 4, 262140, 65531, 655364, 262138, 65531, 655363, 262139, 65531, 1048576, 262140, 65530, 0, 262140, 65529, 0, 262140, 65528, 0, 262140, 65527, 0, 262140, 65526, 0, 262140, 65525, 1441796, 262140, 65524, 1048579, 262143, 65532, 0, 262143, 65533, 0, 196609, 65530, 1048580, 196609, 65529, 0, 196609, 65528, 0, 196609, 65527, 0, 196609, 65526, 0, 196609, 65525, 1048580, 262143, 65525, 12, 196608, 65523, 0, 196608, 65522, 0, 196608, 65521, 655374, 196608, 65519, 7, 262140, 65521, 655367, 262140, 65519, 1048583, 262134, 65530, 655367, 262138, 65530, 655374, 262138, 65525, 1441806, 262134, 65525, 1048583, 262139, 65525, 1048576, 262137, 65526, 1048582, 262136, 65526, 1048582, 262135, 65526, 1048582, 262135, 65527, 1048582, 262135, 65528, 1048582, 262135, 65529, 1048582, 262136, 65529, 1048582, 262137, 65529, 1048582, 262137, 65528, 1048582, 262137, 65527, 1048582, 262136, 65527, 1048582, 262136, 65528, 1048582, 262143, 65520, 1048582, 262142, 65520, 1048582, 262141, 65520, 1048582, 196611, 65526, 1048582, 196611, 65527, 1048582, 196611, 65528, 1048582, 196611, 65529, 1048582, 196611, 65530, 655373, 196612, 65530, 655373, 196612, 65529, 1048582, 196612, 65528, 1048582, 196612, 65527, 1048582, 196612, 65526, 1048582, 196610, 65526, 1048589, 196610, 65527, 1048589, 196610, 65528, 1048589, 196610, 65529, 1048589, 196610, 65530, 1048590, 196613, 65526, 1441805, 196613, 65527, 1441805, 196613, 65528, 1441805, 196613, 65529, 1441805, 196613, 65530, 1441799, 262137, 65530, 655373, 262136, 65530, 655373, 262135, 65530, 655373, 262134, 65529, 1048589, 262134, 65528, 1048589, 262134, 65527, 1048589, 262134, 65526, 1048589, 262135, 65525, 13, 262136, 65525, 13, 262137, 65525, 13, 262138, 65526, 1441805, 262138, 65527, 1441805, 262138, 65528, 1441805, 262138, 65529, 1441805, 196608, 65520, 1441805, 262143, 65521, 655373, 262142, 65521, 655373, 262141, 65521, 655373, 262140, 65520, 1048589, 262141, 65519, 13, 262142, 65519, 13, 262143, 65519, 13, 262143, 65534, 8, 262141, 65534, 1048583, 262141, 0, 655367, 196609, 65534, 7, 196609, 0, 1441799, 196608, 0, 655373, 262143, 0, 655373, 262142, 0, 655373, 262141, 65535, 1048589, 262142, 65534, 13, 196608, 65534, 13, 196609, 65535, 1441805, 196608, 65535, 1441798, 262143, 65535, 1441798, 262142, 65535, 1441798, 196610, 65525, 1048585, 196613, 65525, 7, 196611, 65525, 13, 196612, 65525, 13)
 }
-metadata/_editor_floor_ = Vector3(0, 0, 0)
+metadata/_editor_floor_ = Vector3(0, 3, 0)
 
-[node name="ground_floor" parent="." instance=ExtResource("1_hk2t8")]
-bake_navigation = false
+[node name="ground_floor" type="GridMap" parent="."]
+mesh_library = ExtResource("2_8ecpi")
+cell_size = Vector3(6, 2, 6)
 data = {
 "cells": PackedInt32Array(65536, 0, 655362, 65536, 65535, 0, 65537, 65534, 1441799, 131071, 65534, 655367, 131071, 65533, 1048585, 65537, 65533, 1441806, 65536, 65533, 13, 65536, 65534, 655368, 65538, 65533, 1441792, 131070, 65533, 1441792, 65539, 65532, 655360, 65538, 65531, 1048576, 131069, 65532, 0, 131070, 65531, 1441792, 65536, 65531, 1441792, 65537, 65531, 655364, 131071, 65531, 655364, 65539, 65533, 655364, 131069, 65533, 655363, 131069, 65531, 655365, 131068, 65531, 1048576, 131067, 65531, 1048576, 131066, 65531, 1048576, 131065, 65531, 1048576, 131064, 65531, 655364, 131064, 65530, 0, 131064, 65529, 655369, 131064, 65527, 1048583, 131066, 65527, 7, 131066, 65529, 1441799, 131066, 65528, 1441800, 131065, 65529, 655373, 131064, 65528, 1048589, 131065, 65527, 13, 131065, 65528, 6, 131063, 65531, 1441792, 131062, 65531, 1441792, 131061, 65531, 1441792, 131060, 65531, 1441792, 131059, 65531, 1048578, 131067, 65528, 1048576, 131068, 65528, 1048576, 131069, 65530, 0, 131069, 65529, 0, 131069, 65527, 0, 131069, 65526, 0, 131068, 65525, 1441792, 131069, 65528, 1441796, 131069, 65525, 1441796, 131067, 65525, 1441801, 131066, 65525, 655373, 131065, 65525, 655373, 131064, 65525, 655367, 131064, 65523, 1048585, 131067, 65523, 7, 131064, 65524, 1048589, 131065, 65523, 13, 131066, 65523, 13, 131067, 65524, 1441805, 131065, 65524, 1441798, 131066, 65524, 1441798, 131069, 65524, 1048579, 131070, 65524, 1048576, 65538, 65524, 1048576, 131071, 65524, 655364, 65536, 65524, 4, 65537, 65524, 5, 65536, 65525, 0, 65537, 65525, 0, 65536, 65526, 12, 65537, 65526, 12, 65540, 65533, 1048588, 65539, 65531, 1441796, 65537, 65530, 1, 65539, 65530, 655360, 65539, 65529, 1048580, 65540, 65529, 1048576, 65541, 65529, 1048584, 65542, 65529, 1441798, 65542, 65530, 655373, 65542, 65528, 1441798, 65542, 65527, 13, 65543, 65528, 1441805, 65543, 65529, 1441805, 65541, 65527, 1048583, 65543, 65527, 7, 65543, 65530, 1441801, 65541, 65530, 655367, 65541, 65528, 1048589, 65544, 65529, 1048583, 65545, 65529, 7, 65545, 65530, 1441799, 65544, 65530, 1048590, 65539, 65528, 0, 65539, 65527, 0, 65539, 65526, 0, 65539, 65525, 0, 65539, 65524, 5, 65540, 65524, 1441792, 65539, 65523, 655360, 65539, 65522, 655360, 65539, 65520, 655360, 65539, 65519, 655360, 65539, 65518, 655360, 65539, 65516, 655360, 65539, 65515, 655360, 65539, 65514, 655360, 65538, 65517, 1048581, 65537, 65517, 1048581, 65536, 65517, 1048581, 131071, 65517, 1048581, 65538, 65513, 1048581, 65537, 65513, 1048581, 65536, 65513, 1048581, 131071, 65513, 1048581, 131070, 65517, 1048581, 131070, 65513, 1048581, 131069, 65514, 0, 131069, 65516, 0, 65540, 65517, 1048581, 65541, 65517, 1048581, 65542, 65517, 1048581, 65543, 65517, 1048581, 65544, 65517, 1048581, 65545, 65516, 655360, 65545, 65514, 655360, 65544, 65513, 1048581, 65543, 65513, 1048581, 65542, 65513, 1048581, 65541, 65513, 1048581, 65540, 65513, 1048581, 65539, 65517, 5, 65539, 65521, 1048580, 131069, 65515, 1441796, 65539, 65513, 4, 65545, 65515, 1048580, 131069, 65517, 655363, 131069, 65513, 1048579, 65545, 65513, 3, 65545, 65517, 1441795, 65540, 65521, 1048576, 65544, 65516, 655372, 65543, 65516, 655372, 65542, 65516, 655372, 65541, 65516, 655372, 65540, 65516, 655372, 65544, 65514, 12, 65543, 65514, 12, 65542, 65514, 12, 65541, 65514, 12, 65540, 65514, 12, 65544, 65518, 12, 65543, 65518, 12, 65542, 65518, 12, 65541, 65518, 12, 65540, 65518, 12, 65538, 65518, 12, 65537, 65518, 12, 65536, 65518, 12, 131071, 65518, 12, 131070, 65518, 12, 131070, 65516, 655372, 131071, 65516, 655372, 65536, 65516, 655372, 65537, 65516, 655372, 65538, 65516, 655372, 65544, 65512, 655372, 65543, 65512, 655372, 65542, 65512, 655372, 65541, 65512, 655372, 65540, 65512, 655372, 65538, 65512, 655372, 65537, 65512, 655372, 65536, 65512, 655372, 131071, 65512, 655372, 131070, 65512, 655372, 65538, 65514, 12, 65537, 65514, 12, 65536, 65514, 12, 131071, 65514, 12, 131070, 65514, 12, 65541, 65521, 1048584, 65541, 65524, 1048584, 65542, 65522, 655373, 65543, 65522, 655373, 65542, 65523, 13, 65543, 65523, 13, 65544, 65523, 13, 65542, 65525, 655373, 65543, 65525, 655373, 65544, 65525, 655373, 65545, 65524, 1441805, 65544, 65521, 1441805, 65543, 65520, 13, 65542, 65520, 13, 65541, 65520, 1048583, 65544, 65520, 7, 65544, 65522, 1441799, 65541, 65522, 655367, 65541, 65523, 1048583, 65545, 65523, 7, 65545, 65525, 1441799, 65541, 65525, 655367, 65543, 65521, 655366, 65542, 65521, 655366, 65542, 65524, 655366, 65543, 65524, 655366, 65544, 65524, 655366, 131068, 65515, 1441800, 65546, 65515, 1048584, 131068, 65513, 7, 131068, 65517, 1441799, 131066, 65517, 655367, 131066, 65513, 1048583, 65546, 65513, 1048583, 65548, 65513, 7, 65548, 65517, 1441799, 65546, 65517, 655367, 131067, 65517, 655373, 131066, 65516, 1048589, 131066, 65515, 1048589, 131066, 65514, 1048589, 131067, 65513, 13, 131068, 65514, 1441805, 131068, 65516, 1441805, 65548, 65516, 1441805, 65548, 65515, 1441805, 65548, 65514, 1441805, 65547, 65517, 655373, 65546, 65516, 1048589, 65546, 65514, 1048589, 65547, 65513, 13, 65547, 65516, 6, 65547, 65515, 6, 65547, 65514, 6, 131067, 65516, 6, 131067, 65515, 6, 131067, 65514, 6, 196607, 65530, 655361, 196607, 65529, 3, 196606, 65529, 1048579, 1, 65529, 1048579, 2, 65529, 3, 131063, 65523, 1048577, 65526, 65523, 1048579, 65526, 65524, 655363, 65537, 65523, 1, 1, 65522, 1048579, 2, 65522, 3, 196607, 65523, 655361, 196607, 65522, 3, 196606, 65522, 1048579)
 }
 metadata/_editor_floor_ = Vector3(0, 2, 0)
 
 [node name="basement" type="GridMap" parent="."]
+visible = false
 mesh_library = ExtResource("2_8ecpi")
 cell_size = Vector3(6, 2, 6)
 data = {
@@ -50,7 +54,7 @@ metadata/_editor_floor_ = Vector3(0, -1, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_g2hd0")]
 unique_name_in_owner = true
-transform = Transform3D(-1.09279e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09279e-08, -3.4546, 3.96123, -11.6456)
+transform = Transform3D(0.3, 0, 6.39488e-14, 0, 0.3, 0, -6.39488e-14, 0, 0.3, 2.9454, 3.96123, -7.6456)
 SPEED = 3.0
 
 [node name="Pivot" parent="Player" index="4"]
@@ -214,302 +218,301 @@ transform = Transform3D(1.39822e-06, -0.00239087, 0.999997, -0.000797053, 0.9999
 
 [node name="server_room" type="Node3D" parent="."]
 process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0, -33)
-visible = false
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 36.7, 8, -67)
 
 [node name="serverRack1" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 3, -9.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, -1, -9.7971)
 
 [node name="serverRack2" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 3, -9.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, -1, -9.7971)
 
 [node name="serverRack3" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 3, -9.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, -1, -9.7971)
 
 [node name="serverRack4" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 3, -9.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, -1, -9.7971)
 
 [node name="serverRack5" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 3, -9.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, -1, -9.7971)
 
 [node name="serverRack6" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 3, -9.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, -1, -9.7971)
 
 [node name="serverRack7" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 3, -9.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, -1, -9.7971)
 
 [node name="serverRack8" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 3, -9.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, -1, -9.7971)
 
 [node name="serverRack9" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, 3, -9.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, -1, -9.7971)
 
 [node name="serverRack10" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 3, -9.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, -1, -9.7971)
 
 [node name="serverRack11" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 3, -9.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, -1, -9.7971)
 
 [node name="serverRack12" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 3, -9.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, -1, -9.7971)
 
 [node name="serverRack13" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 3, -9.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, -1, -9.7971)
 
 [node name="serverRack14" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 3, -9.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, -1, -9.7971)
 
 [node name="serverRack15" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.2, 3, -7.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.2, -1, -7.7971)
 
 [node name="serverRack16" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.2, 3, -7.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.2, -1, -7.7971)
 
 [node name="serverRack17" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.2, 3, -7.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.2, -1, -7.7971)
 
 [node name="serverRack18" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.2, 3, -7.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.2, -1, -7.7971)
 
 [node name="serverRack19" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.2, 3, -7.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.2, -1, -7.7971)
 
 [node name="serverRack20" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.2, 3, -7.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.2, -1, -7.7971)
 
 [node name="serverRack21" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.2, 3, -7.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.2, -1, -7.7971)
 
 [node name="serverRack22" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.2, 3, -7.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.2, -1, -7.7971)
 
 [node name="serverRack23" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.2, 3, -7.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.2, -1, -7.7971)
 
 [node name="serverRack24" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.2, 3, -7.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.2, -1, -7.7971)
 
 [node name="serverRack25" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.2, 3, -7.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.2, -1, -7.7971)
 
 [node name="serverRack26" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.2, 3, -7.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.2, -1, -7.7971)
 
 [node name="serverRack27" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.2, 3, -7.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.2, -1, -7.7971)
 
 [node name="serverRack28" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.2, 3, -7.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.2, -1, -7.7971)
 
 [node name="serverRack29" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 3, -6.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, -1, -6.7971)
 
 [node name="serverRack30" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 3, -6.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, -1, -6.7971)
 
 [node name="serverRack31" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 3, -6.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, -1, -6.7971)
 
 [node name="serverRack32" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 3, -6.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, -1, -6.7971)
 
 [node name="serverRack33" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 3, -6.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, -1, -6.7971)
 
 [node name="serverRack34" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 3, -6.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, -1, -6.7971)
 
 [node name="serverRack35" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 3, -6.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, -1, -6.7971)
 
 [node name="serverRack36" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 3, -6.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, -1, -6.7971)
 
 [node name="serverRack37" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, 3, -6.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, -1, -6.7971)
 
 [node name="serverRack38" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 3, -6.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, -1, -6.7971)
 
 [node name="serverRack39" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 3, -6.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, -1, -6.7971)
 
 [node name="serverRack40" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 3, -6.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, -1, -6.7971)
 
 [node name="serverRack41" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 3, -6.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, -1, -6.7971)
 
 [node name="serverRack42" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 3, -6.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, -1, -6.7971)
 
 [node name="serverRack43" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, -1, -3.7971)
 
 [node name="serverRack44" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, -1, -3.7971)
 
 [node name="serverRack45" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, -1, -3.7971)
 
 [node name="serverRack46" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, -1, -3.7971)
 
 [node name="serverRack47" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, -1, -3.7971)
 
 [node name="serverRack48" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, -1, -3.7971)
 
 [node name="serverRack49" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, -1, -3.7971)
 
 [node name="serverRack50" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, -1, -3.7971)
 
 [node name="serverRack51" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, -1, -3.7971)
 
 [node name="serverRack52" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, -1, -3.7971)
 
 [node name="serverRack53" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, -1, -3.7971)
 
 [node name="serverRack54" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, -1, -3.7971)
 
 [node name="serverRack55" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, -1, -3.7971)
 
 [node name="serverRack56" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, -1, -3.7971)
 
 [node name="serverRack57" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, -1, -3.7971)
 
 [node name="serverRack58" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, -1, -3.7971)
 
 [node name="serverRack59" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, -1, -3.7971)
 
 [node name="serverRack60" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, -1, -3.7971)
 
 [node name="serverRack61" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, -1, -3.7971)
 
 [node name="serverRack62" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, -1, -3.7971)
 
 [node name="serverRack63" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, -1, -3.7971)
 
 [node name="serverRack64" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, -1, -3.7971)
 
 [node name="serverRack65" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, -1, -3.7971)
 
 [node name="serverRack66" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, -1, -3.7971)
 
 [node name="serverRack67" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, -1, -3.7971)
 
 [node name="serverRack68" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, -1, -3.7971)
 
 [node name="serverRack69" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, -1, -3.7971)
 
 [node name="serverRack70" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 3, -3.7971)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, -1, -3.7971)
 
 [node name="serverRack71" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.2, 3, -4.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.2, -1, -4.7971)
 
 [node name="serverRack72" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.2, 3, -4.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.2, -1, -4.7971)
 
 [node name="serverRack73" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.2, 3, -4.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.2, -1, -4.7971)
 
 [node name="serverRack74" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.2, 3, -4.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.2, -1, -4.7971)
 
 [node name="serverRack75" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.2, 3, -4.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.2, -1, -4.7971)
 
 [node name="serverRack76" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.2, 3, -4.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.2, -1, -4.7971)
 
 [node name="serverRack77" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.2, 3, -4.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.2, -1, -4.7971)
 
 [node name="serverRack78" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.2, 3, -4.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.2, -1, -4.7971)
 
 [node name="serverRack79" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.2, 3, -4.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.2, -1, -4.7971)
 
 [node name="serverRack80" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.2, 3, -4.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.2, -1, -4.7971)
 
 [node name="serverRack81" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.2, 3, -4.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.2, -1, -4.7971)
 
 [node name="serverRack82" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.2, 3, -4.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.2, -1, -4.7971)
 
 [node name="serverRack83" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.2, 3, -4.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.2, -1, -4.7971)
 
 [node name="serverRack84" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.2, 3, -4.7971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.2, -1, -4.7971)
 
 [node name="serverRack85" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.2, 3, -1.9971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.2, -1, -1.9971)
 
 [node name="serverRack86" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.2, 3, -1.9971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.2, -1, -1.9971)
 
 [node name="serverRack87" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.2, 3, -1.9971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.2, -1, -1.9971)
 
 [node name="serverRack88" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.2, 3, -1.9971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.2, -1, -1.9971)
 
 [node name="serverRack89" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.2, 3, -1.9971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.2, -1, -1.9971)
 
 [node name="serverRack90" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.2, 3, -1.9971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.2, -1, -1.9971)
 
 [node name="serverRack91" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.2, 3, -1.9971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.2, -1, -1.9971)
 
 [node name="serverRack92" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.2, 3, -1.9971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.2, -1, -1.9971)
 
 [node name="serverRack93" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.2, 3, -1.9971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.2, -1, -1.9971)
 
 [node name="serverRack94" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.2, 3, -1.9971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.2, -1, -1.9971)
 
 [node name="serverRack95" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.2, 3, -1.9971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.2, -1, -1.9971)
 
 [node name="serverRack96" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.2, 3, -1.9971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.2, -1, -1.9971)
 
 [node name="serverRack97" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.2, 3, -1.9971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.2, -1, -1.9971)
 
 [node name="serverRack98" parent="server_room" instance=ExtResource("10_wf7r5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.2, 3, -1.9971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.2, -1, -1.9971)
 
 [node name="specimen_room" type="Node3D" parent="."]
 process_mode = 4
@@ -550,18 +553,25 @@ size = Vector3(4, 3, 11)
 material = SubResource("FogMaterial_ggwhw")
 
 [node name="desk" parent="." instance=ExtResource("4_kdct5")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2, 3, -14.7971)
+transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, 1.64281, 3, -16.9931)
 
 [node name="cup" parent="." instance=ExtResource("13_e0n3e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39251, 3.875, -15.2992)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.14491, 3.875, -16.6005)
 
 [node name="cup2" parent="." instance=ExtResource("13_e0n3e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39251, 3.875, -15.6992)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.54491, 3.875, -16.6005)
 
 [node name="cup3" parent="." instance=ExtResource("13_e0n3e")]
-transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 2.09251, 5.775, -15.6992)
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 2.54491, 5.775, -16.9005)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("14_83lq4")
+
+[node name="door" parent="." instance=ExtResource("14_i2sor")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.8, 3, -14.9971)
+
+[node name="door2" parent="." instance=ExtResource("14_i2sor")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.2, 3, -14.9971)
 
 [connection signal="body_entered" from="exit_teleport" to="." method="_on_exit_teleport_body_entered"]
 
