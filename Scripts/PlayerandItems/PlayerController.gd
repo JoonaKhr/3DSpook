@@ -1,5 +1,9 @@
 extends CharacterBody3D
 
+
+@onready var head = get_node("%head")
+@onready var viewmodel = get_node("%viewmodel")
+
 @export var SPEED = 5.0
 @export var sprintMult = 1.5
 const JUMP_VELOCITY = 3.5
@@ -44,7 +48,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 # Raycasting code for interacting with the environment
 func raycastFromMouse(r_length):
 	var space_state = get_world_3d().get_direct_space_state()
-	var cam = $Pivot/Camera3D
+	var cam = $Pivot/head
 	var mousepos = get_viewport().get_mouse_position()
 	var origin = cam.project_ray_origin(mousepos)
 	var end = origin + cam.project_ray_normal(mousepos) * r_length
@@ -52,6 +56,9 @@ func raycastFromMouse(r_length):
 	query.collide_with_areas = true
 
 	return space_state.intersect_ray(query)
+
+func _process(_delta):
+	viewmodel.set_global_transform(head.get_global_transform())
 
 func _physics_process(delta):
 	

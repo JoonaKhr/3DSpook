@@ -63,9 +63,6 @@ SPEED = 3.0
 [node name="Pivot" parent="Player" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6396, -0.10684)
 
-[node name="Camera3D" parent="Player/Pivot" index="0"]
-transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, 0, 0, 0)
-
 [node name="chief_office" type="Node3D" parent="."]
 process_mode = 4
 visible = false
@@ -572,6 +569,7 @@ environment = ExtResource("14_83lq4")
 
 [node name="door" parent="." instance=ExtResource("14_i2sor")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.8, 3, -14.9971)
+locked = true
 
 [node name="keycardReader" parent="door" instance=ExtResource("14_62ocp")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.2, 1, -0.7)

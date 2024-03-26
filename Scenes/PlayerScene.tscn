@@ -63,22 +63,48 @@ mesh = SubResource("CapsuleMesh_rjcbi")
 [node name="Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6396, -0.561918)
 
-[node name="Camera3D" type="Camera3D" parent="Pivot"]
+[node name="head" type="Camera3D" parent="Pivot"]
+unique_name_in_owner = true
+cull_mask = 1048573
 current = true
 fov = 90.0
 
-[node name="flashlight" type="SpotLight3D" parent="Pivot/Camera3D"]
+[node name="flashlight" type="SpotLight3D" parent="Pivot/head"]
 unique_name_in_owner = true
+layers = 3
 light_energy = 3.0
 distance_fade_enabled = true
 spot_range = 18.545
 spot_angle = 51.898
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Pivot/head"]
+process_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Pivot/head/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="viewmodel" type="Camera3D" parent="Pivot/head/SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6396, -0.561918)
+cull_mask = 2
+fov = 90.0
+
 [node name="Hand" type="Marker3D" parent="Pivot"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09706, -0.753778, -1.18481)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79706, -0.753778, -1.18481)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/Hand"]
+layers = 2
 mesh = SubResource("BoxMesh_iedih")
 
 [node name="crosshair" type="ColorRect" parent="."]

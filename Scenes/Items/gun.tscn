@@ -19,11 +19,13 @@ script = ExtResource("1_8yroc")
 
 [node name="barrel" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0455654, 0)
+layers = 3
 mesh = SubResource("BoxMesh_dmlpr")
 skeleton = NodePath("")
 
 [node name="grip" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.663822, 0.747891, 0, -0.747891, 0.663822, 0, 0, 0, 1, 0.25459, -0.0214581, 0)
+layers = 3
 mesh = SubResource("BoxMesh_jrl8d")
 skeleton = NodePath("")
 
@@ -32,12 +34,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0555648, 0.0360484, 0)
 shape = SubResource("BoxShape3D_4tcp3")
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.260327, 0.0405511, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.245629, 0.0405511, -0.0149436)
 
 [node name="ammo" type="Sprite3D" parent="."]
-transform = Transform3D(0.398867, -0.0300889, 0, 0.0300889, 0.398867, 0, 0, 0, 0.4, 0.213298, 0.207748, 0)
+transform = Transform3D(0.498583, -0.0376112, 0, 0.0376112, 0.498583, 0, 0, 0, 0.5, 0.213298, 0.207748, 0)
+layers = 3
 axis = 0
-double_sided = false
 texture_filter = 2
 texture = ExtResource("2_o75pp")
 region_enabled = true
