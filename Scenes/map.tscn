@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://coxk8353dayk"]
+[gd_scene load_steps=20 format=3 uid="uid://coxk8353dayk"]
 
 [ext_resource type="Script" path="res://Scripts/map.gd" id="1_tbn5i"]
 [ext_resource type="MeshLibrary" uid="uid://qmbiwgvlouyo" path="res://meshlibrary.tres" id="2_8ecpi"]
@@ -16,6 +16,7 @@
 [ext_resource type="Environment" uid="uid://df4oq6kaiqjj4" path="res://Resources/greenfog.tres" id="14_83lq4"]
 [ext_resource type="PackedScene" uid="uid://dss2yxr6i24eq" path="res://Scenes/Objects/door.tscn" id="14_i2sor"]
 [ext_resource type="PackedScene" uid="uid://bub0r3q257xpe" path="res://Scenes/Items/keycard.tscn" id="15_s7n30"]
+[ext_resource type="PackedScene" uid="uid://xnkbca7fwn36" path="res://Scenes/Items/gun.tscn" id="17_t13w4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_injy4"]
 size = Vector3(4, 3, 3)
@@ -558,20 +559,19 @@ material = SubResource("FogMaterial_ggwhw")
 transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, 1.64281, 3, -16.9931)
 
 [node name="cup" parent="." instance=ExtResource("13_e0n3e")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.24491, 3.875, -16.8005)
+transform = Transform3D(0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, 2.74491, 3.875, -16.8005)
 
 [node name="cup2" parent="." instance=ExtResource("13_e0n3e")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.54491, 3.875, -16.6005)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.84491, 3.875, -16.5005)
 
 [node name="cup3" parent="." instance=ExtResource("13_e0n3e")]
-transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 2.54491, 5.775, -16.9005)
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 2.54491, 3.875, -16.9005)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("14_83lq4")
 
 [node name="door" parent="." instance=ExtResource("14_i2sor")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.8, 3, -14.9971)
-locked = true
 
 [node name="keycardReader" parent="door" instance=ExtResource("14_62ocp")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.2, 1, -0.7)
@@ -583,12 +583,50 @@ requiredColor = Color(1, 0.313726, 0, 1)
 
 [node name="door2" parent="." instance=ExtResource("14_i2sor")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.2, 3, -14.9971)
+locked = true
+
+[node name="keycardReader" parent="door2" instance=ExtResource("14_62ocp")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 2.2, 1, 1.1)
+requiredColor = Color(0, 1, 0, 1)
+
+[node name="keycardReader2" parent="door2" instance=ExtResource("14_62ocp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.1, 1, -1.7)
+requiredColor = Color(0, 1, 0, 1)
 
 [node name="keycard" parent="." instance=ExtResource("15_s7n30")]
-transform = Transform3D(0.906308, -0.422618, -1.84732e-08, 0, -4.37114e-08, 1, -0.422618, -0.906308, -3.9616e-08, 1.8, 3.7, -16.4971)
+transform = Transform3D(0.453154, -0.211309, -9.23661e-09, 0, -2.18557e-08, 0.5, -0.211309, -0.453154, -1.9808e-08, 1.8, 3.7, -16.4971)
 iname = "Orange Keycard"
 activated = true
 color = Color(1, 0.313726, 0, 1)
+
+[node name="keycard2" parent="." instance=ExtResource("15_s7n30")]
+transform = Transform3D(0.409576, 0.286788, 1.25359e-08, 0, -2.18557e-08, 0.5, 0.286788, -0.409576, -1.79031e-08, 2, 3.7, -16.3971)
+iname = "Green Keycard"
+activated = true
+color = Color(0, 1, 0, 1)
+
+[node name="keycard3" parent="." instance=ExtResource("15_s7n30")]
+transform = Transform3D(0.469846, 0.17101, 7.4751e-09, 0, -2.18557e-08, 0.5, 0.17101, -0.469846, -2.05376e-08, 1.9, 3.7, -16.6971)
+iname = "Blue Keycard"
+activated = true
+color = Color(0, 0, 1, 1)
+
+[node name="keycard4" parent="." instance=ExtResource("15_s7n30")]
+transform = Transform3D(0.482963, 0.12941, 5.65668e-09, 0, -2.18557e-08, 0.5, 0.12941, -0.482963, -2.1111e-08, 2.4, 3.7, -16.3971)
+iname = "Yellow Keycard"
+activated = true
+color = Color(1, 1, 0, 1)
+
+[node name="keycard5" parent="." instance=ExtResource("15_s7n30")]
+transform = Transform3D(0.498097, 0.0435781, 1.90486e-09, 0, -2.18557e-08, 0.5, 0.0435781, -0.498097, -2.17725e-08, 2.2, 3.7, -16.6971)
+iname = "Test Keycard"
+activated = true
+color = Color(0.5, 0, 1, 1)
+
+[node name="gun" parent="." instance=ExtResource("17_t13w4")]
+transform = Transform3D(0.286788, 0.409576, 1.79031e-08, 0, -2.18557e-08, 0.5, 0.409576, -0.286788, -1.25359e-08, 2.6, 3.7, -16.5971)
+iname = "Stun Gun"
+activated = true
 
 [connection signal="body_entered" from="exit_teleport" to="." method="_on_exit_teleport_body_entered"]
 

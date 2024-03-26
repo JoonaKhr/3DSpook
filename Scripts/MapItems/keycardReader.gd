@@ -2,9 +2,14 @@ extends StaticBody3D
 
 
 @export var requiredColor: Color
+#Does nothing yet
+@export_enum("Blue","Green","Yellow","Orange","Purple") var card_type = 0
+
 @onready var cardLight = $cardLight/indicatorLight
 @onready var unlockLight = $unlockLight/indicatorLight
 @onready var timer = $unlockLight/Timer
+
+
 signal press
 var door
 

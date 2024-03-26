@@ -40,7 +40,8 @@ func change_held_item(input):
 	held_item = item_list[index]
 	if previous_held_item != null:
 		previous_held_item.position = previous_held_item.original_position
-		previous_held_item.rotation_degrees = Vector3(0, 90.0, 0)
+		previous_held_item.rotation_degrees = Vector3(0, 0, 0)
+		previous_held_item.scale = Vector3(1, 1, 1)
 	if held_item.activated == true:
 		equip_to_hand(previous_held_item)
 	
@@ -53,6 +54,7 @@ func equip_to_hand(previous_item):
 	hand_item.set("color", held_item.get("color"))
 	hand_item.position = %Hand.position
 	hand_item.rotation_degrees = Vector3(0, -90, 0)
+	hand_item.scale = Vector3(2, 2, 2)
 	%Hand.add_child(hand_item)
 	
 

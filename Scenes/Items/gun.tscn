@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://xnkbca7fwn36"]
+[gd_scene load_steps=6 format=3 uid="uid://xnkbca7fwn36"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerandItems/item.gd" id="1_8yroc"]
+[ext_resource type="Texture2D" uid="uid://d2tq56i86pqqk" path="res://Resources/Textures/ammohud.png" id="2_o75pp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dmlpr"]
-size = Vector3(1, 0.3, 0.3)
+size = Vector3(0.5, 0.15, 0.15)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jrl8d"]
-size = Vector3(0.6, 0.3, 0.3)
+size = Vector3(0.3, 0.15, 0.15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4tcp3"]
-size = Vector3(1.1, 0.6, 0.3)
+size = Vector3(0.55, 0.3, 0.15)
 
 [node name="gun" type="StaticBody3D" groups=["gun"]]
 collision_layer = 2
@@ -17,12 +18,12 @@ collision_mask = 2
 script = ExtResource("1_8yroc")
 
 [node name="barrel" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.181482, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0455654, 0)
 mesh = SubResource("BoxMesh_dmlpr")
 skeleton = NodePath("")
 
 [node name="grip" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.663822, 0.747891, 0, -0.747891, 0.663822, 0, 0, 0, 1, 0.316023, -0.0383006, 0)
+transform = Transform3D(0.663822, 0.747891, 0, -0.747891, 0.663822, 0, 0, 0, 1, 0.25459, -0.0214581, 0)
 mesh = SubResource("BoxMesh_jrl8d")
 skeleton = NodePath("")
 
@@ -31,7 +32,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0555648, 0.0360484, 0)
 shape = SubResource("BoxShape3D_4tcp3")
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.512655, 0.17507, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.260327, 0.0405511, 0)
+
+[node name="ammo" type="Sprite3D" parent="."]
+transform = Transform3D(0.398867, -0.0300889, 0, 0.0300889, 0.398867, 0, 0, 0, 0.4, 0.213298, 0.207748, 0)
+axis = 0
+double_sided = false
+texture_filter = 2
+texture = ExtResource("2_o75pp")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
 
 [connection signal="activate" from="." to="." method="_on_activate"]
 [connection signal="press" from="." to="." method="_on_press"]

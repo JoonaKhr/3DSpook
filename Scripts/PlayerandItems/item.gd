@@ -3,9 +3,13 @@ extends Node3D
 @export var iname = ""
 @export var activated = false
 @export var color: Color
+#Does nothing yet
+@export_enum("Blue","Green","Yellow","Orange","Purple","Gun","Hand") var item_type
+
 var original_position: Vector3
 var player
 var electricityMat = preload("res://Resources/Materials/m_gunElectricity.tres")
+
 signal press
 signal activate
 
@@ -22,11 +26,32 @@ func pickupItem():
 	print("Picked up: ", iname)
 	player.inventory.obtainItem(self)
 
+func _process(_delta):
+	#manage gun ammo display
+	if self.has_node("ammo"):
+		match Player.vars["ammo"]:
+			4:
+				$ammo.set_region_rect(Rect2(0,0,32,32))
+			3:
+				$ammo.set_region_rect(Rect2(0,32,32,32))
+			2:
+				$ammo.set_region_rect(Rect2(0,64,32,32))
+			1:
+				$ammo.set_region_rect(Rect2(0,96,32,32))
+			0:
+				$ammo.set_region_rect(Rect2(0,128,32,32))
+
 func shoot(target):
 	if activated == true:
-		var barrel = $Marker3D.global_position
-		var targetPoint = target["position"]
-		lineDraw(barrel, targetPoint)
+		if Player.vars["ammo"] > 0:
+			var barrel = $Marker3D.global_position
+			var targetPoint = target["position"]
+			lineDraw(barrel, targetPoint)
+			
+			#manage ammo (impressive I know)
+			Player.vars["ammo"] -= 1
+		else:
+			pass
 	#print("trying to draw I guess ?")
 	
 func lineDraw(from: Vector3, to: Vector3, persist_s = 0.1):

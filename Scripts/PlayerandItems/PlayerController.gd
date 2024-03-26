@@ -62,6 +62,8 @@ func _physics_process(delta):
 			ray_length = 150
 			result = raycastFromMouse(ray_length)
 			usedItem.shoot(result)
+			if $ammo_charge.time_left == 0:
+				$ammo_charge.start()
 		ray_length = 2
 		result = raycastFromMouse(ray_length)
 		if result:
@@ -98,3 +100,11 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	move_and_slide()
+
+
+func _on_ammo_charge_timeout():
+	if Player.vars["ammo"] <= 3:
+		Player.vars["ammo"] += 1
+	if Player.vars["ammo"] > 3:
+		$ammo_charge.stop()
+

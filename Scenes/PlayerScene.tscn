@@ -23,31 +23,31 @@ script = ExtResource("1_yb3sx")
 unique_name_in_owner = true
 
 [node name="gun" parent="inventory" instance=ExtResource("4_tioku")]
-transform = Transform3D(0.00500986, -0.0449686, -0.497949, 0.496926, 0.0553615, 0, 0.0551344, -0.494887, 0.0452468, 0.366865, 0, -0.553441)
+transform = Transform3D(0.0100197, -0.0899371, -0.995897, 0.993851, 0.110723, -1.09256e-08, 0.110269, -0.989774, 0.0904935, 0.366865, 0, -0.553441)
 iname = "Stun Gun"
 
 [node name="keycard" parent="inventory" instance=ExtResource("3_dc1dr")]
-transform = Transform3D(0.812603, 0, 0.582818, 0, 1, 0, -0.582818, 0, 0.812603, -0.533012, 0, -0.739092)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.533012, 0, -0.739092)
 iname = "Blue Keycard"
 color = Color(0, 0, 1, 1)
 
 [node name="keycard2" parent="inventory" instance=ExtResource("3_dc1dr")]
-transform = Transform3D(0.979233, 0, 0.202736, 0, 1, 0, -0.202736, 0, 0.979233, -0.343276, 0, -0.828928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343276, 0, -0.828928)
 iname = "Green Keycard"
 color = Color(0, 1, 0, 1)
 
 [node name="keycard3" parent="inventory" instance=ExtResource("3_dc1dr")]
-transform = Transform3D(0.995665, 0, 0.0930136, 0, 1, 0, -0.0930136, 0, 0.995665, -0.139259, 0, -0.872987)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.139259, 0, -0.872987)
 iname = "Orange Keycard"
 color = Color(1, 0.313726, 0, 1)
 
 [node name="keycard4" parent="inventory" instance=ExtResource("3_dc1dr")]
-transform = Transform3D(0.9851, 0, -0.171981, 0, 1, 0, 0.171981, 0, 0.9851, 0.20914, 0, -0.890654)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.191983, -0.125177, -0.722548)
 iname = "Yellow Keycard"
 color = Color(1, 1, 0, 1)
 
 [node name="keycard5" parent="inventory" instance=ExtResource("3_dc1dr")]
-transform = Transform3D(0.92004, 0, -0.391823, 0, 1, 0, 0.391823, 0, 0.92004, 0.428801, 0, -0.828952)
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -0.452602, -0.121064, -0.637224)
 iname = "Test Keycard"
 color = Color(0.5, 0, 1, 1)
 
@@ -76,7 +76,7 @@ spot_angle = 51.898
 
 [node name="Hand" type="Marker3D" parent="Pivot"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09706, -0.753778, -1.01396)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09706, -0.753778, -1.18481)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/Hand"]
 mesh = SubResource("BoxMesh_iedih")
@@ -95,3 +95,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0.509804)
+
+[node name="ammo_charge" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="ammo_charge" to="." method="_on_ammo_charge_timeout"]
