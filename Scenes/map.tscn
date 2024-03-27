@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://coxk8353dayk"]
+[gd_scene load_steps=27 format=3 uid="uid://coxk8353dayk"]
 
 [ext_resource type="Script" path="res://Scripts/map.gd" id="1_tbn5i"]
 [ext_resource type="MeshLibrary" uid="uid://qmbiwgvlouyo" path="res://meshlibrary.tres" id="2_8ecpi"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://dss2yxr6i24eq" path="res://Scenes/Objects/door.tscn" id="14_i2sor"]
 [ext_resource type="PackedScene" uid="uid://bub0r3q257xpe" path="res://Scenes/Items/keycard.tscn" id="15_s7n30"]
 [ext_resource type="PackedScene" uid="uid://xnkbca7fwn36" path="res://Scenes/Items/gun.tscn" id="17_t13w4"]
+[ext_resource type="Texture2D" uid="uid://ckmjux0tul4xy" path="res://Resources/Textures/keycards.png" id="17_xxje7"]
+[ext_resource type="AudioStream" uid="uid://c4jgnmcjoec46" path="res://Resources/Music/AMBIENCE_SPACECRAFT_INTERIOR_LOOP.wav" id="19_v6hu7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_injy4"]
 size = Vector3(4, 3, 3)
@@ -24,6 +26,36 @@ size = Vector3(4, 3, 3)
 [sub_resource type="FogMaterial" id="FogMaterial_ggwhw"]
 density = 2.0
 albedo = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fyinr"]
+resource_local_to_scene = true
+albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
+albedo_texture = ExtResource("17_xxje7")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5eg8r"]
+resource_local_to_scene = true
+albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
+albedo_texture = ExtResource("17_xxje7")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t242y"]
+resource_local_to_scene = true
+albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
+albedo_texture = ExtResource("17_xxje7")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dlruy"]
+resource_local_to_scene = true
+albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
+albedo_texture = ExtResource("17_xxje7")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hxph"]
+resource_local_to_scene = true
+albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
+albedo_texture = ExtResource("17_xxje7")
+texture_filter = 0
 
 [node name="map" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35.7971)
@@ -564,9 +596,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.8449
 [node name="cup3" parent="." instance=ExtResource("13_e0n3e")]
 transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 2.54491, 3.875, -16.9005)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("14_83lq4")
-
 [node name="door" parent="." instance=ExtResource("14_i2sor")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.8, 3, -14.9971)
 locked = true
@@ -597,11 +626,19 @@ iname = "Orange Keycard"
 activated = true
 color = Color(1, 0.313726, 0, 1)
 
+[node name="Mesh2" parent="keycard" index="1"]
+layers = 1
+material_override = SubResource("StandardMaterial3D_fyinr")
+
 [node name="keycard2" parent="." instance=ExtResource("15_s7n30")]
 transform = Transform3D(0.409576, 0.286788, 1.25359e-08, 0, -2.18557e-08, 0.5, 0.286788, -0.409576, -1.79031e-08, 2, 3.7, -16.3971)
 iname = "Green Keycard"
 activated = true
 color = Color(0, 1, 0, 1)
+
+[node name="Mesh2" parent="keycard2" index="1"]
+layers = 1
+material_override = SubResource("StandardMaterial3D_5eg8r")
 
 [node name="keycard3" parent="." instance=ExtResource("15_s7n30")]
 transform = Transform3D(0.469846, 0.17101, 7.4751e-09, 0, -2.18557e-08, 0.5, 0.17101, -0.469846, -2.05376e-08, 1.9, 3.7, -16.6971)
@@ -609,11 +646,19 @@ iname = "Blue Keycard"
 activated = true
 color = Color(0, 0, 1, 1)
 
+[node name="Mesh2" parent="keycard3" index="1"]
+layers = 1
+material_override = SubResource("StandardMaterial3D_t242y")
+
 [node name="keycard4" parent="." instance=ExtResource("15_s7n30")]
 transform = Transform3D(0.482963, 0.12941, 5.65668e-09, 0, -2.18557e-08, 0.5, 0.12941, -0.482963, -2.1111e-08, 2.4, 3.7, -16.3971)
 iname = "Yellow Keycard"
 activated = true
 color = Color(1, 1, 0, 1)
+
+[node name="Mesh2" parent="keycard4" index="1"]
+layers = 1
+material_override = SubResource("StandardMaterial3D_dlruy")
 
 [node name="keycard5" parent="." instance=ExtResource("15_s7n30")]
 transform = Transform3D(0.498097, 0.0435781, 1.90486e-09, 0, -2.18557e-08, 0.5, 0.0435781, -0.498097, -2.17725e-08, 2.2, 3.7, -16.6971)
@@ -621,11 +666,39 @@ iname = "Test Keycard"
 activated = true
 color = Color(0.5, 0, 1, 1)
 
+[node name="Mesh2" parent="keycard5" index="1"]
+layers = 1
+material_override = SubResource("StandardMaterial3D_1hxph")
+
 [node name="gun" parent="." instance=ExtResource("17_t13w4")]
 transform = Transform3D(0.286788, 0.409576, 1.79031e-08, 0, -2.18557e-08, 0.5, 0.409576, -0.286788, -1.25359e-08, 2.6, 3.7, -16.5971)
 iname = "Stun Gun"
 activated = true
 
+[node name="barrel" parent="gun" index="0"]
+layers = 1
+
+[node name="grip" parent="gun" index="1"]
+layers = 1
+
+[node name="ammo" parent="gun" index="4"]
+layers = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("14_83lq4")
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_v6hu7")
+volume_db = -25.0
+autoplay = true
+bus = &"Music"
+
 [connection signal="body_entered" from="exit_teleport" to="." method="_on_exit_teleport_body_entered"]
 
 [editable path="Player"]
+[editable path="keycard"]
+[editable path="keycard2"]
+[editable path="keycard3"]
+[editable path="keycard4"]
+[editable path="keycard5"]
+[editable path="gun"]

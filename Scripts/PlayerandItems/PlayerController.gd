@@ -17,10 +17,9 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	inventory = $inventory
 
-func _unhandled_input(event):
-	
-	#if Input.mouse_mode is Input.MOUSE_MODE_CAPTURED or Input.MOUSE_MODE_VISIBLE:
+func _unhandled_input(event):	
 	input_dir = Input.get_vector("left", "right", "forwards", "backwards")
+
 # Capture mouse wheel scrolling for inventory
 	if Input.is_action_just_pressed("showmouse"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -83,10 +82,15 @@ func _physics_process(delta):
 # Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+		#stop walking sounds when in air
+		$sprint.stop()
+		$steps.stop()
+		$step_sound.playing = false
 
 # Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+
 
 # Get the input direction and handle the movement/deceleration.
 	
@@ -106,12 +110,27 @@ func _physics_process(delta):
 # Stop the character
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+# Handle walking sounds
+	if is_on_floor(): 
+		if velocity.x or velocity.z != 0:
+			if $steps.time_left == 0 and $sprint.time_left == 0:
+				if sprintMult == 1.5:
+					$sprint.start()
+				elif sprintMult == 1:
+					$steps.start()
+		else:
+			$steps.stop()
+			$sprint.stop()
+	print(velocity.x, velocity.z)
 	move_and_slide()
 
-
+# Charge the gun
 func _on_ammo_charge_timeout():
 	if Player.vars["ammo"] <= 3:
 		Player.vars["ammo"] += 1
 	if Player.vars["ammo"] > 3:
 		$ammo_charge.stop()
 
+func _on_steps_timeout():
+	$step_sound.play()

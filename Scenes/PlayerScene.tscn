@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0diii2blledv"]
+[gd_scene load_steps=11 format=3 uid="uid://c0diii2blledv"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerandItems/PlayerController.gd" id="1_yb3sx"]
 [ext_resource type="PackedScene" uid="uid://bqy33rwx6p2gu" path="res://Scenes/pausemenu.tscn" id="2_c0kcq"]
 [ext_resource type="PackedScene" uid="uid://huhgi0dcuejl" path="res://Scenes/inventory.tscn" id="2_cmbys"]
 [ext_resource type="PackedScene" uid="uid://bub0r3q257xpe" path="res://Scenes/Items/keycard.tscn" id="3_dc1dr"]
 [ext_resource type="PackedScene" uid="uid://xnkbca7fwn36" path="res://Scenes/Items/gun.tscn" id="4_tioku"]
+[ext_resource type="AudioStream" uid="uid://nhmaa8pk8xqh" path="res://Resources/SFX/step_metal.ogg" id="6_mg8ua"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0j8gy"]
 height = 4.0
@@ -14,6 +15,14 @@ height = 4.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_iedih"]
 size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8wdyx"]
+playback_mode = 1
+random_pitch = 1.5
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("6_mg8ua")
+stream_0/weight = 1.0
 
 [node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
 safe_margin = 0.01
@@ -125,4 +134,21 @@ color = Color(1, 1, 1, 0.509804)
 [node name="ammo_charge" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="steps" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="sprint" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="step_sound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+stream = SubResource("AudioStreamRandomizer_8wdyx")
+volume_db = -35.0
+panning_strength = 0.4
+bus = &"Sfx"
+
 [connection signal="timeout" from="ammo_charge" to="." method="_on_ammo_charge_timeout"]
+[connection signal="timeout" from="steps" to="." method="_on_steps_timeout"]
+[connection signal="timeout" from="sprint" to="." method="_on_steps_timeout"]
