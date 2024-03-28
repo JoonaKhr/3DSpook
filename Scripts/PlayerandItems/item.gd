@@ -47,7 +47,8 @@ func shoot(target):
 			var barrel = $Marker3D.global_position
 			var targetPoint = target["position"]
 			lineDraw(barrel, targetPoint)
-			
+			$shoot.play()
+
 			#manage ammo (impressive I know)
 			Player.vars["ammo"] -= 1
 		else:

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://huhgi0dcuejl" path="res://Scenes/inventory.tscn" id="2_cmbys"]
 [ext_resource type="PackedScene" uid="uid://bub0r3q257xpe" path="res://Scenes/Items/keycard.tscn" id="3_dc1dr"]
 [ext_resource type="PackedScene" uid="uid://xnkbca7fwn36" path="res://Scenes/Items/gun.tscn" id="4_tioku"]
-[ext_resource type="AudioStream" uid="uid://nhmaa8pk8xqh" path="res://Resources/SFX/step_metal.ogg" id="6_mg8ua"]
+[ext_resource type="AudioStream" uid="uid://nhmaa8pk8xqh" path="res://Resources/Sound/SFX/step_metal.ogg" id="6_mg8ua"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0j8gy"]
 height = 4.0
@@ -35,32 +35,33 @@ unique_name_in_owner = true
 transform = Transform3D(0.0100197, -0.0899371, -0.995897, 0.993851, 0.110723, -1.09256e-08, 0.110269, -0.989774, 0.0904935, 0.366865, 0, -0.553441)
 iname = "Stun Gun"
 
-[node name="keycard" parent="inventory" instance=ExtResource("3_dc1dr")]
+[node name="blue_keycard" parent="inventory" instance=ExtResource("3_dc1dr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.533012, 0, -0.739092)
 iname = "Blue Keycard"
 color = Color(0, 0, 1, 1)
 
-[node name="keycard2" parent="inventory" instance=ExtResource("3_dc1dr")]
+[node name="green_keycard" parent="inventory" instance=ExtResource("3_dc1dr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343276, 0, -0.828928)
 iname = "Green Keycard"
 color = Color(0, 1, 0, 1)
 
-[node name="keycard3" parent="inventory" instance=ExtResource("3_dc1dr")]
+[node name="orange_keycard" parent="inventory" instance=ExtResource("3_dc1dr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.139259, 0, -0.872987)
 iname = "Orange Keycard"
 color = Color(1, 0.313726, 0, 1)
 
-[node name="keycard4" parent="inventory" instance=ExtResource("3_dc1dr")]
+[node name="yellow_keycard" parent="inventory" instance=ExtResource("3_dc1dr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.191983, -0.125177, -0.722548)
 iname = "Yellow Keycard"
 color = Color(1, 1, 0, 1)
 
-[node name="keycard5" parent="inventory" instance=ExtResource("3_dc1dr")]
+[node name="purple_keycard" parent="inventory" instance=ExtResource("3_dc1dr")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -0.452602, -0.121064, -0.637224)
 iname = "Test Keycard"
 color = Color(0.5, 0, 1, 1)
 
 [node name="pausemenu" parent="." instance=ExtResource("2_c0kcq")]
+z_index = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_0j8gy")

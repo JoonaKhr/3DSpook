@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b8eo6272c1txt" path="res://Scenes/Objects/switch_base.tscn" id="1_htl80"]
 [ext_resource type="Script" path="res://Scripts/MapItems/button.gd" id="1_iqpl1"]
 [ext_resource type="PackedScene" uid="uid://dtow818sjl2bh" path="res://Scenes/Objects/switch_nub.tscn" id="2_28p6c"]
-[ext_resource type="AudioStream" uid="uid://c5yv4wn1nmqdf" path="res://Resources/SFX/switch.ogg" id="4_00ecd"]
+[ext_resource type="AudioStream" uid="uid://c5yv4wn1nmqdf" path="res://Resources/Sound/SFX/switch.ogg" id="4_00ecd"]
 
 [sub_resource type="Animation" id="Animation_sjry8"]
 resource_name = "switch_toggle"

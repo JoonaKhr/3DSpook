@@ -5,6 +5,7 @@ var held_item
 var index
 var last_equipped
 var hand_item
+
 # Fill the inventory with null slots, set index to zero and held_item as the first null slot in inventory
 func _ready():
 	%Hand.get_child(0).visible = false
@@ -13,6 +14,7 @@ func _ready():
 			item_list.append(child)
 	index = 0
 	held_item = item_list[index]
+	print(item_list)
 
 # Pickup an item if holding null
 func obtainItem(item):
@@ -26,18 +28,38 @@ func get_current_item():
 
 # Mousewheel changes held item
 func change_held_item(input):
+	var loops = 0
 	var previous_held_item = item_list[index]
 	if input == MOUSE_BUTTON_WHEEL_UP:
 		if index <= item_list.size()-1:
 			index += 1
 		if index == item_list.size():
 			index = 0
+	#spaghetti code to skip unactivated items
+		if !item_list[index].activated:
+			while !item_list[index].activated and loops < 6:
+				if index <= item_list.size()-1:
+					index += 1
+				if index == item_list.size():
+					index = 0
+				loops += 1
+	
 	if input == MOUSE_BUTTON_WHEEL_DOWN:
 		if index >= 0:
 			index -= 1
 		if index < 0:
 			index = item_list.size()-1
+	#spaghetti code to skip unactivated items
+		if !item_list[index].activated:
+			while !item_list[index].activated and loops < 6:
+				if index >= 0:
+					index -= 1
+				if index < 0:
+					index = item_list.size()-1
+				loops += 1
+
 	held_item = item_list[index]
+	
 	if previous_held_item != null:
 		previous_held_item.position = previous_held_item.original_position
 		previous_held_item.rotation_degrees = Vector3(0, 0, 0)

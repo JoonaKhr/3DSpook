@@ -122,7 +122,6 @@ func _physics_process(delta):
 		else:
 			$steps.stop()
 			$sprint.stop()
-	print(velocity.x, velocity.z)
 	move_and_slide()
 
 # Charge the gun

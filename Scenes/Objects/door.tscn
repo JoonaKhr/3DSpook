@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/MapItems/door.gd" id="1_d8irx"]
 [ext_resource type="PackedScene" uid="uid://bofol7x7rgw4c" path="res://Scenes/Objects/door_piece_1.tscn" id="1_hkf1k"]
 [ext_resource type="PackedScene" uid="uid://d2g285jee0xau" path="res://Scenes/Objects/door_piece_2.tscn" id="3_fm10n"]
-[ext_resource type="AudioStream" uid="uid://56rxw7nij05g" path="res://Resources/SFX/Door_Open.ogg" id="4_tjbox"]
-[ext_resource type="AudioStream" uid="uid://3qrf15jcoxg8" path="res://Resources/SFX/Door_Close.ogg" id="5_dv72o"]
+[ext_resource type="AudioStream" uid="uid://56rxw7nij05g" path="res://Resources/Sound/SFX/Door_Open.ogg" id="4_tjbox"]
+[ext_resource type="AudioStream" uid="uid://3qrf15jcoxg8" path="res://Resources/Sound/SFX/Door_Close.ogg" id="5_dv72o"]
 
 [sub_resource type="Animation" id="Animation_2wrxv"]
 resource_name = "door_open"
@@ -48,11 +48,13 @@ wait_time = 3.0
 one_shot = true
 
 [node name="door_open" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0.1)
 stream = ExtResource("4_tjbox")
 volume_db = -25.0
 bus = &"Sfx"
 
 [node name="door_close" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0.1)
 stream = ExtResource("5_dv72o")
 volume_db = -25.0
 bus = &"Sfx"

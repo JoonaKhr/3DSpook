@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://xnkbca7fwn36"]
+[gd_scene load_steps=8 format=3 uid="uid://xnkbca7fwn36"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerandItems/item.gd" id="1_8yroc"]
 [ext_resource type="Texture2D" uid="uid://d2tq56i86pqqk" path="res://Resources/Textures/ammohud.png" id="2_o75pp"]
+[ext_resource type="AudioStream" uid="uid://dw8121iv8mg0t" path="res://Resources/Sound/SFX/Electro Rifle Shot Single A.wav" id="3_ac34n"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dmlpr"]
 size = Vector3(0.5, 0.15, 0.15)
@@ -11,6 +12,13 @@ size = Vector3(0.3, 0.15, 0.15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4tcp3"]
 size = Vector3(0.55, 0.3, 0.15)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_udu2q"]
+playback_mode = 1
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("3_ac34n")
+stream_0/weight = 1.0
 
 [node name="gun" type="StaticBody3D" groups=["gun"]]
 collision_layer = 2
@@ -44,6 +52,13 @@ texture_filter = 2
 texture = ExtResource("2_o75pp")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
+
+[node name="shoot" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_udu2q")
+volume_db = -30.0
+max_polyphony = 4
+panning_strength = 0.4
+bus = &"Sfx"
 
 [connection signal="activate" from="." to="." method="_on_activate"]
 [connection signal="press" from="." to="." method="_on_press"]

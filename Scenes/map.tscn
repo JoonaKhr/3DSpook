@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bub0r3q257xpe" path="res://Scenes/Items/keycard.tscn" id="15_s7n30"]
 [ext_resource type="PackedScene" uid="uid://xnkbca7fwn36" path="res://Scenes/Items/gun.tscn" id="17_t13w4"]
 [ext_resource type="Texture2D" uid="uid://ckmjux0tul4xy" path="res://Resources/Textures/keycards.png" id="17_xxje7"]
-[ext_resource type="AudioStream" uid="uid://c4jgnmcjoec46" path="res://Resources/Music/AMBIENCE_SPACECRAFT_INTERIOR_LOOP.wav" id="19_v6hu7"]
+[ext_resource type="AudioStream" uid="uid://c4jgnmcjoec46" path="res://Resources/Sound/Music/AMBIENCE_SPACECRAFT_INTERIOR_LOOP.wav" id="19_v6hu7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_injy4"]
 size = Vector3(4, 3, 3)
@@ -62,7 +62,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35.7971)
 script = ExtResource("1_tbn5i")
 
 [node name="top_floor" type="GridMap" parent="."]
-visible = false
 mesh_library = ExtResource("2_8ecpi")
 cell_size = Vector3(6, 2, 6)
 data = {
@@ -249,8 +248,7 @@ transform = Transform3D(1.39822e-06, -0.00239087, 0.999997, -0.000797053, 0.9999
 transform = Transform3D(1.39822e-06, -0.00239087, 0.999997, -0.000797053, 0.999997, 0.00239087, -1, -0.000797054, -5.0744e-07, 1.08074, 3, 0.0958495)
 
 [node name="server_room" type="Node3D" parent="."]
-process_mode = 4
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 36.7, 8, -67)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.8, 8, -58)
 
 [node name="serverRack1" parent="server_room" instance=ExtResource("10_wf7r5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, -1, -9.7971)
@@ -577,11 +575,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 12)
 shape = SubResource("BoxShape3D_injy4")
 
 [node name="teleport" type="Marker3D" parent="exit_teleport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 4.33492)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 4.43492)
 
 [node name="FogVolume" type="FogVolume" parent="exit_teleport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 8.5)
-size = Vector3(4, 3, 11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 8)
+size = Vector3(4, 3, 12)
 material = SubResource("FogMaterial_ggwhw")
 
 [node name="desk" parent="." instance=ExtResource("4_kdct5")]
