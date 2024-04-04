@@ -23,8 +23,9 @@ func _ready():
 
 #Pickup item if holding nothing at all ( nothing at all~ )
 func pickupItem():
-	print("Picked up: ", iname)
+	#print("Picked up: ", iname)
 	player.inventory.obtainItem(self)
+	queue_free()
 
 func _process(_delta):
 	#manage gun ammo display

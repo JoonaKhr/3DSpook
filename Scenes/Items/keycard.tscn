@@ -47,7 +47,7 @@ script = ExtResource("1_4kq0j")
 shape = SubResource("ConvexPolygonShape3D_3o4h4")
 
 [node name="Mesh2" type="MeshInstance3D" parent="."]
-layers = 3
+layers = 2
 material_override = ExtResource("2_1uev8")
 mesh = SubResource("ArrayMesh_kgv3h")
 skeleton = NodePath("")

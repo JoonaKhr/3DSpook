@@ -1,11 +1,42 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0diii2blledv"]
+[gd_scene load_steps=17 format=3 uid="uid://c0diii2blledv"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerandItems/PlayerController.gd" id="1_yb3sx"]
 [ext_resource type="PackedScene" uid="uid://bqy33rwx6p2gu" path="res://Scenes/pausemenu.tscn" id="2_c0kcq"]
 [ext_resource type="PackedScene" uid="uid://huhgi0dcuejl" path="res://Scenes/inventory.tscn" id="2_cmbys"]
 [ext_resource type="PackedScene" uid="uid://bub0r3q257xpe" path="res://Scenes/Items/keycard.tscn" id="3_dc1dr"]
 [ext_resource type="PackedScene" uid="uid://xnkbca7fwn36" path="res://Scenes/Items/gun.tscn" id="4_tioku"]
+[ext_resource type="Texture2D" uid="uid://ckmjux0tul4xy" path="res://Resources/Textures/keycards.png" id="5_fndha"]
 [ext_resource type="AudioStream" uid="uid://nhmaa8pk8xqh" path="res://Resources/Sound/SFX/step_metal.ogg" id="6_mg8ua"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2c26a"]
+resource_local_to_scene = true
+albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
+albedo_texture = ExtResource("5_fndha")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6vft"]
+resource_local_to_scene = true
+albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
+albedo_texture = ExtResource("5_fndha")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ce6gq"]
+resource_local_to_scene = true
+albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
+albedo_texture = ExtResource("5_fndha")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kgxvl"]
+resource_local_to_scene = true
+albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
+albedo_texture = ExtResource("5_fndha")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rl4c0"]
+resource_local_to_scene = true
+albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
+albedo_texture = ExtResource("5_fndha")
+texture_filter = 0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0j8gy"]
 height = 4.0
@@ -40,25 +71,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.533012, 0, -0.739092)
 iname = "Blue Keycard"
 color = Color(0, 0, 1, 1)
 
+[node name="Mesh2" parent="inventory/blue_keycard" index="1"]
+material_override = SubResource("StandardMaterial3D_2c26a")
+
 [node name="green_keycard" parent="inventory" instance=ExtResource("3_dc1dr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343276, 0, -0.828928)
 iname = "Green Keycard"
 color = Color(0, 1, 0, 1)
+
+[node name="Mesh2" parent="inventory/green_keycard" index="1"]
+material_override = SubResource("StandardMaterial3D_e6vft")
 
 [node name="orange_keycard" parent="inventory" instance=ExtResource("3_dc1dr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.139259, 0, -0.872987)
 iname = "Orange Keycard"
 color = Color(1, 0.313726, 0, 1)
 
+[node name="Mesh2" parent="inventory/orange_keycard" index="1"]
+material_override = SubResource("StandardMaterial3D_ce6gq")
+
 [node name="yellow_keycard" parent="inventory" instance=ExtResource("3_dc1dr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.191983, -0.125177, -0.722548)
 iname = "Yellow Keycard"
 color = Color(1, 1, 0, 1)
 
+[node name="Mesh2" parent="inventory/yellow_keycard" index="1"]
+material_override = SubResource("StandardMaterial3D_kgxvl")
+
 [node name="purple_keycard" parent="inventory" instance=ExtResource("3_dc1dr")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -0.452602, -0.121064, -0.637224)
 iname = "Test Keycard"
 color = Color(0.5, 0, 1, 1)
+
+[node name="Mesh2" parent="inventory/purple_keycard" index="1"]
+material_override = SubResource("StandardMaterial3D_rl4c0")
 
 [node name="pausemenu" parent="." instance=ExtResource("2_c0kcq")]
 z_index = 1
@@ -140,7 +186,7 @@ wait_time = 0.6
 one_shot = true
 
 [node name="sprint" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.35
 one_shot = true
 
 [node name="step_sound" type="AudioStreamPlayer3D" parent="."]
@@ -153,3 +199,10 @@ bus = &"Sfx"
 [connection signal="timeout" from="ammo_charge" to="." method="_on_ammo_charge_timeout"]
 [connection signal="timeout" from="steps" to="." method="_on_steps_timeout"]
 [connection signal="timeout" from="sprint" to="." method="_on_steps_timeout"]
+
+[editable path="inventory/gun"]
+[editable path="inventory/blue_keycard"]
+[editable path="inventory/green_keycard"]
+[editable path="inventory/orange_keycard"]
+[editable path="inventory/yellow_keycard"]
+[editable path="inventory/purple_keycard"]

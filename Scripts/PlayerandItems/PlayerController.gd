@@ -64,10 +64,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("mouse_left"):
 		var usedItem = inventory.get_current_item()
 		var result
+		# if is gun
 		if  usedItem != null and get_tree().get_nodes_in_group("gun").has(usedItem):
 			ray_length = 150
 			result = raycastFromMouse(ray_length)
 			usedItem.shoot(result)
+			#start ammo charging if not charging
 			if $ammo_charge.time_left == 0:
 				$ammo_charge.start()
 		ray_length = 2
@@ -77,8 +79,18 @@ func _physics_process(delta):
 				inventory.get_current_item().useItem(result["collider"])
 			if result["collider"].has_signal("press"):
 				result["collider"].press.emit()
-			print(result["collider"])
-			
+			#print(result["collider"])
+	# use item without shooting gun		
+	if Input.is_action_just_pressed("use"):
+		var result
+		ray_length = 2
+		result = raycastFromMouse(ray_length)
+		if result:
+			if inventory.get_current_item() != null:
+				inventory.get_current_item().useItem(result["collider"])
+			if result["collider"].has_signal("press"):
+				result["collider"].press.emit()
+
 # Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta

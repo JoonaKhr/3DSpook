@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://coxk8353dayk"]
+[gd_scene load_steps=34 format=3 uid="uid://coxk8353dayk"]
 
 [ext_resource type="Script" path="res://Scripts/map.gd" id="1_tbn5i"]
 [ext_resource type="MeshLibrary" uid="uid://qmbiwgvlouyo" path="res://meshlibrary.tres" id="2_8ecpi"]
@@ -19,6 +19,37 @@
 [ext_resource type="PackedScene" uid="uid://xnkbca7fwn36" path="res://Scenes/Items/gun.tscn" id="17_t13w4"]
 [ext_resource type="Texture2D" uid="uid://ckmjux0tul4xy" path="res://Resources/Textures/keycards.png" id="17_xxje7"]
 [ext_resource type="AudioStream" uid="uid://c4jgnmcjoec46" path="res://Resources/Sound/Music/AMBIENCE_SPACECRAFT_INTERIOR_LOOP.wav" id="19_v6hu7"]
+[ext_resource type="PackedScene" uid="uid://cagk4rmhl8vy1" path="res://Scenes/Objects/fan_noise.tscn" id="20_in16i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jtqo"]
+resource_local_to_scene = true
+albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
+albedo_texture = ExtResource("17_xxje7")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_45jv0"]
+resource_local_to_scene = true
+albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
+albedo_texture = ExtResource("17_xxje7")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4li5"]
+resource_local_to_scene = true
+albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
+albedo_texture = ExtResource("17_xxje7")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vm7gw"]
+resource_local_to_scene = true
+albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
+albedo_texture = ExtResource("17_xxje7")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyy8t"]
+resource_local_to_scene = true
+albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
+albedo_texture = ExtResource("17_xxje7")
+texture_filter = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_injy4"]
 size = Vector3(4, 3, 3)
@@ -57,6 +88,9 @@ albedo_color = Color(0.313726, 0.321569, 0.756863, 1)
 albedo_texture = ExtResource("17_xxje7")
 texture_filter = 0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_63231"]
+size = Vector3(1, 3, 4)
+
 [node name="map" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35.7971)
 script = ExtResource("1_tbn5i")
@@ -69,6 +103,192 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 3, 0)
 
+[node name="turbine_sounds" type="Node3D" parent="top_floor"]
+process_mode = 4
+
+[node name="fan_noise" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -15, 11, 3)
+
+[node name="fan_noise2" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9, 11, 3)
+
+[node name="fan_noise3" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9, 11, -9)
+
+[node name="fan_noise4" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -15, 11, -9)
+
+[node name="fan_noise5" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9, 11, -3)
+
+[node name="fan_noise6" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3, 11, -3)
+
+[node name="fan_noise7" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 11, -3)
+
+[node name="fan_noise8" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 15, 11, -33)
+
+[node name="fan_noise9" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 33, 11, -33)
+
+[node name="fan_noise10" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 33, 11, -63)
+
+[node name="fan_noise11" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 15, 11, -63)
+
+[node name="fan_noise12" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 21, 11, -57)
+
+[node name="fan_noise13" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 27, 11, -57)
+
+[node name="fan_noise14" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 27, 11, -51)
+
+[node name="fan_noise15" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 21, 11, -51)
+
+[node name="fan_noise16" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 21, 11, -45)
+
+[node name="fan_noise17" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 27, 11, -45)
+
+[node name="fan_noise18" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 27, 11, -39)
+
+[node name="fan_noise19" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 21, 11, -39)
+
+[node name="fan_noise20" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 11, -87)
+
+[node name="fan_noise21" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 11, -99)
+
+[node name="fan_noise22" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -21, 11, -99)
+
+[node name="fan_noise23" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -21, 11, -87)
+
+[node name="fan_noise24" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -15, 11, -93)
+
+[node name="fan_noise25" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9, 11, -93)
+
+[node name="fan_noise26" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3, 11, -93)
+
+[node name="fan_noise27" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -33, 11, -63)
+
+[node name="fan_noise28" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -57, 11, -63)
+
+[node name="fan_noise29" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -51, 11, -57)
+
+[node name="fan_noise30" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -45, 11, -57)
+
+[node name="fan_noise31" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -39, 11, -57)
+
+[node name="fan_noise32" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -39, 11, -51)
+
+[node name="fan_noise33" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -45, 11, -51)
+
+[node name="fan_noise34" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -51, 11, -51)
+
+[node name="fan_noise35" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -51, 11, -45)
+
+[node name="fan_noise36" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -45, 11, -45)
+
+[node name="fan_noise37" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -39, 11, -45)
+
+[node name="fan_noise38" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -39, 11, -39)
+
+[node name="fan_noise39" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -45, 11, -39)
+
+[node name="fan_noise40" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -51, 11, -39)
+
+[node name="fan_noise41" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -57, 11, -33)
+
+[node name="fan_noise42" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -33, 11, -33)
+
+[node name="fan_noise43" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -27, 10, -27)
+
+[node name="fan_noise44" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -15, 10, -27)
+
+[node name="fan_noise45" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3, 10, -21)
+
+[node name="fan_noise46" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3, 10, -15)
+
+[node name="fan_noise47" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 10, -27)
+
+[node name="fan_noise48" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9, 10, -39)
+
+[node name="fan_noise49" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9, 10, -45)
+
+[node name="fan_noise50" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9, 10, -51)
+
+[node name="fan_noise51" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9, 10, -57)
+
+[node name="fan_noise52" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 10, -75)
+
+[node name="fan_noise53" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 10, -81)
+
+[node name="fan_noise54" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -15, 10, -69)
+
+[node name="fan_noise55" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -27, 10, -63)
+
+[node name="fan_noise56" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -21, 10, -57)
+
+[node name="fan_noise57" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -21, 10, -51)
+
+[node name="fan_noise58" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -21, 10, -45)
+
+[node name="fan_noise59" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -21, 10, -39)
+
+[node name="fan_noise60" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -21, 10, -33)
+
+[node name="fan_noise61" parent="top_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -21, 10, -33)
+
 [node name="ground_floor" type="GridMap" parent="."]
 mesh_library = ExtResource("2_8ecpi")
 cell_size = Vector3(6, 2, 6)
@@ -77,8 +297,400 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 2, 0)
 
+[node name="turbine_sounds" type="Node3D" parent="ground_floor"]
+process_mode = 4
+
+[node name="fan_noise" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 7, -9)
+
+[node name="fan_noise2" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 7, -15)
+
+[node name="fan_noise3" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 7, -15)
+
+[node name="fan_noise4" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 7, -9)
+
+[node name="fan_noise5" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6, -3)
+
+[node name="fan_noise6" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6, 3)
+
+[node name="fan_noise7" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 6, -15)
+
+[node name="fan_noise8" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 6, -21)
+
+[node name="fan_noise9" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 6, -33)
+
+[node name="fan_noise10" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 6, -27)
+
+[node name="fan_noise11" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6, -27)
+
+[node name="fan_noise12" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 6, -27)
+
+[node name="fan_noise13" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 6, -27)
+
+[node name="fan_noise14" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 6, -21)
+
+[node name="fan_noise15" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 6, -15)
+
+[node name="fan_noise16" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 6, -27)
+
+[node name="fan_noise17" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 6, -27)
+
+[node name="fan_noise18" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 6, -27)
+
+[node name="fan_noise19" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 6, -27)
+
+[node name="fan_noise20" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 6, -33)
+
+[node name="fan_noise21" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51, 6, -27)
+
+[node name="fan_noise22" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, 6, -27)
+
+[node name="fan_noise23" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63, 6, -27)
+
+[node name="fan_noise24" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69, 6, -27)
+
+[node name="fan_noise25" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 6, -27)
+
+[node name="fan_noise26" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 7, -39)
+
+[node name="fan_noise27" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 7, -39)
+
+[node name="fan_noise28" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 7, -45)
+
+[node name="fan_noise29" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 7, -51)
+
+[node name="fan_noise30" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 7, -51)
+
+[node name="fan_noise31" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 6, -45)
+
+[node name="fan_noise32" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 6, -45)
+
+[node name="fan_noise33" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7872, 6, -39)
+
+[node name="fan_noise34" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9872, 6, -33)
+
+[node name="fan_noise35" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9872, 6, -51)
+
+[node name="fan_noise36" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9872, 6, -57)
+
+[node name="fan_noise37" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9872, 6, -63)
+
+[node name="fan_noise38" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9872, 7, -63)
+
+[node name="fan_noise39" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9872, 7, -75)
+
+[node name="fan_noise40" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9872, 7, -75)
+
+[node name="fan_noise41" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9872, 7, -63)
+
+[node name="fan_noise42" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9872, 7, -69)
+
+[node name="fan_noise43" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9872, 7, -69)
+
+[node name="fan_noise44" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.98722, 6, -69)
+
+[node name="fan_noise45" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.01278, 6, -69)
+
+[node name="fan_noise46" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01278, 6, -63)
+
+[node name="fan_noise47" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.01278, 6, -63)
+
+[node name="fan_noise48" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0128, 6, -69)
+
+[node name="fan_noise49" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0128, 6, -69)
+
+[node name="fan_noise50" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0128, 6, -75)
+
+[node name="fan_noise51" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0128, 6, -81)
+
+[node name="fan_noise52" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0128, 6, -93)
+
+[node name="fan_noise53" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0128, 6, -99)
+
+[node name="fan_noise54" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0128, 6, -105)
+
+[node name="fan_noise55" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0128, 6, -111)
+
+[node name="fan_noise56" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0128, 6, -117)
+
+[node name="fan_noise57" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0128, 6, -123)
+
+[node name="fan_noise58" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0128, 6, -129)
+
+[node name="fan_noise59" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0128, 6, -135)
+
+[node name="fan_noise60" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0128, 6, -135)
+
+[node name="fan_noise61" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0128, 6, -135)
+
+[node name="fan_noise62" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0128, 6, -135)
+
+[node name="fan_noise63" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0128, 6, -135)
+
+[node name="fan_noise64" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.0128, 6, -135)
+
+[node name="fan_noise65" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.0128, 6, -129)
+
+[node name="fan_noise66" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.0128, 6, -117)
+
+[node name="fan_noise67" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.0128, 6, -111)
+
+[node name="fan_noise68" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.0128, 6, -111)
+
+[node name="fan_noise69" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0128, 6, -111)
+
+[node name="fan_noise70" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0128, 6, -111)
+
+[node name="fan_noise71" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0128, 6, -111)
+
+[node name="fan_noise72" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0128, 6, -111)
+
+[node name="fan_noise73" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0128, 6, -111)
+
+[node name="fan_noise74" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.01278, 6, -111)
+
+[node name="fan_noise75" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01278, 6, -111)
+
+[node name="fan_noise76" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98722, 6, -111)
+
+[node name="fan_noise77" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.98722, 6, -111)
+
+[node name="fan_noise78" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9872, 6, -117)
+
+[node name="fan_noise79" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9872, 6, -129)
+
+[node name="fan_noise80" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.98722, 6, -135)
+
+[node name="fan_noise81" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98722, 6, -135)
+
+[node name="fan_noise82" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01278, 6, -135)
+
+[node name="fan_noise83" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.01278, 6, -135)
+
+[node name="fan_noise130" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0128, 6, -135)
+
+[node name="fan_noise84" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9872, 7, -135)
+
+[node name="fan_noise85" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9872, 7, -135)
+
+[node name="fan_noise86" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9872, 7, -129)
+
+[node name="fan_noise87" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9872, 7, -123)
+
+[node name="fan_noise88" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9872, 7, -117)
+
+[node name="fan_noise89" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9872, 7, -111)
+
+[node name="fan_noise119" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9872, 7, -111)
+
+[node name="fan_noise90" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.9872, 7, -108)
+
+[node name="fan_noise91" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.0128, 7, -135)
+
+[node name="fan_noise92" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.0128, 7, -135)
+
+[node name="fan_noise93" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.0128, 7, -111)
+
+[node name="fan_noise94" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.0128, 7, -111)
+
+[node name="fan_noise95" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.0128, 7, -117)
+
+[node name="fan_noise96" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.0128, 7, -123)
+
+[node name="fan_noise97" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.0128, 7, -129)
+
+[node name="fan_noise98" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0128, 6, -87)
+
+[node name="fan_noise99" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0128, 7, -81)
+
+[node name="fan_noise100" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0128, 7, -93)
+
+[node name="fan_noise101" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0128, 7, -87)
+
+[node name="fan_noise102" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0128, 7, -87)
+
+[node name="fan_noise103" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.0128, 7, -93)
+
+[node name="fan_noise104" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.0128, 7, -81)
+
+[node name="fan_noise105" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.0128, 7, -75)
+
+[node name="fan_noise106" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.0128, 7, -63)
+
+[node name="fan_noise107" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0128, 7, -63)
+
+[node name="fan_noise108" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.0128, 7, -69)
+
+[node name="fan_noise109" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0128, 7, -69)
+
+[node name="fan_noise110" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0128, 7, -69)
+
+[node name="fan_noise111" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0128, 7, -75)
+
+[node name="fan_noise112" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0128, 6, -69)
+
+[node name="fan_noise113" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0128, 6, -69)
+
+[node name="fan_noise114" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0128, 6, -63)
+
+[node name="fan_noise115" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0128, 6, -57)
+
+[node name="fan_noise116" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0128, 6, -51)
+
+[node name="fan_noise117" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0128, 6, -45)
+
+[node name="fan_noise118" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0128, 6, -39)
+
+[node name="fan_noise120" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0128, 7, -33)
+
+[node name="fan_noise121" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0128, 7, -33)
+
+[node name="fan_noise122" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0128, 7, -39)
+
+[node name="fan_noise123" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0128, 7, -45)
+
+[node name="fan_noise124" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0128, 7, -51)
+
+[node name="fan_noise125" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0128, 7, -51)
+
+[node name="fan_noise126" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.0128, 7, -39)
+
+[node name="fan_noise127" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.0128, 7, -33)
+
+[node name="fan_noise128" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.0128, 7, -33)
+
+[node name="fan_noise129" parent="ground_floor/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.0128, 7, -39)
+
 [node name="basement" type="GridMap" parent="."]
-visible = false
 mesh_library = ExtResource("2_8ecpi")
 cell_size = Vector3(6, 2, 6)
 data = {
@@ -86,13 +698,172 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -1, 0)
 
+[node name="turbine_sounds" type="Node3D" parent="basement"]
+process_mode = 4
+
+[node name="fan_noise" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3, 2, -33)
+
+[node name="fan_noise2" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9, 2, -27)
+
+[node name="fan_noise3" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 2, -39)
+
+[node name="fan_noise4" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 2, -45)
+
+[node name="fan_noise5" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 2, -57)
+
+[node name="fan_noise6" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3, 2, -51)
+
+[node name="fan_noise7" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 2, -63)
+
+[node name="fan_noise8" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9, 2, -69)
+
+[node name="fan_noise9" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 2, -75)
+
+[node name="fan_noise10" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 2, -81)
+
+[node name="fan_noise11" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 2, -87)
+
+[node name="fan_noise12" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 2, -93)
+
+[node name="fan_noise13" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -39, 2, -93)
+
+[node name="fan_noise14" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -39, 2, -87)
+
+[node name="fan_noise15" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -39, 2, -81)
+
+[node name="fan_noise16" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -39, 3, -75)
+
+[node name="fan_noise17" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -45, 3, -75)
+
+[node name="fan_noise18" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -45, 3, -69)
+
+[node name="fan_noise19" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -39, 3, -69)
+
+[node name="fan_noise20" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -21, 3, -63)
+
+[node name="fan_noise21" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -21, 3, -51)
+
+[node name="fan_noise22" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9, 3, -51)
+
+[node name="fan_noise23" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -15, 3, -57)
+
+[node name="fan_noise24" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9, 3, -63)
+
+[node name="fan_noise25" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -21, 3, -39)
+
+[node name="fan_noise26" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -21, 3, -27)
+
+[node name="fan_noise27" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -15, 3, -33)
+
+[node name="fan_noise28" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9, 3, -27)
+
+[node name="fan_noise29" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9, 3, -39)
+
+[node name="fan_noise30" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9, 3, -99)
+
+[node name="fan_noise31" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9, 3, -117)
+
+[node name="fan_noise32" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3, 3, -109)
+
+[node name="fan_noise33" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 3, -109)
+
+[node name="fan_noise34" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9, 3, -109)
+
+[node name="fan_noise35" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 15, 3, -109)
+
+[node name="fan_noise36" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 21, 3, -109)
+
+[node name="fan_noise37" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 27, 3, -109)
+
+[node name="fan_noise41" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3, 3, -107)
+
+[node name="fan_noise42" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 3, -107)
+
+[node name="fan_noise43" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9, 3, -107)
+
+[node name="fan_noise44" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 15, 3, -107)
+
+[node name="fan_noise45" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 21, 3, -107)
+
+[node name="fan_noise46" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 27, 3, -107)
+
+[node name="fan_noise38" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 33, 3, -99)
+
+[node name="fan_noise39" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 33, 3, -117)
+
+[node name="fan_noise40" parent="basement/turbine_sounds" instance=ExtResource("20_in16i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 33, 3, -117)
+
 [node name="Player" parent="." instance=ExtResource("2_g2hd0")]
 unique_name_in_owner = true
 transform = Transform3D(0.325, 0, 6.92779e-14, 0, 0.325, 0, -6.92779e-14, 0, 0.325, 2.9454, 3.96123, -7.6456)
 SPEED = 3.0
 
+[node name="Mesh2" parent="Player/inventory/blue_keycard" index="1"]
+material_override = SubResource("StandardMaterial3D_1jtqo")
+
+[node name="Mesh2" parent="Player/inventory/green_keycard" index="1"]
+material_override = SubResource("StandardMaterial3D_45jv0")
+
+[node name="Mesh2" parent="Player/inventory/orange_keycard" index="1"]
+material_override = SubResource("StandardMaterial3D_h4li5")
+
+[node name="Mesh2" parent="Player/inventory/yellow_keycard" index="1"]
+material_override = SubResource("StandardMaterial3D_vm7gw")
+
+[node name="Mesh2" parent="Player/inventory/purple_keycard" index="1"]
+material_override = SubResource("StandardMaterial3D_jyy8t")
+
 [node name="Pivot" parent="Player" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6396, -0.10684)
+
+[node name="crosshair" parent="Player" index="5"]
+visible = false
 
 [node name="chief_office" type="Node3D" parent="."]
 process_mode = 4
@@ -249,6 +1020,7 @@ transform = Transform3D(1.39822e-06, -0.00239087, 0.999997, -0.000797053, 0.9999
 
 [node name="server_room" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.8, 8, -58)
+visible = false
 
 [node name="serverRack1" parent="server_room" instance=ExtResource("10_wf7r5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, -1, -9.7971)
@@ -594,6 +1366,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.8449
 [node name="cup3" parent="." instance=ExtResource("13_e0n3e")]
 transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 2.54491, 3.875, -16.9005)
 
+[node name="cleaningCabinet" parent="." instance=ExtResource("8_x2dq7")]
+transform = Transform3D(-5.68248e-08, 0, -1.3, 0, 1.3, 0, 1.3, 0, -5.68248e-08, 4.99324, 3.01723, -16.2172)
+
 [node name="door" parent="." instance=ExtResource("14_i2sor")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.8, 3, -14.9971)
 locked = true
@@ -618,68 +1393,70 @@ requiredColor = Color(0, 1, 0, 1)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.1, 1, -1.7)
 requiredColor = Color(0, 1, 0, 1)
 
-[node name="keycard" parent="." instance=ExtResource("15_s7n30")]
+[node name="pickups" type="Node3D" parent="."]
+
+[node name="keycard" parent="pickups" instance=ExtResource("15_s7n30")]
 transform = Transform3D(0.453154, -0.211309, -9.23661e-09, 0, -2.18557e-08, 0.5, -0.211309, -0.453154, -1.9808e-08, 1.8, 3.7, -16.4971)
 iname = "Orange Keycard"
 activated = true
 color = Color(1, 0.313726, 0, 1)
 
-[node name="Mesh2" parent="keycard" index="1"]
+[node name="Mesh2" parent="pickups/keycard" index="1"]
 layers = 1
 material_override = SubResource("StandardMaterial3D_fyinr")
 
-[node name="keycard2" parent="." instance=ExtResource("15_s7n30")]
+[node name="keycard2" parent="pickups" instance=ExtResource("15_s7n30")]
 transform = Transform3D(0.409576, 0.286788, 1.25359e-08, 0, -2.18557e-08, 0.5, 0.286788, -0.409576, -1.79031e-08, 2, 3.7, -16.3971)
 iname = "Green Keycard"
 activated = true
 color = Color(0, 1, 0, 1)
 
-[node name="Mesh2" parent="keycard2" index="1"]
+[node name="Mesh2" parent="pickups/keycard2" index="1"]
 layers = 1
 material_override = SubResource("StandardMaterial3D_5eg8r")
 
-[node name="keycard3" parent="." instance=ExtResource("15_s7n30")]
+[node name="keycard3" parent="pickups" instance=ExtResource("15_s7n30")]
 transform = Transform3D(0.469846, 0.17101, 7.4751e-09, 0, -2.18557e-08, 0.5, 0.17101, -0.469846, -2.05376e-08, 1.9, 3.7, -16.6971)
 iname = "Blue Keycard"
 activated = true
 color = Color(0, 0, 1, 1)
 
-[node name="Mesh2" parent="keycard3" index="1"]
+[node name="Mesh2" parent="pickups/keycard3" index="1"]
 layers = 1
 material_override = SubResource("StandardMaterial3D_t242y")
 
-[node name="keycard4" parent="." instance=ExtResource("15_s7n30")]
+[node name="keycard4" parent="pickups" instance=ExtResource("15_s7n30")]
 transform = Transform3D(0.482963, 0.12941, 5.65668e-09, 0, -2.18557e-08, 0.5, 0.12941, -0.482963, -2.1111e-08, 2.4, 3.7, -16.3971)
 iname = "Yellow Keycard"
 activated = true
 color = Color(1, 1, 0, 1)
 
-[node name="Mesh2" parent="keycard4" index="1"]
+[node name="Mesh2" parent="pickups/keycard4" index="1"]
 layers = 1
 material_override = SubResource("StandardMaterial3D_dlruy")
 
-[node name="keycard5" parent="." instance=ExtResource("15_s7n30")]
+[node name="keycard5" parent="pickups" instance=ExtResource("15_s7n30")]
 transform = Transform3D(0.498097, 0.0435781, 1.90486e-09, 0, -2.18557e-08, 0.5, 0.0435781, -0.498097, -2.17725e-08, 2.2, 3.7, -16.6971)
 iname = "Test Keycard"
 activated = true
 color = Color(0.5, 0, 1, 1)
 
-[node name="Mesh2" parent="keycard5" index="1"]
+[node name="Mesh2" parent="pickups/keycard5" index="1"]
 layers = 1
 material_override = SubResource("StandardMaterial3D_1hxph")
 
-[node name="gun" parent="." instance=ExtResource("17_t13w4")]
+[node name="gun" parent="pickups" instance=ExtResource("17_t13w4")]
 transform = Transform3D(0.286788, 0.409576, 1.79031e-08, 0, -2.18557e-08, 0.5, 0.409576, -0.286788, -1.25359e-08, 2.6, 3.7, -16.5971)
 iname = "Stun Gun"
 activated = true
 
-[node name="barrel" parent="gun" index="0"]
+[node name="barrel" parent="pickups/gun" index="0"]
 layers = 1
 
-[node name="grip" parent="gun" index="1"]
+[node name="grip" parent="pickups/gun" index="1"]
 layers = 1
 
-[node name="ammo" parent="gun" index="4"]
+[node name="ammo" parent="pickups/gun" index="4"]
 layers = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -691,12 +1468,110 @@ volume_db = -25.0
 autoplay = true
 bus = &"Music"
 
+[node name="floor_changers" type="Node3D" parent="."]
+
+[node name="to_ground_1" type="Area3D" parent="floor_changers"]
+editor_description = "Transmits floor change"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 6, -39)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_changers/to_ground_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_63231")
+
+[node name="to_ground_2" type="Area3D" parent="floor_changers"]
+editor_description = "Transmits floor change"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 2, -39)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_changers/to_ground_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_63231")
+
+[node name="to_ground_3" type="Area3D" parent="floor_changers"]
+editor_description = "Transmits floor change"
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -57, 2, -72.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_changers/to_ground_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_63231")
+
+[node name="to_ground_4" type="Area3D" parent="floor_changers"]
+editor_description = "Transmits floor change"
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.5, 2, -81)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_changers/to_ground_4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_63231")
+
+[node name="to_ground_5" type="Area3D" parent="floor_changers"]
+editor_description = "Transmits floor change"
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -5.5, 6, -81)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_changers/to_ground_5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_63231")
+
+[node name="to_top_1" type="Area3D" parent="floor_changers"]
+editor_description = "Transmits floor change"
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -6.5, 6, -39)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_changers/to_top_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_63231")
+
+[node name="to_top_2" type="Area3D" parent="floor_changers"]
+editor_description = "Transmits floor change"
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -6.5, 6, -81)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_changers/to_top_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_63231")
+
+[node name="to_basement_1" type="Area3D" parent="floor_changers"]
+editor_description = "Transmits floor change"
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.5, 2, -81)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_changers/to_basement_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_63231")
+
+[node name="to_basement_2" type="Area3D" parent="floor_changers"]
+editor_description = "Transmits floor change"
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.5, 2, -39)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_changers/to_basement_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_63231")
+
+[node name="to_basement_3" type="Area3D" parent="floor_changers"]
+editor_description = "Transmits floor change"
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -57, 2, -71.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_changers/to_basement_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_63231")
+
 [connection signal="body_entered" from="exit_teleport" to="." method="_on_exit_teleport_body_entered"]
+[connection signal="body_exited" from="floor_changers/to_ground_1" to="." method="_floor_change" binds= [1]]
+[connection signal="body_exited" from="floor_changers/to_ground_2" to="." method="_floor_change" binds= [1]]
+[connection signal="body_exited" from="floor_changers/to_ground_3" to="." method="_floor_change" binds= [1]]
+[connection signal="body_exited" from="floor_changers/to_ground_4" to="." method="_floor_change" binds= [1]]
+[connection signal="body_exited" from="floor_changers/to_ground_5" to="." method="_floor_change" binds= [1]]
+[connection signal="body_exited" from="floor_changers/to_top_1" to="." method="_floor_change" binds= [0]]
+[connection signal="body_exited" from="floor_changers/to_top_2" to="." method="_floor_change" binds= [0]]
+[connection signal="body_exited" from="floor_changers/to_basement_1" to="." method="_floor_change" binds= [2]]
+[connection signal="body_exited" from="floor_changers/to_basement_2" to="." method="_floor_change" binds= [2]]
+[connection signal="body_exited" from="floor_changers/to_basement_3" to="." method="_floor_change" binds= [2]]
 
 [editable path="Player"]
-[editable path="keycard"]
-[editable path="keycard2"]
-[editable path="keycard3"]
-[editable path="keycard4"]
-[editable path="keycard5"]
-[editable path="gun"]
+[editable path="Player/inventory/gun"]
+[editable path="Player/inventory/blue_keycard"]
+[editable path="Player/inventory/green_keycard"]
+[editable path="Player/inventory/orange_keycard"]
+[editable path="Player/inventory/yellow_keycard"]
+[editable path="Player/inventory/purple_keycard"]
+[editable path="pickups/keycard"]
+[editable path="pickups/keycard2"]
+[editable path="pickups/keycard3"]
+[editable path="pickups/keycard4"]
+[editable path="pickups/keycard5"]
+[editable path="pickups/gun"]

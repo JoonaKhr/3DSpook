@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dckec8po0r4yp"]
+[gd_scene load_steps=9 format=3 uid="uid://dckec8po0r4yp"]
 
+[ext_resource type="Script" path="res://Scripts/cleaning_cabinet.gd" id="1_awx55"]
 [ext_resource type="Material" uid="uid://jxt6it8qy3fl" path="res://Resources/Materials/m_enviro.tres" id="2_ctol7"]
 [ext_resource type="PackedScene" uid="uid://cak1jpyul45cn" path="res://Scenes/Objects/cleaning_cabinet_door.tscn" id="3_dry5d"]
 
@@ -82,14 +83,15 @@ _data = {
 
 [node name="cleaningCabinet" type="StaticBody3D"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+script = ExtResource("1_awx55")
 
 [node name="cleaningCabinet" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_vqj0v")
 skeleton = NodePath("")
 
 [node name="cleaningCabinetDoor" parent="." instance=ExtResource("3_dry5d")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+script = ExtResource("1_awx55")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConcavePolygonShape3D_g32xj")
@@ -98,3 +100,6 @@ shape = SubResource("ConcavePolygonShape3D_g32xj")
 libraries = {
 "": SubResource("AnimationLibrary_ubt6u")
 }
+
+[connection signal="press" from="." to="." method="_on_press"]
+[connection signal="press" from="cleaningCabinetDoor" to="." method="_on_press"]
