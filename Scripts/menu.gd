@@ -1,8 +1,10 @@
 extends Control
 
 var config = ConfigFile.new()
+var fullscreen:bool = false
 
 @export_file("*tscn") var level
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +24,14 @@ func _on_settings_pressed():
 		$MenuAnimations.play("Settings")
 
 func _on_apply_pressed():
+	
+	match fullscreen:
+		true:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+		
+		false:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+	
 	config.set_value("volume", "Master", $SettingsPanel/VolumeCont/Master.value)
 	config.set_value("volume", "Music", $SettingsPanel/VolumeCont/Music.value)
 	config.set_value("volume", "Sfx", $SettingsPanel/VolumeCont/Sfx.value)
@@ -40,3 +50,7 @@ func _on_btn_mouse_exited():
 
 func btn_sfx():
 	$button.play()
+
+
+func _on_fullscreen_toggled(toggled_on:bool):
+	fullscreen = toggled_on

@@ -3,6 +3,7 @@ extends Control
 @export_file("*tscn") var menu
 
 var config = ConfigFile.new()
+var fullscreen:bool = false
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -29,6 +30,16 @@ func _on_quit_menu_pressed():
 	get_tree().change_scene_to_file(menu)
 
 func _on_apply_pressed():
+	
+	match fullscreen:
+		true:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+			print("1")
+		
+		false:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+			print("2")
+	
 	config.set_value("volume", "Master", $Panel/Panel/VolumeCont/Master.value)
 	config.set_value("volume", "Music", $Panel/Panel/VolumeCont/Music.value)
 	config.set_value("volume", "Sfx", $Panel/Panel/VolumeCont/Sfx.value)
@@ -54,3 +65,7 @@ func _on_quit_game_pressed():
 
 func btn_sfx():
 	$button.play()
+
+
+func _on_fullscreen_toggled(toggled_on:bool):
+	fullscreen = toggled_on

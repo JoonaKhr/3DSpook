@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://coxk8353dayk"]
+[gd_scene load_steps=36 format=3 uid="uid://coxk8353dayk"]
 
 [ext_resource type="Script" path="res://Scripts/map.gd" id="1_tbn5i"]
 [ext_resource type="MeshLibrary" uid="uid://qmbiwgvlouyo" path="res://meshlibrary.tres" id="2_8ecpi"]
@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://ckmjux0tul4xy" path="res://Resources/Textures/keycards.png" id="17_xxje7"]
 [ext_resource type="AudioStream" uid="uid://c4jgnmcjoec46" path="res://Resources/Sound/Music/AMBIENCE_SPACECRAFT_INTERIOR_LOOP.wav" id="19_v6hu7"]
 [ext_resource type="PackedScene" uid="uid://cagk4rmhl8vy1" path="res://Scenes/Objects/fan_noise.tscn" id="20_in16i"]
+[ext_resource type="PackedScene" uid="uid://doo5mkpco72ha" path="res://Scenes/Objects/switch.tscn" id="21_25kx7"]
+[ext_resource type="PackedScene" uid="uid://cl0s4y4pu18rq" path="res://Scenes/Objects/light_ceiling.tscn" id="21_s0be3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jtqo"]
 resource_local_to_scene = true
@@ -52,7 +54,7 @@ albedo_texture = ExtResource("17_xxje7")
 texture_filter = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_injy4"]
-size = Vector3(4, 3, 3)
+size = Vector3(4, 3, 3.2)
 
 [sub_resource type="FogMaterial" id="FogMaterial_ggwhw"]
 density = 2.0
@@ -841,20 +843,46 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 33, 3,
 
 [node name="Player" parent="." instance=ExtResource("2_g2hd0")]
 unique_name_in_owner = true
-transform = Transform3D(0.325, 0, 6.92779e-14, 0, 0.325, 0, -6.92779e-14, 0, 0.325, 2.9454, 3.96123, -7.6456)
+transform = Transform3D(0.325, 0, -1.1365e-07, 0, 0.325, 0, 1.1365e-07, 0, 0.325, 2.9454, 3.96123, -7.6456)
 SPEED = 3.0
+
+[node name="inventory" parent="Player" index="0"]
+transform = Transform3D(1, 0, 2.27374e-13, 0, 1, 0, -2.27374e-13, 0, 1, 0, -0.26843, 0.34758)
+
+[node name="gun" parent="Player/inventory" index="0"]
+transform = Transform3D(-1.49502e-08, 4.10753e-08, -1, 0.939692, 0.34202, 0, 0.34202, -0.939693, -4.37114e-08, 0.366865, 0, -0.553441)
+
+[node name="blue_keycard" parent="Player/inventory" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.533012, 0, -0.739092)
+iname = "Blue"
 
 [node name="Mesh2" parent="Player/inventory/blue_keycard" index="1"]
 material_override = SubResource("StandardMaterial3D_1jtqo")
 
+[node name="green_keycard" parent="Player/inventory" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.343276, 0, -0.828928)
+iname = "Green"
+
 [node name="Mesh2" parent="Player/inventory/green_keycard" index="1"]
 material_override = SubResource("StandardMaterial3D_45jv0")
+
+[node name="orange_keycard" parent="Player/inventory" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.139259, 0, -0.872987)
+iname = "Orange"
 
 [node name="Mesh2" parent="Player/inventory/orange_keycard" index="1"]
 material_override = SubResource("StandardMaterial3D_h4li5")
 
+[node name="yellow_keycard" parent="Player/inventory" index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.191983, -0.125177, -0.722548)
+iname = "Yellow"
+
 [node name="Mesh2" parent="Player/inventory/yellow_keycard" index="1"]
 material_override = SubResource("StandardMaterial3D_vm7gw")
+
+[node name="purple_keycard" parent="Player/inventory" index="5"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.707107, 0.707106, 0, -0.707107, 0.707106, -0.452602, -0.121064, -0.637224)
+iname = "Purple"
 
 [node name="Mesh2" parent="Player/inventory/purple_keycard" index="1"]
 material_override = SubResource("StandardMaterial3D_jyy8t")
@@ -862,8 +890,8 @@ material_override = SubResource("StandardMaterial3D_jyy8t")
 [node name="Pivot" parent="Player" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6396, -0.10684)
 
-[node name="crosshair" parent="Player" index="5"]
-visible = false
+[node name="viewmodel" parent="Player/Pivot/head/SubViewportContainer/SubViewport" index="0"]
+fov = 80.0
 
 [node name="chief_office" type="Node3D" parent="."]
 process_mode = 4
@@ -1019,6 +1047,7 @@ transform = Transform3D(1.39822e-06, -0.00239087, 0.999997, -0.000797053, 0.9999
 transform = Transform3D(1.39822e-06, -0.00239087, 0.999997, -0.000797053, 0.999997, 0.00239087, -1, -0.000797054, -5.0744e-07, 1.08074, 3, 0.0958495)
 
 [node name="server_room" type="Node3D" parent="."]
+process_mode = 4
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.8, 8, -58)
 visible = false
 
@@ -1343,15 +1372,15 @@ transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 3.5, -1,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4, -8)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="exit_teleport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 12.2)
 shape = SubResource("BoxShape3D_injy4")
 
 [node name="teleport" type="Marker3D" parent="exit_teleport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 4.43492)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 4.33492)
 
 [node name="FogVolume" type="FogVolume" parent="exit_teleport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 8)
-size = Vector3(4, 3, 12)
+size = Vector3(4, 3, 14)
 material = SubResource("FogMaterial_ggwhw")
 
 [node name="desk" parent="." instance=ExtResource("4_kdct5")]
@@ -1367,7 +1396,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.8449
 transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 2.54491, 3.875, -16.9005)
 
 [node name="cleaningCabinet" parent="." instance=ExtResource("8_x2dq7")]
-transform = Transform3D(-5.68248e-08, 0, -1.3, 0, 1.3, 0, 1.3, 0, -5.68248e-08, 4.99324, 3.01723, -16.2172)
+transform = Transform3D(-6.11959e-08, 0, -1.4, 0, 1.4, 0, 1.4, 0, -6.11959e-08, 4.99324, 3.01723, -16.2172)
 
 [node name="door" parent="." instance=ExtResource("14_i2sor")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.8, 3, -14.9971)
@@ -1383,21 +1412,12 @@ requiredColor = Color(1, 0.313726, 0, 1)
 
 [node name="door2" parent="." instance=ExtResource("14_i2sor")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.2, 3, -14.9971)
-locked = true
-
-[node name="keycardReader" parent="door2" instance=ExtResource("14_62ocp")]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 2.2, 1, 1.1)
-requiredColor = Color(0, 1, 0, 1)
-
-[node name="keycardReader2" parent="door2" instance=ExtResource("14_62ocp")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.1, 1, -1.7)
-requiredColor = Color(0, 1, 0, 1)
 
 [node name="pickups" type="Node3D" parent="."]
 
 [node name="keycard" parent="pickups" instance=ExtResource("15_s7n30")]
 transform = Transform3D(0.453154, -0.211309, -9.23661e-09, 0, -2.18557e-08, 0.5, -0.211309, -0.453154, -1.9808e-08, 1.8, 3.7, -16.4971)
-iname = "Orange Keycard"
+iname = "Orange"
 activated = true
 color = Color(1, 0.313726, 0, 1)
 
@@ -1405,19 +1425,25 @@ color = Color(1, 0.313726, 0, 1)
 layers = 1
 material_override = SubResource("StandardMaterial3D_fyinr")
 
+[node name="label" parent="pickups/keycard" index="2"]
+layers = 1
+
 [node name="keycard2" parent="pickups" instance=ExtResource("15_s7n30")]
 transform = Transform3D(0.409576, 0.286788, 1.25359e-08, 0, -2.18557e-08, 0.5, 0.286788, -0.409576, -1.79031e-08, 2, 3.7, -16.3971)
-iname = "Green Keycard"
+iname = "Green"
 activated = true
-color = Color(0, 1, 0, 1)
+color = Color(0, 0.980392, 0.576471, 1)
 
 [node name="Mesh2" parent="pickups/keycard2" index="1"]
 layers = 1
 material_override = SubResource("StandardMaterial3D_5eg8r")
 
+[node name="label" parent="pickups/keycard2" index="2"]
+layers = 1
+
 [node name="keycard3" parent="pickups" instance=ExtResource("15_s7n30")]
 transform = Transform3D(0.469846, 0.17101, 7.4751e-09, 0, -2.18557e-08, 0.5, 0.17101, -0.469846, -2.05376e-08, 1.9, 3.7, -16.6971)
-iname = "Blue Keycard"
+iname = "Blue"
 activated = true
 color = Color(0, 0, 1, 1)
 
@@ -1425,9 +1451,12 @@ color = Color(0, 0, 1, 1)
 layers = 1
 material_override = SubResource("StandardMaterial3D_t242y")
 
+[node name="label" parent="pickups/keycard3" index="2"]
+layers = 1
+
 [node name="keycard4" parent="pickups" instance=ExtResource("15_s7n30")]
 transform = Transform3D(0.482963, 0.12941, 5.65668e-09, 0, -2.18557e-08, 0.5, 0.12941, -0.482963, -2.1111e-08, 2.4, 3.7, -16.3971)
-iname = "Yellow Keycard"
+iname = "Yellow"
 activated = true
 color = Color(1, 1, 0, 1)
 
@@ -1435,15 +1464,21 @@ color = Color(1, 1, 0, 1)
 layers = 1
 material_override = SubResource("StandardMaterial3D_dlruy")
 
+[node name="label" parent="pickups/keycard4" index="2"]
+layers = 1
+
 [node name="keycard5" parent="pickups" instance=ExtResource("15_s7n30")]
 transform = Transform3D(0.498097, 0.0435781, 1.90486e-09, 0, -2.18557e-08, 0.5, 0.0435781, -0.498097, -2.17725e-08, 2.2, 3.7, -16.6971)
-iname = "Test Keycard"
+iname = "Purple"
 activated = true
 color = Color(0.5, 0, 1, 1)
 
 [node name="Mesh2" parent="pickups/keycard5" index="1"]
 layers = 1
 material_override = SubResource("StandardMaterial3D_1hxph")
+
+[node name="label" parent="pickups/keycard5" index="2"]
+layers = 1
 
 [node name="gun" parent="pickups" instance=ExtResource("17_t13w4")]
 transform = Transform3D(0.286788, 0.409576, 1.79031e-08, 0, -2.18557e-08, 0.5, 0.409576, -0.286788, -1.25359e-08, 2.6, 3.7, -16.5971)
@@ -1458,15 +1493,6 @@ layers = 1
 
 [node name="ammo" parent="pickups/gun" index="4"]
 layers = 1
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("14_83lq4")
-
-[node name="bgm" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("19_v6hu7")
-volume_db = -25.0
-autoplay = true
-bus = &"Music"
 
 [node name="floor_changers" type="Node3D" parent="."]
 
@@ -1549,6 +1575,28 @@ transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -57, 2, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor_changers/to_basement_3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_63231")
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_v6hu7")
+volume_db = -25.0
+autoplay = true
+bus = &"Music"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("14_83lq4")
+
+[node name="switch" parent="." instance=ExtResource("21_25kx7")]
+transform = Transform3D(6, 0, -1.43051e-06, 0, 6, 0, 1.43051e-06, 0, 6, 0.4, 4.3, -17.9971)
+state = true
+
+[node name="lightCeiling" parent="switch" instance=ExtResource("21_s0be3")]
+transform = Transform3D(-0.166667, 0, -5.43069e-08, 0, 0.166667, 0, 5.43069e-08, 0, -0.166667, -0.566666, 0.45, 0.933333)
+
+[node name="lightCeiling2" parent="switch" instance=ExtResource("21_s0be3")]
+transform = Transform3D(-0.166667, 0, -5.43069e-08, 0, 0.166667, 0, 5.43069e-08, 0, -0.166667, 1.43333, 0.45, 0.916666)
+
+[node name="lightCeiling3" parent="switch" instance=ExtResource("21_s0be3")]
+transform = Transform3D(-0.166667, 0, -5.43069e-08, 0, 0.166667, 0, 5.43069e-08, 0, -0.166667, 0.45, 0.45, 0.933333)
 
 [connection signal="body_entered" from="exit_teleport" to="." method="_on_exit_teleport_body_entered"]
 [connection signal="body_exited" from="floor_changers/to_ground_1" to="." method="_floor_change" binds= [1]]

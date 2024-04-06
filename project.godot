@@ -22,7 +22,13 @@ Player="*res://Scripts/PlayerandItems/player_var.gd"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/ios/allow_high_refresh_rate=false
+window/ios/hide_home_indicator=false
 
 [filesystem]
 
@@ -104,8 +110,19 @@ use={
 ]
 }
 
+[layer_names]
+
+3d_render/layer_1="world_layer"
+3d_render/layer_2="viewport_layer"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+lights_and_shadows/directional_shadow/size=2048
+lights_and_shadows/directional_shadow/size.mobile=1024
 textures/decals/filter=0
+lightmapping/probe_capture/update_speed=12.0
+environment/volumetric_fog/volume_size=16
 occlusion_culling/use_occlusion_culling=true
+lights_and_shadows/positional_shadow/atlas_size=2048
+lights_and_shadows/positional_shadow/atlas_size.mobile=1024

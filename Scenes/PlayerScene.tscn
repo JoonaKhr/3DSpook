@@ -77,7 +77,7 @@ material_override = SubResource("StandardMaterial3D_2c26a")
 [node name="green_keycard" parent="inventory" instance=ExtResource("3_dc1dr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343276, 0, -0.828928)
 iname = "Green Keycard"
-color = Color(0, 1, 0, 1)
+color = Color(0, 0.980392, 0.576471, 1)
 
 [node name="Mesh2" parent="inventory/green_keycard" index="1"]
 material_override = SubResource("StandardMaterial3D_e6vft")
@@ -125,13 +125,29 @@ cull_mask = 1048573
 current = true
 fov = 90.0
 
-[node name="flashlight" type="SpotLight3D" parent="Pivot/head"]
+[node name="flashlight" type="Node3D" parent="Pivot/head"]
 unique_name_in_owner = true
+
+[node name="largest" type="SpotLight3D" parent="Pivot/head/flashlight"]
+layers = 3
+light_energy = 0.5
+distance_fade_enabled = true
+spot_range = 10.0
+spot_angle = 60.0
+
+[node name="medium" type="SpotLight3D" parent="Pivot/head/flashlight"]
+layers = 3
+light_energy = 2.0
+distance_fade_enabled = true
+spot_range = 18.0
+spot_angle = 40.0
+
+[node name="small" type="SpotLight3D" parent="Pivot/head/flashlight"]
 layers = 3
 light_energy = 3.0
 distance_fade_enabled = true
-spot_range = 18.545
-spot_angle = 51.898
+spot_range = 22.0
+spot_angle = 15.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Pivot/head"]
 process_mode = 1
@@ -146,7 +162,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="Pivot/head/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1152, 648)
+size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="viewmodel" type="Camera3D" parent="Pivot/head/SubViewportContainer/SubViewport"]

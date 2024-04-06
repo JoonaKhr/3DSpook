@@ -20,6 +20,7 @@ func _ready():
 		visible = false
 	if self.has_node("Mesh2"):
 		$Mesh2.material_override.albedo_color = color
+		$label.text = iname
 
 #Pickup item if holding nothing at all ( nothing at all~ )
 func pickupItem():
@@ -33,14 +34,26 @@ func _process(_delta):
 		match Player.vars["ammo"]:
 			4:
 				$ammo.set_region_rect(Rect2(0,0,32,32))
+				$ammo/light.light_energy = 0.25
+				$ammo/light.omni_range = 0.12
 			3:
 				$ammo.set_region_rect(Rect2(0,32,32,32))
+				$ammo/light.light_energy = 0.2
+				$ammo/light.omni_range = 0.11
 			2:
 				$ammo.set_region_rect(Rect2(0,64,32,32))
+				$ammo/light.light_energy = 0.15
+				$ammo/light.omni_range = 0.10
 			1:
 				$ammo.set_region_rect(Rect2(0,96,32,32))
+				$ammo/light.light_energy = 0.1
+				$ammo/light.omni_range = 0.09
 			0:
 				$ammo.set_region_rect(Rect2(0,128,32,32))
+				$ammo/light.light_energy = 0.05
+				$ammo/light.omni_range = 0.08
+		if self.scale == Vector3(1,1,1):
+			$ammo/light.omni_range /= 2
 
 func shoot(target):
 	if activated == true:

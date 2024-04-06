@@ -128,6 +128,7 @@ _data = {
 }
 
 [node name="lightCeiling" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00612623, 0, 0)
 script = ExtResource("1_cwsic")
 
 [node name="lightCeiling" type="MeshInstance3D" parent="."]
@@ -140,7 +141,8 @@ shape = SubResource("ConcavePolygonShape3D_dy4r3")
 [node name="lightCeiling_tube" parent="." instance=ExtResource("3_v1rn4")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.200382, -0.437332)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0965662, -0.200382, -0.437332)
+layers = 3
 shadow_enabled = true
 omni_range = 15.0
 

@@ -1,17 +1,45 @@
-[gd_scene load_steps=8 format=3 uid="uid://xnkbca7fwn36"]
+[gd_scene load_steps=14 format=3 uid="uid://xnkbca7fwn36"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerandItems/item.gd" id="1_8yroc"]
 [ext_resource type="Texture2D" uid="uid://d2tq56i86pqqk" path="res://Resources/Textures/ammohud.png" id="2_o75pp"]
 [ext_resource type="AudioStream" uid="uid://dw8121iv8mg0t" path="res://Resources/Sound/SFX/Electro Rifle Shot Single A.wav" id="3_ac34n"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_dmlpr"]
-size = Vector3(0.5, 0.15, 0.15)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_825ot"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vtp83"]
+noise = SubResource("FastNoiseLite_825ot")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dckb6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5rwyh"]
+noise = SubResource("FastNoiseLite_dckb6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_up6w1"]
+albedo_color = Color(0.52549, 0.52549, 0.52549, 1)
+metallic = 0.3
+metallic_specular = 0.3
+metallic_texture = SubResource("NoiseTexture2D_vtp83")
+roughness_texture = SubResource("NoiseTexture2D_5rwyh")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7vbac"]
+material = SubResource("StandardMaterial3D_up6w1")
+top_radius = 0.08
+bottom_radius = 0.08
+height = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eofl1"]
+albedo_color = Color(0.52549, 0.52549, 0.52549, 1)
+metallic = 0.3
+metallic_specular = 0.3
+metallic_texture = SubResource("NoiseTexture2D_vtp83")
+roughness_texture = SubResource("NoiseTexture2D_5rwyh")
 
 [sub_resource type="BoxMesh" id="BoxMesh_jrl8d"]
-size = Vector3(0.3, 0.15, 0.15)
+material = SubResource("StandardMaterial3D_eofl1")
+size = Vector3(0.3, 0.12, 0.12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4tcp3"]
-size = Vector3(0.55, 0.3, 0.15)
+size = Vector3(0.713477, 0.3, 0.15)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_udu2q"]
 playback_mode = 1
@@ -26,26 +54,26 @@ collision_mask = 2
 script = ExtResource("1_8yroc")
 
 [node name="barrel" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0455654, 0)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.0767571, 0.0657897, 0)
 layers = 2
-mesh = SubResource("BoxMesh_dmlpr")
+mesh = SubResource("CylinderMesh_7vbac")
 skeleton = NodePath("")
 
 [node name="grip" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.663822, 0.747891, 0, -0.747891, 0.663822, 0, 0, 0, 1, 0.25459, -0.0214581, 0)
+transform = Transform3D(0.663822, 0.747891, 0, -0.747891, 0.663822, 0, 0, 0, 1, 0.25459, -0.0399879, 0)
 layers = 2
 mesh = SubResource("BoxMesh_jrl8d")
 skeleton = NodePath("")
 
 [node name="collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0555648, 0.0360484, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0261735, 0.0360484, 0)
 shape = SubResource("BoxShape3D_4tcp3")
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.245629, 0.0405511, -0.0149436)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41043, 0.0597729, 0.00193831)
 
 [node name="ammo" type="Sprite3D" parent="."]
-transform = Transform3D(0.498583, -0.0376112, 0, 0.0376112, 0.498583, 0, 0, 0, 0.5, 0.213298, 0.207748, 0)
+transform = Transform3D(0.498583, -0.0376112, 0, 0.0376112, 0.498583, 0, 0, 0, 0.5, 0.213298, 0.23936, 0)
 layers = 2
 axis = 0
 texture_filter = 2
@@ -53,11 +81,12 @@ texture = ExtResource("2_o75pp")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="ammo"]
+[node name="light" type="OmniLight3D" parent="ammo"]
+transform = Transform3D(1, 7.45057e-09, 0, -7.45057e-09, 1, 0, 0, 0, 1, 0, 0, 0)
 layers = 2
 light_color = Color(0, 1, 1, 1)
-light_energy = 0.1
-omni_range = 0.1
+light_energy = 0.4
+omni_range = 0.12
 
 [node name="shoot" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_udu2q")

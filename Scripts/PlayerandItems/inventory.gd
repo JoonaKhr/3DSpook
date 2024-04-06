@@ -37,7 +37,7 @@ func change_held_item(input):
 			index = 0
 	#spaghetti code to skip unactivated items
 		if !item_list[index].activated:
-			while !item_list[index].activated and loops < 6:
+			while !item_list[index].activated and loops < item_list.size():
 				if index <= item_list.size()-1:
 					index += 1
 				if index == item_list.size():
@@ -51,7 +51,7 @@ func change_held_item(input):
 			index = item_list.size()-1
 	#spaghetti code to skip unactivated items
 		if !item_list[index].activated:
-			while !item_list[index].activated and loops < 6:
+			while !item_list[index].activated and loops < item_list.size():
 				if index >= 0:
 					index -= 1
 				if index < 0:
@@ -62,7 +62,9 @@ func change_held_item(input):
 	
 	if previous_held_item != null:
 		previous_held_item.position = previous_held_item.original_position
-		previous_held_item.rotation_degrees = Vector3(0, 0, 0)
+		previous_held_item.rotation_degrees = Vector3(-45, 0, 0)
+		if previous_held_item.has_node("ammo"):
+			previous_held_item.rotation_degrees = Vector3( 0, -90, 70)
 		previous_held_item.scale = Vector3(1, 1, 1)
 	if held_item.activated == true:
 		equip_to_hand(previous_held_item)
@@ -74,6 +76,7 @@ func equip_to_hand(previous_item):
 	held_item.visible = false
 	hand_item.set("activated", held_item.get("activated"))
 	hand_item.set("color", held_item.get("color"))
+	hand_item.set("iname", held_item.get("iname"))
 	hand_item.position = %Hand.position
 	hand_item.rotation_degrees = Vector3(0, -90, 0)
 	hand_item.scale = Vector3(2, 2, 2)

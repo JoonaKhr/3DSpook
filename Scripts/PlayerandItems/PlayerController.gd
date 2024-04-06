@@ -97,7 +97,7 @@ func _physics_process(delta):
 		#stop walking sounds when in air
 		$sprint.stop()
 		$steps.stop()
-		$step_sound.playing = false
+		#$step_sound.playing = false
 
 # Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():

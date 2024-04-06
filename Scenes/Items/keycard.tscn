@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bub0r3q257xpe"]
+[gd_scene load_steps=7 format=3 uid="uid://bub0r3q257xpe"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerandItems/item.gd" id="1_4kq0j"]
 [ext_resource type="Material" uid="uid://epc5qsqto3aw" path="res://Resources/Materials/m_keycard.tres" id="2_1uev8"]
+[ext_resource type="FontFile" uid="uid://bhu4gapyylt33" path="res://Resources/Fonts/Mx437_IBM_VGA_9x16.ttf" id="3_8ljn1"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3o4h4"]
 points = PackedVector3Array(-0.1, 0, -0.025, -0.1, 0, 0, -0.1, 0.19998, -0.025, 0.1, 0, -0.025, 0.1, 0, 0, -0.1, 0.19998, 0, 0, 0.3, -0.025, 0.1, 0.3, -0.025, 0.1, 0.3, 0, 0, 0.3, 0)
@@ -51,6 +52,19 @@ layers = 2
 material_override = ExtResource("2_1uev8")
 mesh = SubResource("ArrayMesh_kgv3h")
 skeleton = NodePath("")
+
+[node name="label" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0357486, 0.0187386, 0.000217199)
+layers = 2
+pixel_size = 0.004
+shaded = true
+double_sided = false
+texture_filter = 0
+text = "card"
+font = ExtResource("3_8ljn1")
+font_size = 16
+outline_size = 0
+horizontal_alignment = 0
 
 [connection signal="activate" from="." to="." method="_on_activate"]
 [connection signal="press" from="." to="." method="_on_press"]
