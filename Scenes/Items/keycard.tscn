@@ -54,12 +54,27 @@ mesh = SubResource("ArrayMesh_kgv3h")
 skeleton = NodePath("")
 
 [node name="label" type="Label3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0357486, 0.0187386, 0.000217199)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.035, 0.02, 0.002)
 layers = 2
 pixel_size = 0.004
 shaded = true
 double_sided = false
 texture_filter = 0
+render_priority = 1
+text = "card"
+font = ExtResource("3_8ljn1")
+font_size = 16
+outline_size = 0
+horizontal_alignment = 0
+
+[node name="label2" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.038, 0.023, 0.001)
+layers = 2
+pixel_size = 0.004
+shaded = true
+double_sided = false
+texture_filter = 0
+modulate = Color(0, 0, 0, 1)
 text = "card"
 font = ExtResource("3_8ljn1")
 font_size = 16

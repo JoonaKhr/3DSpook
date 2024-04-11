@@ -13,7 +13,7 @@ config_version=5
 config/name="3D Spook"
 run/main_scene="res://Scenes/sandbox.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-boot_splash/image="res://Resources/Textures/spookybg.png"
+boot_splash/image="res://Resources/Textures/placholder/spookybg.png"
 config/icon="res://icon.svg"
 
 [autoload]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjdqtcuyp0tsi"]
+[gd_scene load_steps=8 format=3 uid="uid://cjdqtcuyp0tsi"]
 
 [ext_resource type="Script" path="res://Scripts/MapItems/keycardReader.gd" id="1_o3adq"]
 [ext_resource type="Material" uid="uid://jxt6it8qy3fl" path="res://Resources/Materials/m_enviro.tres" id="2_4mt0n"]
 [ext_resource type="PackedScene" uid="uid://dij5bs6p5p8ny" path="res://Scenes/Objects/indicator_light.tscn" id="3_tlkj2"]
+[ext_resource type="FontFile" uid="uid://bhu4gapyylt33" path="res://Resources/Fonts/Mx437_IBM_VGA_9x16.ttf" id="4_3l1ll"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bspu4"]
 _surfaces = [{
@@ -59,5 +60,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.715297, 0.66215, 0.439343)
 wait_time = 0.5
 one_shot = true
 
+[node name="label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.125, 0.451)
+shaded = true
+double_sided = false
+texture_filter = 0
+render_priority = 1
+text = "card"
+font = ExtResource("4_3l1ll")
+font_size = 24
+outline_size = 0
+
+[node name="label2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.607, 0.118, 0.45)
+shaded = true
+double_sided = false
+texture_filter = 0
+modulate = Color(0, 0, 0, 1)
+text = "card"
+font = ExtResource("4_3l1ll")
+font_size = 24
+outline_size = 0
+
+[node name="banned_timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="press" from="." to="." method="_on_press"]
 [connection signal="timeout" from="unlockLight/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="banned_timer" to="." method="_on_timer_timeout"]

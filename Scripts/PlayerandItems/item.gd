@@ -1,10 +1,10 @@
 extends Node3D
-
+@export_group("Properties")
 @export var iname = ""
 @export var activated = false
 @export var color: Color
 #Does nothing yet
-@export_enum("Blue","Green","Yellow","Orange","Purple","Gun","Hand") var item_type
+@export_enum("Blue","Green","Yellow","Orange","Purple","Gun") var item_type
 
 var original_position: Vector3
 var player
@@ -21,6 +21,7 @@ func _ready():
 	if self.has_node("Mesh2"):
 		$Mesh2.material_override.albedo_color = color
 		$label.text = iname
+		$label2.text = iname
 
 #Pickup item if holding nothing at all ( nothing at all~ )
 func pickupItem():
@@ -65,9 +66,6 @@ func shoot(target):
 
 			#manage ammo (impressive I know)
 			Player.vars["ammo"] -= 1
-		else:
-			pass
-	#print("trying to draw I guess ?")
 	
 func lineDraw(from: Vector3, to: Vector3, persist_s = 0.1):
 	var mesh_instance := MeshInstance3D.new()

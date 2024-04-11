@@ -14,7 +14,6 @@ func _ready():
 			item_list.append(child)
 	index = 0
 	held_item = item_list[index]
-	#print(item_list)
 
 # Pickup an item if holding null
 func obtainItem(item):

@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://l8llsts52nv6"]
+[gd_scene load_steps=9 format=3 uid="uid://l8llsts52nv6"]
 
 [ext_resource type="Script" path="res://Scripts/MapItems/monitor_control.gd" id="1_4n4hh"]
-[ext_resource type="PackedScene" uid="uid://846fkm3naktt" path="res://Scenes/monitor_control.tscn" id="1_vyycu"]
 [ext_resource type="Shader" path="res://Resources/Shaders/crt.gdshader" id="2_2pssq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o2pc3"]
@@ -17,13 +16,13 @@ shader_parameter/roll_speed = 2.5
 shader_parameter/roll_size = 20.0
 shader_parameter/roll_variation = 1.6
 shader_parameter/distort_intensity = 0.03
-shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_opacity = 0.2
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.06
 shader_parameter/aberration = 0.02
 shader_parameter/brightness = 1.0
 shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.5
+shader_parameter/warp_amount = 0.2
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.3
 shader_parameter/vignette_opacity = 0.5
@@ -31,16 +30,13 @@ shader_parameter/vignette_opacity = 0.5
 [sub_resource type="QuadMesh" id="QuadMesh_kmc5s"]
 size = Vector2(2, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_bh5r8"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_r23pa"]
 viewport_path = NodePath("MonitorViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywtr1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfkr1"]
 resource_local_to_scene = true
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_bh5r8")
+albedo_texture = SubResource("ViewportTexture_r23pa")
 albedo_texture_force_srgb = true
-texture_filter = 0
-texture_repeat = false
 
 [sub_resource type="GDScript" id="GDScript_q67yb"]
 script/source = "extends Area3D
@@ -59,9 +55,6 @@ canvas_item_default_texture_filter = 0
 gui_embed_subwindows = true
 render_target_update_mode = 4
 
-[node name="MonitorControl" parent="MonitorViewport" instance=ExtResource("1_vyycu")]
-mouse_filter = 1
-
 [node name="ColorRect" type="ColorRect" parent="MonitorViewport"]
 material = SubResource("ShaderMaterial_o2pc3")
 anchors_preset = 15
@@ -78,7 +71,7 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("QuadMesh_kmc5s")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_ywtr1")
+surface_material_override/0 = SubResource("StandardMaterial3D_vfkr1")
 
 [node name="Area3D" type="Area3D" parent="Quad"]
 script = SubResource("GDScript_q67yb")

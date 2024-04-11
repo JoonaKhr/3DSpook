@@ -12,6 +12,7 @@ var rot_x = 0
 var rot_y = 0
 var inventory
 var input_dir = Vector3(0, 0, 0)
+var jumped
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -60,7 +61,13 @@ func _process(_delta):
 	viewmodel.set_global_transform(head.get_global_transform())
 
 func _physics_process(delta):
-	
+	#play step sound upon landing from a jump
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		if collision.get_collider().name == "ground_floor" and jumped: #has some peculiarities
+			$step_sound.play()
+			jumped = false
+
 	if Input.is_action_just_pressed("mouse_left"):
 		var usedItem = inventory.get_current_item()
 		var result
@@ -102,6 +109,7 @@ func _physics_process(delta):
 # Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jumped = true
 
 
 # Get the input direction and handle the movement/deceleration.

@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://846fkm3naktt"]
+
+[ext_resource type="Script" path="res://Scripts/MapItems/monitor_gui.gd" id="1_xuvwd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knygs"]
+bg_color = Color(0, 0.305882, 0.760784, 0.968627)
+corner_detail = 1
+
+[node name="MonitorControl" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 512.0
+focus_mode = 2
+script = ExtResource("1_xuvwd")
+
+[node name="DebugScreen" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 512.0
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 200.0
+offset_right = 246.0
+offset_bottom = 256.0
+text = "This here is a button"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 464.0
+offset_right = 512.0
+offset_bottom = 512.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_knygs")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

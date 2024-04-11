@@ -130,23 +130,22 @@ unique_name_in_owner = true
 
 [node name="largest" type="SpotLight3D" parent="Pivot/head/flashlight"]
 layers = 3
-light_energy = 0.5
+light_energy = 0.2
 distance_fade_enabled = true
-spot_range = 10.0
-spot_angle = 60.0
+spot_range = 8.0
+spot_angle = 50.0
 
 [node name="medium" type="SpotLight3D" parent="Pivot/head/flashlight"]
 layers = 3
-light_energy = 2.0
 distance_fade_enabled = true
-spot_range = 18.0
+spot_range = 12.0
 spot_angle = 40.0
 
 [node name="small" type="SpotLight3D" parent="Pivot/head/flashlight"]
 layers = 3
-light_energy = 3.0
+light_energy = 1.5
 distance_fade_enabled = true
-spot_range = 22.0
+spot_range = 16.0
 spot_angle = 15.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Pivot/head"]

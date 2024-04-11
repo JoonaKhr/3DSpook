@@ -1,17 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://byg8e7qgmdhut"]
 
 [ext_resource type="Material" uid="uid://jxt6it8qy3fl" path="res://Resources/Materials/m_enviro.tres" id="1_2cm28"]
+[ext_resource type="Script" path="res://Scripts/computer_terminal.gd" id="1_6svfl"]
 [ext_resource type="PackedScene" uid="uid://l8llsts52nv6" path="res://Scenes/Monitor.tscn" id="2_62fus"]
 [ext_resource type="PackedScene" uid="uid://ucvtqeps74kf" path="res://Scenes/Objects/interact_zone.tscn" id="3_bhmxo"]
-
-[sub_resource type="GDScript" id="GDScript_e1s43"]
-script/source = "extends StaticBody3D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	$anim.play(\"light_flicker\")
-"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hykt"]
 resource_name = "Duck_Tex_0"
@@ -85,7 +77,7 @@ _data = {
 
 [node name="ComputerTerminal" type="StaticBody3D"]
 input_ray_pickable = false
-script = SubResource("GDScript_e1s43")
+script = ExtResource("1_6svfl")
 
 [node name="Mesh2" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_2cm28")

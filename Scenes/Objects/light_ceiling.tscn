@@ -144,6 +144,7 @@ shape = SubResource("ConcavePolygonShape3D_dy4r3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0965662, -0.200382, -0.437332)
 layers = 3
 shadow_enabled = true
+distance_fade_enabled = true
 omni_range = 15.0
 
 [node name="FlickoffTimer" type="Timer" parent="."]
