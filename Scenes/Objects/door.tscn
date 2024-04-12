@@ -44,7 +44,7 @@ libraries = {
 }
 
 [node name="closeTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [node name="door_open" type="AudioStreamPlayer3D" parent="."]
@@ -60,6 +60,7 @@ volume_db = -25.0
 bus = &"Sfx"
 
 [node name="player_detect" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.12)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_detect"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
